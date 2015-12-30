@@ -1,4 +1,4 @@
 ## TECHADEMIA
 
-[![Build Status](https://travis-ci.org/andela-fokosun/Checkpoint4.svg)](https://travis-ci.org/andela-fokosun/Checkpoint4)https://travis-ci.org/andela-fokosun/Checkpoint4.svg
+[![Build Status](https://travis-ci.org/andela-fokosun/Checkpoint4.svg)](https://travis-ci.org/andela-fokosun/Checkpoint4)
 
