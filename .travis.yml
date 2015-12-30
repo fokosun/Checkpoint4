@@ -18,7 +18,7 @@ install:
   - php composer.phar install --dev --no-interaction
 script:
   - mkdir -p build/logs
-  - php vendor/bin/phpunit -c phpunit.xml.dist
+  - php vendor/bin/phpunit -c phpunit.xml
 
 after_success:
   - travis_retry php vendor/bin/coveralls
