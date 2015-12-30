@@ -52,7 +52,7 @@ class VideoController extends Controller
 
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
-        // $data['category_id'] = 1;
+        $data['category_id'] = 2;
 
         Video::create($data);
 

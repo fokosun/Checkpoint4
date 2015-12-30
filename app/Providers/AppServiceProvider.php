@@ -2,6 +2,7 @@
 
 namespace Techademia\Providers;
 
+use Validator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,8 +15,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Validator::extend('video_url', function ($attribute, $value, $parameters, $validator) {
-            $url = array_find($value); //hypothetical, if embed is found in $value
-            if($url) return $value;
+
+            if(strpos($value, 'embed') !== false) return $value;
         });
     }
 
