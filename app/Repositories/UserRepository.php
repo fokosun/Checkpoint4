@@ -6,56 +6,44 @@ use Techademia\User;
 
 class UserRepository
 {
-    /**
-     * Construct the user Repository instance
-     * @param User $user
-     */
-    public function __construct(User $user)
-    {
-        $this->user = $user;
-    }
+    public function findByUserNameOrCreate($userData) {
+        $user = User::where('provider_id', '=', $userData->id)->first();
+        if(!$user) {
+            $user = User::create([
+                'provider_id' => $userData->id,
+                'fullname' => $userData->name,
+                'username' => $userData->nickname,
+                'email' => $userData->email,
+                'avatar' => $userData->avatar,
+                'active' => 1,
+            ]);
+        }
 
-    /**
-     * Get the user avatar
-     *
-     * @return string
-     */
-    public function getAvatarUrl($user)
-    {
-        $avatar =  "http://www.gravatar.com/avatar/" . md5(strtolower(trim($user->email))) . "?d=mm&s=140";
-        // $avatar = $user->avatar;
-        //save avatar to database
-        $user->avatar = $avatar;
-        $user->save();
-        return $userAvatar;
-    }
-
-     /**
-     * @param $userData
-     * @return static
-     */
-    public function findByUsernameOrCreate($userData)
-    {
-        $user = User::firstOrCreate([
-            'email' => $userData->email,
-            'name' => $userData->nickname? $userData->nickname : $userData->name ,
-            'password' => bcrypt('password')
-        ]);
+        $this->checkIfUserNeedsUpdating($userData, $user);
         return $user;
     }
 
-    public function findBySocialIdOrCreate($user)
-    {
-        $authUser = User::firstOrNew(['social_id' => $user->id]);
-        if (! is_null($authUser->id)) {
-            return $authUser;
+    public function checkIfUserNeedsUpdating($userData, $user) {
+
+        $socialData = [
+            'avatar' => $userData->avatar,
+            'email' => $userData->email,
+            'name' => $userData->name,
+            'username' => $userData->nickname,
+        ];
+        $dbData = [
+            'avatar' => $user->avatar,
+            'email' => $user->email,
+            'name' => $user->name,
+            'username' => $user->username,
+        ];
+
+        if (!empty(array_diff($socialData, $dbData))) {
+            $user->avatar = $userData->avatar;
+            $user->email = $userData->email;
+            $user->name = $userData->name;
+            $user->username = $userData->nickname;
+            $user->save();
         }
-        $authUser->username     = ($user->name)? $user->name : $user->nickname;
-        $authUser->email        = ($user->email)? $user->email: "";
-        $authUser->password     = bcrypt($user->id);
-        $authUser->social_id    = $user->id;
-        $authUser->avatar_url       = $user->avatar;
-        $authUser->save();
-        return $authUser;
     }
 }

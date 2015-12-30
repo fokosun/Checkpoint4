@@ -55,11 +55,13 @@ Route::get('/auth/logout', [
 |-------------------------------------------------------
 */
 
-Route::get('/login/{provider}', [
-    'uses' => 'OauthController@redirect',
-    'as'   => 'socialLogin'
-]);
+Route::get('/login/{provider?}', 'Auth\AuthController@doSocial');
 
+/*
+|-------------------------------------------------------
+| user profile
+|-------------------------------------------------------
+*/
 Route::get('/user/profile', [
     'uses' => 'UserController@index',
     'as'   => 'profile'

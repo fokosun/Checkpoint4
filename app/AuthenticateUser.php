@@ -2,39 +2,38 @@
 
 namespace Techademia;
 
+use Request;
+use Illuminate\Contracts\Auth\Guard;
 use Techademia\Repositories\UserRepository;
-use Illuminate\Contracts\Auth\Guard as Authenticator;
 use Laravel\Socialite\Contracts\Factory as Socialite;
 
 class AuthenticateUser
 {
-    public function __construct(UserRepository $users, Socialite $socialite, Authenticator $auth)
+    public function __construct(UserRepository $users, Socialite $socialite, Guard $auth)
     {
         $this->users = $users;
         $this->socialite = $socialite;
         $this->auth = $auth;
     }
 
-    public function execute($hasCode, $listener, $provider)
+    public function execute($request, $listener, $provider)
     {
-        if(! $hasCode) {
-            return $this->getAuthorization($provider);
-        }
-        $user = $this->getUser($provider);
-        return $listener->userAuthenticated($user);
+        if (! $request) return $this->getAuthorizationFirst($provider);
+        $user = $this->users->findByUserNameOrCreate($this->getSocialUser($provider));
+        $this->auth->login($user, true);
+
+        return $listener->userHasLoggedIn($user);
     }
 
     /**
      * @param $provider
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function getAuthorization($provider)
-    {
+    private function getAuthorizationFirst($provider) {
         return $this->socialite->driver($provider)->redirect();
     }
 
-    public function getUser($provider)
-    {
+    private function getSocialUser($provider) {
         return $this->socialite->driver($provider)->user();
     }
 }

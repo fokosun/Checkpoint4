@@ -19,9 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('occupation')->nullable();
             $table->string('email')->nullable()->unique();
             $table->string('password', 60)->nullable();
-            $table->bigInteger('facebookID')->default(0);
-            $table->bigInteger('twitterID')->default(0);
-            $table->bigInteger('githubID')->default(0);
+            $table->string('provider')->nullable();
+            $table->string('provider_id')->unique();
+            $table->string('avatar')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

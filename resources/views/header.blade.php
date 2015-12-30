@@ -30,7 +30,7 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ Auth::user()->avatar }}" class="user-image" alt="User Image">
+                            <img src="{{ Auth::user()->avatar }}" class="user-image" alt="">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
                             <span class="hidden-xs text-capitalize">{{ Auth::user()->fullname }}</span>
                         </a>

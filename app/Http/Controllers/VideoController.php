@@ -42,7 +42,8 @@ class VideoController extends Controller
         $v = Validator::make($request->all(), [
             'title'         => 'required',
             'description'   => 'required',
-            'url'           => 'required|url'
+            'category'      => 'required',
+            'url'           => 'required|video_url'
         ]);
 
         if ($v->fails()) {
@@ -51,11 +52,11 @@ class VideoController extends Controller
 
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
-        $data['category_id'] = 1;
+        // $data['category_id'] = 1;
 
         Video::create($data);
 
-        return redirect()->back()->with('status', 'Your video was successfulyy uploaded!');
+        return redirect()->back()->with('status', 'Your video was successfully uploaded!');
     }
 
     /**

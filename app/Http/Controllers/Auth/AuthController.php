@@ -46,7 +46,8 @@ class AuthController extends Controller
      */
     public function getRegister()
     {
-        return view('pages.register');
+        $user = Auth::user();
+        return view('pages.register', compact('user'));
     }
 
 
@@ -55,9 +56,10 @@ class AuthController extends Controller
      *
      * @return
      */
-    public function getLogin()
+    public function getLogin(Request $request)
     {
-        return view('pages.login');
+        $user = Auth::user();
+        return view('pages.login', compact('user'));
     }
 
     /**
@@ -122,23 +124,17 @@ class AuthController extends Controller
         return redirect('/auth/login');
     }
 
-    /**
-     * reset password
-     */
-    public function resetPassword()
-    {
-        echo 'reset password';
-    }
 
-    public function social(AuthenticateUser $authenticate, Request $request, $provider = null)
+
+    public function doSocial(AuthenticateUser $authenticate, Request $request, $provider = null)
     {
-        return $authenticate->execute($request->has('code')|| $request->has('oauth_token'), $this, $provider) ;
+        return $authenticate->execute($request->all(), $this, $provider) ;
     }
 
     public function userAuthenticated($user)
     {
         $authUser = $this->repository->findBySocialIdOrCreate($user);
         Auth::login($authUser, true);
-        return redirect()->route('dashboard'); //profile
+        return redirect()->route('dashboard');
     }
 }
