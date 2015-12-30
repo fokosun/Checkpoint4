@@ -117,7 +117,7 @@ class AuthController extends Controller
         }
 
         $data = $request->all();
-        $data['avatar'] = 'http://goo.gl/UrOZB9';
+        $data['avatar'] = 'http://goo.gl/1j6BFk';
         $data['password'] = bcrypt($request->input('password'));
 
         User::create($data);

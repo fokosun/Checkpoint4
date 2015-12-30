@@ -16,6 +16,11 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="#">
+                            About
+                        </a>
+                    </li>
                 </ul>
             </div>
 
