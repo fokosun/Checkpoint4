@@ -17,7 +17,7 @@
                             <div class="timeline-body">
                                 <div class="row">
                                     @foreach($videos as $video)
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-6">
                                         <div class="embed-responsive embed-responsive-16by9" style="margin:5%;">
                                             <iframe class="embed-responsive-item" src="{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
                                         </div>
