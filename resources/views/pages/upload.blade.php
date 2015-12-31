@@ -6,7 +6,8 @@
     @include('pages.alert')
         <div class="login-box-body">
             <div class="text-center spacer text-capitalize">
-                <h1>Upload video</h1><br>
+                <h1>Upload video</h1>
+                <br>
             </div>
             <form action="#" method="post">
                 <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">

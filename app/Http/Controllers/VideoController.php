@@ -74,7 +74,7 @@ class VideoController extends Controller
         $video = Video::find($id);
         $categories = Category::all();
 
-        return view('pages.edit')->with('video', $video)->with('categories', $categories);
+        return view('pages.editvideo')->with('video', $video)->with('categories', $categories);
     }
 
     /**

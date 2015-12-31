@@ -17,7 +17,6 @@ class UserController extends Controller
      */
     public function index()
     {
-        // dd(Auth::user()->id);
         $videos = Video::where('user_id', Auth::user()->id)->get();
         return view('pages.profile', compact('videos'));
     }
@@ -60,9 +59,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        return view('pages.editprofile');
     }
 
     /**
