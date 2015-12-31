@@ -24,17 +24,21 @@
                                 <div class="row">
                                     @foreach($videos as $video)
                                     <div class="col-sm-6">
+                                        <p class="spacer">
+                                            <span class="label label-primary pull-right">
+                                                {{ $video->category->title}}
+                                            </span>
+                                        </p>
                                         <div class="embed-responsive embed-responsive-16by9" style="margin:5%;">
                                             <iframe class="embed-responsive-item" src="{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
                                         </div>
                                         <div style="margin:5%;">
-                                            <h5 class="timeline-header h5">
-                                                <p class="spacer">
+                                            <h5 class="timeline-header h5 spacer">
+                                                <p class="text-uppercase">
                                                     <a href="/video/{{ $video->id }}/edit">{{ $video->title }}</a>
-                                                    <span class="label label-primary pull-right">{{ $video->category->title}}</span>
                                                 </p>
+                                                <small>{{ $video->description }}</small>
                                             </h5>
-                                            <small>{{ $video->description }}</small>
                                         </div>
                                     </div>
                                     @endforeach
