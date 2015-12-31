@@ -61,16 +61,7 @@ class VideoController extends Controller
         return redirect()->back()->with('status', 'Your video was successfully uploaded!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -80,7 +71,10 @@ class VideoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $video = Video::find($id);
+        $categories = Category::all();
+
+        return view('pages.edit')->with('video', $video)->with('categories', $categories);
     }
 
     /**

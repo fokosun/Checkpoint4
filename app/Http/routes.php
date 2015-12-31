@@ -76,3 +76,5 @@ Route::post('/user/profile/video', [
   'uses'        => 'VideoController@store',
   'as'          => 'createVideo'
 ]);
+
+Route::get('/video/{id}/edit', 'VideoController@edit');
