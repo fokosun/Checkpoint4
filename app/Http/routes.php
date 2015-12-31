@@ -55,7 +55,7 @@ Route::get('/auth/logout', [
 |-------------------------------------------------------
 */
 
-Route::get('/login/{provider?}', 'Auth\AuthController@doSocial');
+Route::get('/auth/login/{provider?}', 'Auth\AuthController@doSocial');
 
 /*
 |-------------------------------------------------------

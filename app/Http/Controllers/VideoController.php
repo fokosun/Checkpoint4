@@ -5,6 +5,7 @@ namespace Techademia\Http\Controllers;
 use Auth;
 use Validator;
 use Techademia\Video;
+use Techademia\Category;
 use Techademia\Http\Requests;
 use Illuminate\Http\Request;
 use Techademia\Http\Controllers\Controller;
@@ -18,7 +19,8 @@ class VideoController extends Controller
      */
     public function index()
     {
-        return view('pages.upload');
+        $categories = Category::all();
+        return view('pages.upload', compact('categories'));
     }
 
     /**
@@ -41,7 +43,7 @@ class VideoController extends Controller
     {
         $v = Validator::make($request->all(), [
             'title'         => 'required',
-            'description'   => 'required',
+            'description'   => 'required|max:255',
             'category'      => 'required',
             'url'           => 'required|video_url'
         ]);
@@ -52,7 +54,7 @@ class VideoController extends Controller
 
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
-        $data['category_id'] = 2;
+        $data['category_id'] = $request->category;;
 
         Video::create($data);
 

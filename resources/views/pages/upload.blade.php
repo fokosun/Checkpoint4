@@ -19,13 +19,13 @@
                     <span class="fa fa-link form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                        <select class="form-control" name="category">
-                            <option name="occupation">Robotics</option>
-                            <option>Engineering</option>
-                            <option>Medics</option>
-                            <option>Computer Science</option>
-                        </select>
-                    </div>
+                    <select class="form-control" name="category">
+                        @foreach($categories as $category)
+                            <option value="{{$category->id}}" name="channel">{{$category->title}}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="form-group has-feedback">
                     <textarea class="form-control" rows="3" placeholder="describe your video here" name="description"></textarea>
                     <span class="fa fa-info form-control-feedback"></span>
