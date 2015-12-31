@@ -30,7 +30,7 @@
                                         <div style="margin:5%;">
                                             <h5 class="timeline-header h5">
                                                 <p class="spacer">
-                                                    <a href="#">{{ $video->title }}</a>
+                                                    <a href="/video/{{ $video->id }}/edit">{{ $video->title }}</a>
                                                     <span class="label label-primary pull-right">{{ $video->category->title}}</span>
                                                 </p>
                                             </h5>
