@@ -37,7 +37,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{ Auth::user()->avatar }}" class="user-image" alt="">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs text-capitalize">{{ Auth::user()->fullname }}</span>
+                            <span class="hidden-xs text-capitalize">{{ Auth::user()->username }}</span>
                         </a>
                         <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
@@ -45,13 +45,15 @@
                                 <img src="{{ Auth::user()->avatar }}" class="img-circle" alt="{{ Auth::user()->fullname }}">
                                 <p>
                                     {{ Auth::user()->fullname }} <br>
-                                    {{ Auth::user()->occupation }}
+                                    <small>{{ Auth::user()->occupation }}</small>
                                 </p>
                             </li>
                             <li class="user-footer">
                                 <div class="pull-left">
                                     <a href="{{ route('profile') }}" class="btn btn-default btn-flat">Profile</a>
-                                    <a href="#" title="go to settings"><i class="fa fa-gear fa-1x"></i></a>
+                                    <a href="/profile/{{ Auth::user()->username }}/edit" title="edit my profile" class="btn btn-default btn-flat">
+                                        <i class="fa fa-pencil fa-fw"></i>
+                                    </a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ route('getLogout') }}" class="btn btn-default btn-flat">Log out</a>

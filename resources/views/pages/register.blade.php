@@ -21,12 +21,8 @@
                         <span class="fa fa-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <select class="form-control" name="occupation">
-                            <option name="occupation">Web Developer</option>
-                            <option>Software Engineer</option>
-                            <option>Network Engineer</option>
-                            <option>Others</option>
-                        </select>
+                        <input type="text" class="form-control" placeholder="I'm a web developer" name="occupation">
+                        <span class="fa fa-gavel form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
                         <input type="email" class="form-control" placeholder="Email" name="email">
