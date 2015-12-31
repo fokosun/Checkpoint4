@@ -20,7 +20,7 @@
 <div class="row">
         <div class="alert alert-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-ban"></i> Error!</h4>
+            <h4><i class="icon fa fa-ban"></i> Warning!</h4>
             {{ session()->get('warning')}}
         </div>
     </div>
