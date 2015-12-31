@@ -18,7 +18,7 @@ class UserController extends Controller
     public function index()
     {
         // dd(Auth::user()->id);
-        $videos = Video::all();
+        $videos = Video::where('user_id', Auth::user()->id)->get();
         return view('pages.profile', compact('videos'));
     }
 
