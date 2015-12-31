@@ -52,6 +52,21 @@
                         </div>
                     </div>
                 </form>
+                <div class="social-auth-links text-center">
+                <p>- OR -</p>
+                <a href="{{ url('facebook') }}" class="btn btn-block btn-facebook">
+                    <i class="fa fa-facebook"></i>
+                        Sign in with Facebook
+                </a>
+                <a href="{{ url('twitter') }}" class="btn btn-block btn-twitter">
+                    <i class="fa fa-twitter"></i>
+                        Sign in with Twitter
+                </a>
+                <a href="{{ URL::to('login/github') }}" class="btn btn-block btn-github">
+                    <i class="fa fa-github-alt"></i>
+                        Sign in with Github
+                </a>
+            </div>
                 <a href="{{ route('getLogin') }}" class="text-center">
                     I already have a membership
                 </a>

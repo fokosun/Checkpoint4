@@ -110,6 +110,7 @@ class AuthController extends Controller
             'occupation'    => 'required',
             'email'         => 'required|email|unique:users',
             'password'      => 'required',
+            'terms'         => 'accepted',
         ]);
 
         if ($v->fails()) {
