@@ -3,6 +3,8 @@
 namespace Techademia\Http\Controllers;
 
 use Auth;
+use Cloudder;
+use Techademia\User;
 use Techademia\Video;
 use Illuminate\Http\Request;
 use Techademia\Http\Requests;
@@ -85,5 +87,37 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+    * Upload avatar to cloudinary
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return
+    */
+    protected function uploadAvatarCloudinary($avatar)
+    {
+        Cloudder::upload($avatar, null, ["width" => 175, "height" => 155, "crop" => "scale"]);
+        $url = Cloudder::getResult()['url'];
+
+        return $url;
+    }
+
+    public function postUpdateUserProfile(Request $request, $id)
+    {
+        // var_dump(User::where('id', Auth::user()->id)->first());
+        $id = Auth::user()->id;
+        // dd($id);
+        try {
+            $user               = User::find($id);
+            $user->avatar       = $this->uploadAvatarCloudinary($request->avatar);
+            $user->fullname     = $request->fullname;
+            $user->occupation   = $request->occupation;
+            $user->save();
+            //redirect
+            return back()->with('status', 'Yay! Status updated successfully');
+        } catch (QueryException $e) {
+            return back()->with('status', $e->getMessage());
+        }
     }
 }

@@ -10,10 +10,11 @@
                 <img src="{{ Auth::user()->avatar }}" class="img-circle">
                 <br>
             </div>
-            <form action="#" method="post">
+            <form action="{{ route('postUpdateUserProfile') }}" method="POST"
+                    enctype="multipart/form-data" files="true">
                 <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group has-feedback">
-                    <input type="file" class="form-control" name="avatar">
+                    <input type="file" class="form-control" name="avatar" accept="image/*">
                     <span class="fa fa-camera form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -26,9 +27,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-4">
-                        <a href="" class="btn btn-primary btn-block btn-flat">
-                            Save
-                        </a>
+                        <input type="submit" value ="save" class="btn btn-primary btn-block btn-flat" />
                     </div>
                 </div>
             </form>

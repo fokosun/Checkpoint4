@@ -79,3 +79,7 @@ Route::post('/user/profile/video', [
 
 Route::get('/video/{id}/edit', 'VideoController@edit');
 Route::get('/profile/{username}/edit', 'UserController@edit');
+Route::post('/profile/{username}/edit', [
+  'uses'        => 'UserController@postUpdateUserProfile',
+  'as'          => 'postUpdateUserProfile'
+]);
