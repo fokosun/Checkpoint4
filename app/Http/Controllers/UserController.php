@@ -5,6 +5,7 @@ namespace Techademia\Http\Controllers;
 use Auth;
 use Cloudder;
 use Techademia\User;
+use Techademia\Category;
 use Techademia\Video;
 use Illuminate\Http\Request;
 use Techademia\Http\Requests;
@@ -20,7 +21,9 @@ class UserController extends Controller
     public function index()
     {
         $videos = Video::where('user_id', Auth::user()->id)->get();
-        return view('pages.profile', compact('videos'));
+        $categories = Category::all();
+
+        return view('pages.profile', compact('videos'))->with('categories', $categories);
     }
 
     /**
