@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Server Error')
+@section('title', 'Maintenance')
 @section('content')
 <div>
     <section class="content">
@@ -7,8 +7,8 @@
             <h3>
                 <i class="fa fa-warning text-yellow"></i>
                     Be Right Back!
-                    <small>Down for maintenance</small>
             </h3>
+            <h1><small>Sorry, this app is taken down for maintenance</small></h1>
         </div>
     </section>
 </div>
