@@ -53,9 +53,11 @@
                                             <div class="comment-text">
                                                 <span class="username text-capitalize">
                                                     {{ $video->title }}
-                                                    <a href="/profile/{{ Auth::user()->username }}/edit" title="edit video"><i class="fa fa-pencil fa-fw"></i></a>
+                                                    <a href="/video/{{ $video->id }}/edit" title="edit video"><i class="fa fa-pencil fa-fw"></i></a>
                                                     <span class="badge bg-aqua pull-right">
-                                                        {{ $video->created_at }}
+                                                        <small>
+                                                            {{ date('F d, Y', strtotime($video->created_at)) }}
+                                                        </small>
                                                     </span>
                                                 </span>
                                                 {{ $video->description }}

@@ -2,6 +2,8 @@
 
 namespace Techademia;
 
+use Techademia\User;
+use Techademia\Category;
 use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
@@ -11,5 +13,10 @@ class Video extends Model
     public function category()
     {
         return $this->belongsTo('Techademia\Category');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('Techademia\User');
     }
 }
