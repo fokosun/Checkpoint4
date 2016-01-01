@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="#">
+                        <a href="https://github.com/andela-fokosun/Checkpoint4">
                             Clone this project
                             <span class="sr-only">(current)</span>
                         </a>

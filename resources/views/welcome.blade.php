@@ -4,44 +4,55 @@
     <div class="row">
         <div class="col-md-12">
             <div class="text-center spacer text-capitalize">
-                <h1>Awesome place + Awesome stuff</h1>
-                <small>learning hub for extraordinary minds only</small>
+                <h1>192.168.1.1</h1>
+                <small>see videos posted by everybody</small>
             </div>
             <section class="content">
-                <ul class="timeline">
-                    <li>
-                        <i class="fa fa-video-camera bg-maroon"></i>
-                        <div class="timeline-item">
-                            <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
-                            <h3 class="timeline-header"><a href="#">Recent</a> videos</h3>
-                            <div class="timeline-body">
-                                <div class="row">
-                                    @foreach($videos as $video)
-                                    <div class="col-sm-6">
-                                        <div class="embed-responsive embed-responsive-16by9" style="margin:5%;">
-                                            <iframe class="embed-responsive-item" src="{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
-                                        </div>
-                                        <div style="margin:5%;">
-                                            <h5 class="timeline-header h5">
-                                                <p class="spacer">
-                                                    <a href="#">{{ $video->title }}</a>
-                                                    <span class="label label-primary pull-right">{{ $video->category->title}}</span>
-                                                </p>
-                                            </h5>
-                                            <small>{{ $video->description }}</small>
+            <ul class="timeline">
+                <li>
+                    <i class="fa fa-video-camera bg-maroon"></i>
+                    <div class="timeline-item">
+                        <span class="time"><i class="fa fa-clock-o"></i> Last activity: 2 days ago</span>
+                        <h3 class="timeline-header"><a href="#">Recent</a> videos</h3>
+                        <div class="timeline-body">
+                            <div class="row">
+                                @foreach($videos as $video)
+                                <div class="col-sm-6">
+                                    <p class="spacer">
+                                        <span class="label label-primary pull-right">
+                                            {{ $video->category->title}}
+                                        </span>
+                                    </p>
+                                    <div class="embed-responsive embed-responsive-16by9" style="margin:5%;">
+                                        <iframe class="embed-responsive-item" src="{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="box-footer box-comments">
+                                        <div class="box-comment col-sm-12">
+                                            <img class="img-square img-sm" src="{{ $video->user->avatar}}" alt="User Image">
+                                            <div class="comment-text">
+                                                <span class="username">
+                                                    <b>{{ $video->title }}</b> by {{ $video->user->username}}
+                                                    <span class="badge bg-aqua pull-right">
+                                                        <small>
+                                                            {{ date('F d, Y', strtotime($video->created_at)) }}
+                                                        </small>
+                                                    </span>
+                                                </span>
+                                                {{ $video->description }}
+                                            </div>
                                         </div>
                                     </div>
-                                    @endforeach
                                 </div>
+                                @endforeach
                             </div>
                         </div>
-                    </li>
-                    <li>
-                        <i class="fa fa-clock-o bg-gray"></i>
-                    </li>
-                </ul>
-                {!! $videos->render() !!}
-            </section>
+                    </div>
+                </li>
+                <li>
+                    <i class="fa fa-clock-o bg-gray"></i>
+                </li>
+            </ul>
+        </section>
         </div>
     </div>
 @endsection
