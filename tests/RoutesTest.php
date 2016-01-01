@@ -1,5 +1,8 @@
 <?php
 
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
