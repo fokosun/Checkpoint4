@@ -13,7 +13,7 @@
                     <i class="fa fa-video-camera bg-maroon"></i>
                     <div class="timeline-item">
                         <span class="time"><i class="fa fa-clock-o"></i> Last activity: 2 days ago</span>
-                        <h3 class="timeline-header"><a href="#">Recent</a> videos</h3>
+                        <h3 class="timeline-header"><a href="#">videos</a> by everybody</h3>
                         <div class="timeline-body">
                             <div class="row">
                                 @foreach($videos as $video)
