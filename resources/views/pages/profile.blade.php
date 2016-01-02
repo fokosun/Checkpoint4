@@ -9,7 +9,7 @@
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-yellow">
                     <div class="inner">
-                        <h3 style="font-size: 20px">0 videos</h3>
+                        <h3 style="font-size: 20px">{{ count($category->id) }} videos</h3>
                         <p>{{ $category->title }}</p>
                     </div>
                     <div class="icon">
@@ -23,16 +23,19 @@
 </div>
 <div class="row">
     <div class="text-center text-capitalize">
-        @forelse($videos as $video)
-            <small>my videos</small>
-        @empty
+    @if (count($videos) > 0)
+            <small>my videos</small><br>
+            <a href="{{ route('viewUploadVideoForm') }}" class="small-box-footer">
+                Upload new video <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        @else
             <small>
                 <i class="fa fa-film"></i> &nbsp; You have no videos in your library!<br>
                 <a href="{{ route('viewUploadVideoForm') }}" class="small-box-footer">
-                      Upload new video <i class="fa fa-arrow-circle-right"></i>
-                    </a>
+                    Upload new video <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </small>
-        @endforelse
+        @endif
     </div>
         <section class="content">
             <ul class="timeline">
