@@ -2,6 +2,7 @@
 
 namespace Techademia\Http\Controllers\Auth;
 
+use Mail;
 use Socialite;
 use Validator;
 use Techademia\User;
@@ -120,7 +121,7 @@ class AuthController extends Controller
         $data = $request->all();
         $data['avatar'] = 'http://goo.gl/1j6BFk';
         $data['password'] = bcrypt($request->input('password'));
-
+        $this->sendNotification($request);
         User::create($data);
 
         return redirect('/auth/login');
@@ -138,5 +139,13 @@ class AuthController extends Controller
         $authUser = $this->repository->findBySocialIdOrCreate($user);
         Auth::login($authUser, true);
         return redirect()->route('dashboard');
+    }
+
+    public function sendNotification(Request $request)
+    {
+        Mail::send('emails.notifications', ['user' => $request->username], function($message) use ($request) {
+            $message->from('florence.okosun@andela.com', 'Techademia');
+            $message->to($request->email, $request->username)->subject('Welcome!');
+        });
     }
 }
