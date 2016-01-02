@@ -21,10 +21,9 @@ class UserController extends Controller
     public function index()
     {
         $videos = Video::where('user_id', Auth::user()->id)->get();
-        $uservids = Video::where('user_id', Auth::user()->id)->get();
         $categories = Category::all();
 
-        return view('pages.profile', compact('videos'))->with('categories', $categories)->with('uservids', $uservids);
+        return view('pages.profile', compact('videos'))->with('categories', $categories);
     }
 
     /**
