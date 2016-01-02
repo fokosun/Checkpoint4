@@ -59,13 +59,13 @@ Route::get('/auth/login/{provider?}', 'Auth\AuthController@doSocial');
 
 /*
 |-------------------------------------------------------
-| user profile
+| user routes
 |-------------------------------------------------------
 */
 Route::get('/user/profile', [
     'middleware'    => 'auth',
-    'uses' => 'UserController@index',
-    'as'   => 'profile'
+    'uses'          => 'UserController@index',
+    'as'            => 'profile'
 ]);
 
 Route::get('/user/profile/video', [
@@ -78,14 +78,23 @@ Route::post('/user/profile/video', [
     'as'   => 'createVideo'
 ]);
 
-Route::get('/video/{id}/edit', 'VideoController@edit');
-
 Route::get('/profile/{username}/edit', [
     'middleware'    => 'auth',
-    'uses' => 'UserController@edit'
+    'uses'          => 'UserController@edit'
 ]);
 
 Route::post('/profile/{username}/edit', [
     'uses' => 'UserController@postUpdateUserProfile',
     'as'   => 'postUpdateUserProfile'
+]);
+
+/*
+|-------------------------------------------------------
+| video routes
+|-------------------------------------------------------
+*/
+Route::get('/video/{id}/edit', 'VideoController@edit');
+Route::put('/video/{id}/edit', [
+    'uses' => 'VideoController@update',
+    'as' => 'video.update'
 ]);

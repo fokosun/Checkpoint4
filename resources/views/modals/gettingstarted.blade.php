@@ -9,7 +9,7 @@
                 <h4 class="modal-title" id="myModalLabel"><i class="fa fa-rocket"></i> &nbsp; Getting Started</h4>
             </div>
             <div class="modal-body">
-                <p>Techademia is about sharing, collaborating and learning. Get a chance to see cool tech videos from across the world in one place, get a chance to share your own tech videos. Did i mention that you can have your own library? Yes, you can manage your own videos, upload a video, delete a video or even change the title if you dont like it anymore. How about viewing profile of other users?? Cool stuff huh?</p>
+                <p>Techademia is about sharing, collaborating and learning. Get a chance to see cool tech videos from across the world in one place, get a chance to share your own tech videos. Did i mention that you can have your own library? Yes, you can manage your own videos, upload a video or even change the title if you don't like it anymore. How about viewing profile of other users?? Cool stuff huh?</p>
                 <small>
                     Get started by hitting the <a href="">register</a> or <a href="">login button</a>. It's at the top right corner of your screen
                 </small>

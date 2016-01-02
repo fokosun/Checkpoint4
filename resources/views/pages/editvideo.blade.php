@@ -9,7 +9,8 @@
                 <h1>{!! $video->title !!}</h1>
                 <br>
             </div>
-            <form action="#" method="post">
+            <form action="{{ route('video.update', $video->id )}}" method="post">
+            <input type="hidden" name="_method" value="PUT">
                 <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group has-feedback">
                     <input value="{!! $video->title !!}" class="form-control edit" name="title">
@@ -34,14 +35,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-4">
-                        <a href="" class="btn btn-primary btn-block btn-flat">
-                            Update
-                        </a>
-                    </div>
-                    <div class="col-xs-4">
-                        <a href="" class="btn btn-primary btn-block btn-flat">
-                            Delete
-                        </a>
+                        <input type="submit" value ="update" class="btn btn-primary btn-block btn-flat" />
                     </div>
                 </div>
             </form>

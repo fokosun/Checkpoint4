@@ -59,7 +59,7 @@ class VideoController extends Controller
 
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
-        $data['category_id'] = $request->category;;
+        $data['category_id'] = $request->category;
 
         Video::create($data);
 
@@ -91,7 +91,18 @@ class VideoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $video = Video::find($id);
+            $video->title = $request->title;
+            $video->description = $request->description;
+            $video->url = $request->url;
+            $video->category_id = $request->category;
+            $video->save();
+            //redirect
+            return back()->with('status', 'Like a real boss, you did it!');
+        } catch (QueryException $e) {
+            return back()->with('status', $e->getMessage());
+        }
     }
 
     /**

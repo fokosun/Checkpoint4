@@ -108,9 +108,7 @@ class UserController extends Controller
 
     public function postUpdateUserProfile(Request $request, $id)
     {
-        // var_dump(User::where('id', Auth::user()->id)->first());
         $id = Auth::user()->id;
-        // dd($id);
         try {
             $user               = User::find($id);
             $user->avatar       = $this->uploadAvatarCloudinary($request->avatar);

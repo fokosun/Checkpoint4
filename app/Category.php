@@ -2,7 +2,6 @@
 
 namespace Techademia;
 
-use Techademia\Video;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
@@ -15,9 +14,4 @@ class Category extends Model
      * @var array
      */
     protected $fillable = ['title'];
-
-    public function video()
-    {
-        return $this->belongsTo('Techademia\Video');
-    }
 }
