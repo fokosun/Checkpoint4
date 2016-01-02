@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="text-center spacer text-capitalize">
                 <h1>192.168.1.1</h1>
-                <small>see videos posted by everybody</small>
+                <h1><blockquote>share, collaborate and learn</blockquote></h1>
             </div>
             <section class="content">
             <ul class="timeline">

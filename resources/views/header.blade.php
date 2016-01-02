@@ -17,8 +17,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            About
+                        <a href="#" data-toggle="modal" data-target="#gettingstarted">
+                            <i class="fa fa-rocket"></i> &nbsp; Getting Started
                         </a>
                     </li>
                 </ul>
@@ -67,3 +67,23 @@
         </div>
     </nav>
 </header>
+<!-- Modal -->
+<div class="modal fade" id="gettingstarted" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel"><i class="fa fa-rocket"></i> &nbsp; Getting Started</h4>
+            </div>
+            <div class="modal-body">
+                <p>Techademia is about sharing, collaborating and learning. Get a chance to see cool tech videos from across the world in one place, get a chance to share your own tech videos. Did i mention that you can have your own library? Yes, you can manage your own videos, upload a video, delete a video or even change the title if you dont like it anymore. How about viewing profile of other users?? Cool stuff huh?</p>
+                <small>Get started by hitting the register or login button...</small>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok, cool!</button>
+            </div>
+        </div>
+    </div>
+</div>
