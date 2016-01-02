@@ -12,7 +12,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active">
                         <a href="https://github.com/andela-fokosun/Checkpoint4">
-                            Clone this project
+                            <i class="fa fa-github"></i> &nbsp; It's open-sourced
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -79,7 +79,9 @@
             </div>
             <div class="modal-body">
                 <p>Techademia is about sharing, collaborating and learning. Get a chance to see cool tech videos from across the world in one place, get a chance to share your own tech videos. Did i mention that you can have your own library? Yes, you can manage your own videos, upload a video, delete a video or even change the title if you dont like it anymore. How about viewing profile of other users?? Cool stuff huh?</p>
-                <small>Get started by hitting the register or login button...</small>
+                <small>
+                    Get started by hitting the <a href="">register</a> or <a href="">login button</a>. It's at the top right corner of your screen
+                </small>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Ok, cool!</button>
