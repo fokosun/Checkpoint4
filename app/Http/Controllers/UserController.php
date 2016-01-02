@@ -4,6 +4,7 @@ namespace Techademia\Http\Controllers;
 
 use Auth;
 use Cloudder;
+use Carbon\Carbon;
 use Techademia\User;
 use Techademia\Category;
 use Techademia\Video;
@@ -21,9 +22,10 @@ class UserController extends Controller
     public function index()
     {
         $videos = Video::where('user_id', Auth::user()->id)->get();
+        $latest = Video::where('created_at', '>=', Carbon::now()->subMonth())->get()->last();
         $categories = Category::all();
 
-        return view('pages.profile', compact('videos'))->with('categories', $categories);
+        return view('pages.profile', compact('videos', 'latest'))->with('categories', $categories);
     }
 
     /**

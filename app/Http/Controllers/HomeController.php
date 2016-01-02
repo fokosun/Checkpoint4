@@ -3,10 +3,12 @@
 namespace Techademia\Http\Controllers;
 
 use Auth;
+use Carbon\Carbon;
 use Techademia\Video;
 use Illuminate\Http\Request;
 use Techademia\Http\Requests;
 use Techademia\Http\Controllers\Controller;
+
 
 class HomeController extends Controller
 {
@@ -18,8 +20,9 @@ class HomeController extends Controller
     public function index()
     {
        $videos = Video::paginate(6);
+       $latest = Video::where('created_at', '>=', Carbon::now()->subMonth())->get()->last();
 
-       return view('welcome', compact('videos'));
+       return view('welcome', compact('videos', 'latest'));
     }
 
     /**
