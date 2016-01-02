@@ -15,9 +15,6 @@
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="{{ route('viewUploadVideoForm') }}" class="small-box-footer">
-                      Upload new video <i class="fa fa-arrow-circle-right"></i>
-                    </a>
                 </div>
             </div>
              @endforeach
@@ -26,7 +23,16 @@
 </div>
 <div class="row">
     <div class="text-center text-capitalize">
-        <small>my videos</small>
+        @forelse($videos as $video)
+            <small>my videos</small>
+        @empty
+            <small>
+                <i class="fa fa-film"></i> &nbsp; You have no videos in your library!<br>
+                <a href="{{ route('viewUploadVideoForm') }}" class="small-box-footer">
+                      Upload new video <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+            </small>
+        @endforelse
     </div>
         <section class="content">
             <ul class="timeline">
@@ -37,7 +43,7 @@
                         <h3 class="timeline-header"><a href="#">Recent</a> videos</h3>
                         <div class="timeline-body">
                             <div class="row">
-                                @foreach($videos as $video)
+                                @forelse($videos as $video)
                                 <div class="col-sm-6">
                                     <p class="spacer">
                                         <span class="label label-primary pull-right">
@@ -65,7 +71,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
+                                @empty
+                                @endforelse
                             </div>
                         </div>
                     </div>
