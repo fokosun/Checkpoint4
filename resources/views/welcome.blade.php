@@ -1,13 +1,13 @@
 @extends('layout')
 @section('title', 'TECHADEMIA')
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <div class="text-center spacer text-capitalize">
-                <h1>192.168.1.1</h1>
-                <h1><blockquote>share, collaborate and learn</blockquote></h1>
-            </div>
-            <section class="content">
+<div class="row">
+    <div class="col-md-12">
+        <div class="text-center spacer text-capitalize">
+            <h1>192.168.1.1</h1>
+            <h1><blockquote>share, collaborate and learn</blockquote></h1>
+        </div>
+        <section class="content">
             <ul class="timeline">
                 <li>
                     <i class="fa fa-video-camera bg-maroon"></i>
@@ -49,10 +49,15 @@
                     </div>
                 </li>
                 <li>
+                    <div class="timeline-item text-center">
+                        {!! $videos->render() !!}
+                    </div>
+                </li>
+                <li>
                     <i class="fa fa-clock-o bg-gray"></i>
                 </li>
             </ul>
         </section>
-        </div>
     </div>
+</div>
 @endsection
