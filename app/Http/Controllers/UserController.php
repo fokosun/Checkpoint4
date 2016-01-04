@@ -112,10 +112,15 @@ class UserController extends Controller
     {
         $id = Auth::user()->id;
         try {
-            $user               = User::find($id);
-            $user->avatar       = $this->uploadAvatarCloudinary($request->avatar);
-            $user->fullname     = $request->fullname;
-            $user->occupation   = $request->occupation;
+            $user = User::find($id);
+            if( isset($request->avatar)) {
+                $user->avatar       = $this->uploadAvatarCloudinary($request->avatar);
+                $user->fullname     = $request->fullname;
+                $user->occupation   = $request->occupation;
+            } else {
+                $user->fullname     = $request->fullname;
+                $user->occupation   = $request->occupation;
+            }
             $user->save();
             //redirect
             return back()->with('status', 'Yay! Status updated successfully');
