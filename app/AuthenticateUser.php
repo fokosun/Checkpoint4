@@ -18,22 +18,26 @@ class AuthenticateUser
 
     public function execute($request, $listener, $provider)
     {
+        // dd($this->getAuthorizationFirst('facebook'));
         if (! $request) return $this->getAuthorizationFirst($provider);
         $user = $this->users->findByUserNameOrCreate($this->getSocialUser($provider));
+
         $this->auth->login($user, true);
 
-        return $listener->userHasLoggedIn($user);
+        return redirect('/');
     }
 
     /**
      * @param $provider
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    private function getAuthorizationFirst($provider) {
+    private function getAuthorizationFirst($provider)
+    {
         return $this->socialite->driver($provider)->redirect();
     }
 
-    private function getSocialUser($provider) {
+    private function getSocialUser($provider)
+    {
         return $this->socialite->driver($provider)->user();
     }
 }

@@ -19,7 +19,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-       $videos = Video::paginate(6);
+       $videos = Video::paginate(4);
        $latest = Video::where('created_at', '>=', Carbon::now()->subMonth())->get()->last();
 
        return view('welcome', compact('videos', 'latest'));
