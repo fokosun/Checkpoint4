@@ -7,7 +7,7 @@
         <div class="login-box-body">
             <div class="text-center spacer text-capitalize">
                 <h1>Edit my profile</h1>
-                <img src="{{ Auth::user()->avatar }}" class="img-circle">
+                <img src="{{ Auth::user()->avatar }}" class="img-circle" width="150" height="auto">
                 <br>
             </div>
             <form action="{{ route('postUpdateUserProfile') }}" method="POST"

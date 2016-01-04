@@ -4,6 +4,7 @@
 <div>
     <section class="content">
         <div class="error-page">
+        <br><br>
             <h2 class="headline text-red">404</h2>
             <div class="error-content">
                 <h3>
