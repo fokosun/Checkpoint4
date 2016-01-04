@@ -7,7 +7,7 @@ use Techademia\User;
 class UserRepository
 {
     public function findByUserNameOrCreate($userData) {
-        $user = User::where('provider_id', '=', $userData->id)->first();
+        $user = User::where('username', '=', $userData->name)->first();
         if(!$user) {
             $user = User::create([
                 'provider_id' => $userData->id,
@@ -23,25 +23,24 @@ class UserRepository
         return $user;
     }
 
-    public function checkIfUserNeedsUpdating($userData, $user) {
-
+    public function checkIfUserNeedsUpdating($userData, $user)
+    {
         $socialData = [
             'avatar' => $userData->avatar,
             'email' => $userData->email,
-            'name' => $userData->name,
+            'fullname' => $userData->name,
             'username' => $userData->nickname,
         ];
         $dbData = [
             'avatar' => $user->avatar,
             'email' => $user->email,
-            'name' => $user->name,
+            'fullname' => $user->fullname,
             'username' => $user->username,
         ];
-
-        if (!empty(array_diff($socialData, $dbData))) {
+        if (!empty(array_diff($dbData, $socialData))) {
             $user->avatar = $userData->avatar;
             $user->email = $userData->email;
-            $user->name = $userData->name;
+            $user->fullname = $userData->name;
             $user->username = $userData->nickname;
             $user->save();
         }

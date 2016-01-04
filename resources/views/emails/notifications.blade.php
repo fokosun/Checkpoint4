@@ -1,7 +1,7 @@
 <table style="width:800px;font-family: Arial,Helvetica, Helvetica Neue,sans-serif; valign:center; width:100%; height:100px;padding: 5px 0px">
     <tr style="background-color:#35586F; color:white;">
         <td>
-            <h3 align="center" style="color:#999999;font-size:40pt;">TECHADEMIA</h3>
+            <h3 align="center" style="color:#999999;font-size:40pt; padding: 15px">TECHADEMIA</h3>
         </td>
     </tr>
     <tr>
@@ -9,10 +9,10 @@
         <br><br>
         Welcome {{ $user }}!,<br><br>
         <p>
-            We are very pleased to have you on this platform. Teachademia is about sharing, collaborating and learning. Now you can upload your favorite protip videos, see what others have posted and learn on the go!
+            You’ve just joined the millions of TechAdemia users who are learning awesome stuff and we are very pleased to have you on this platform. Techademia is about sharing, collaborating and learning. Get a chance to see cool tech videos from across the world in one place, get a chance to share your own tech videos. Did i mention that you can have your own library? Yes, you can manage your own videos, upload a video or even change the title of a video you uploaded if you don't like it anymore. Cool stuff huh?
         </p>
         <br><br>
-        <a href="#">Login to your account and do more!</a>
+        <b><a href="#">Login</a> to your account and start learning like a boss!</b>
         <br><br>
         Signed,
         <br><br>

@@ -36,20 +36,20 @@ return [
     ],
 
     'facebook' => [
-        'client_id'     => getenv('FACEBOOK_CLIENT_ID'),
-        'client_secret' => getenv('FACEBOOK_CLIENT_SECRET'),
-        'redirect'      => getenv('FACEBOOK_CALLBACK_URL')
+        'client_id'     => env('FACEBOOK_APP_ID'),
+        'client_secret' => env('FACEBOOK_APP_SECRET'),
+        'redirect'      => env('FACEBOOK_CALLBACK_URL')
     ],
 
     'twitter' => [
-        'client_id'     => getenv('TWITTER_CLIENT_ID'),
-        'client_secret' => getenv('TWITTER_CLIENT_SECRET'),
-        'redirect'      => getenv('TWITTER_CALLBACK_URL')
+        'client_id'     => env('TWITTER_API_KEY'),
+        'client_secret' => env('TWITTER_API_SECRET'),
+        'redirect'      => env('TWITTER_CALLBACK_URL')
     ],
 
     'github' => [
-        'client_id'     => getenv('GITHUB_CLIENT_ID'),
-        'client_secret' => getenv('GITHUB_CLIENT_SECRET'),
+        'client_id'     => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
         'redirect'      => env('GUTHUB_CALLBACK_URL')
     ],
 ];

@@ -37,7 +37,7 @@
             </form>
             <div class="social-auth-links text-center">
                 <p>- OR -</p>
-                <a href="{{ url('auth/login/facebook') }}" class="btn btn-block btn-facebook">
+                <a href="{{ url('/auth/login/facebook') }}" class="btn btn-block btn-facebook">
                     <i class="fa fa-facebook"></i>
                         Sign in with Facebook
                 </a>

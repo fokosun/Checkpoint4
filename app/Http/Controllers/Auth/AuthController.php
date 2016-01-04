@@ -127,9 +127,7 @@ class AuthController extends Controller
         return redirect('/auth/login');
     }
 
-
-
-    public function doSocial(AuthenticateUser $authenticate, Request $request, $provider = null)
+    public function doSocial(AuthenticateUser $authenticate, Request $request, $provider)
     {
         return $authenticate->execute($request->all(), $this, $provider) ;
     }
@@ -145,7 +143,7 @@ class AuthController extends Controller
     {
         Mail::send('emails.notifications', ['user' => $request->username], function($message) use ($request) {
             $message->from('florence.okosun@andela.com', 'Techademia');
-            $message->to($request->email, $request->username)->subject('Welcome!');
+            $message->to($request->email, $request->username)->subject('How to get started on Techademia');
         });
     }
 }
