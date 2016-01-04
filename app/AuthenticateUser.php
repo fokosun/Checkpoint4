@@ -24,7 +24,7 @@ class AuthenticateUser
 
         $this->auth->login($user, true);
 
-        return redirect('/');
+        return redirect('/user/profile');
     }
 
     /**
