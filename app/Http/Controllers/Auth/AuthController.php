@@ -82,7 +82,7 @@ class AuthController extends Controller
             return redirect()->back()->with('warning', 'Credentials supplied do not match our records.');
         }
 
-        return redirect('/');
+        return redirect('/user/profile');
     }
 
     /**

@@ -4,7 +4,8 @@
 <div class="row">
     <div class="col-md-12">
         <div class="text-center spacer text-capitalize">
-            <h1>dashboard</h1><br>
+        <br><br>
+            <h1>my dashboard</h1><br>
             @foreach($categories as $category)
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-yellow">
