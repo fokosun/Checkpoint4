@@ -5,12 +5,12 @@
     <div class="col-md-12">
         <div class="text-center spacer text-capitalize">
         <br><br>
-            <h1>my dashboard</h1><br>
+            <h1>my library</h1><br>
             @foreach($categories as $category)
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-yellow">
                     <div class="inner">
-                        <h3 style="font-size: 20px">{{ count($category->id) }} videos</h3>
+                        <h3 style="font-size: 20px">0 videos</h3>
                         <p>{{ $category->title }}</p>
                     </div>
                     <div class="icon">
