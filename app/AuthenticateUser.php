@@ -9,6 +9,8 @@ use Laravel\Socialite\Contracts\Factory as Socialite;
 
 class AuthenticateUser
 {
+
+    private $socialite;
     public function __construct(UserRepository $users, Socialite $socialite, Guard $auth)
     {
         $this->users = $users;
@@ -18,8 +20,10 @@ class AuthenticateUser
 
     public function execute($request, $listener, $provider)
     {
-        // dd($this->getAuthorizationFirst('facebook'));
-        if (! $request) return $this->getAuthorizationFirst($provider);
+        if (! $request) {
+
+            return $this->getAuthorizationFirst($provider);
+        }
         $user = $this->users->findByUserNameOrCreate($this->getSocialUser($provider));
 
         $this->auth->login($user, true);
@@ -33,6 +37,7 @@ class AuthenticateUser
      */
     private function getAuthorizationFirst($provider)
     {
+        // dd($this->socialite->driver($provider));
         return $this->socialite->driver($provider)->redirect();
     }
 

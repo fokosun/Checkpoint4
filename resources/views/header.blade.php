@@ -56,11 +56,11 @@
                                         <i class="fa fa-pencil fa-fw"></i>
                                     </a>
                                     <a href="{{ route('profile') }}" title="my dashboard" class="btn btn-default btn-flat">
-                                        <i class="fa fa-bars"></i>&nbsp;Profile</a>
+                                        <i class="fa fa-bars"></i>&nbsp;My Library</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ route('getLogout') }}" class="btn btn-default btn-flat">
-                                        <i class="fa fa-power-off"></i>&nbsp;Log out</a>
+                                        <i class="fa fa-power-off"></i>&nbsp;Log Out</a>
                                 </div>
                             </li>
                         </ul>
