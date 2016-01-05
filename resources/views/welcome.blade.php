@@ -15,7 +15,11 @@
                     <div class="timeline-item">
                         <span class="time">
                             <i class="fa fa-clock-o"></i>
-
+                            @if( count($latest) > 0 )
+                                Last activity:{{ date('F d, Y', strtotime($latest->created_at)) }}
+                            @else
+                                Last activity: none
+                            @endif
                         </span>
                         <h3 class="timeline-header"><a href="#">videos</a> by everybody</h3>
                         <div class="timeline-body">
