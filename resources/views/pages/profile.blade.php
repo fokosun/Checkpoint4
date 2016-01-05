@@ -6,6 +6,7 @@
         <div class="text-center spacer text-capitalize">
         <br><br>
             <h1>my library</h1><br>
+            @if(count($categories) > 0)
             @foreach($categories as $category)
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-yellow">
@@ -19,6 +20,7 @@
                 </div>
             </div>
              @endforeach
+             @endif
         </div>
     </div>
 </div>
