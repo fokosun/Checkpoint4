@@ -98,3 +98,15 @@ Route::put('/video/{id}/edit', [
     'uses' => 'VideoController@update',
     'as' => 'video.update'
 ]);
+
+//super admin alone
+
+Route::get('/user/profile/category', [
+    'uses' => 'CategoryController@index',
+    'as'   => 'viewCategoryForm'
+]);
+
+Route::post('/user/profile/category', [
+    'uses' => 'CategoryController@store',
+    'as'   => 'createCategory'
+]);
