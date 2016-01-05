@@ -136,7 +136,7 @@ class AuthController extends Controller
     {
         $authUser = $this->repository->findBySocialIdOrCreate($user);
         Auth::login($authUser, true);
-        return redirect()->route('dashboard');
+        return redirect('/user/profile');
     }
 
     public function sendNotification(Request $request)
