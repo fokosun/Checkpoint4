@@ -9,8 +9,8 @@ class CategoryTest extends TestCase
 {
     public function testDatabase()
     {
-        Category::create(['title' => 'robotics']);
+        Category::create(['title' => 'robotics', 'description' => 'dummy description']);
 
-        $this->seeInDatabase('categories', ['title' => 'robotics']);
+        $this->seeInDatabase('categories', ['title' => 'robotics', 'description' => 'dummy description']);
     }
 }
