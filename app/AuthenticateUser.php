@@ -24,7 +24,6 @@ class AuthenticateUser
 
             return $this->getAuthorizationFirst($provider);
         }
-
         $user = $this->users->findByUserNameOrCreate($this->getSocialUser($provider));
 
         $this->auth->login($user, true);
