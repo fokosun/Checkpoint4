@@ -13,10 +13,10 @@ class RoutesTest extends TestCase
         $this->assertEquals(404, $response->status());
     }
 
-    // public function testLandingPage()
-    // {
-    //     $response = $this->call('GET', '/');
+    public function testLandingPage()
+    {
+        $response = $this->call('GET', '/');
 
-    //     $this->assertEquals(200, $response->status());
-    // }
+        $this->assertEquals(200, $response->status());
+    }
 }
