@@ -16,7 +16,7 @@
                     <span class="fa fa-film form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="url" class="form-control" placeholder="video url" name="url">
+                    <input type="url" class="form-control" placeholder="youtube embed url e.g. https://www.youtube.com/embed/CY6SdyMr3Ac" name="url">
                     <span class="fa fa-link form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
