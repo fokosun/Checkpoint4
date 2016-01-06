@@ -14,7 +14,7 @@
                     Welcome,
                 </h2>
                 <h1 style="font-size:15px;line-height:28px;">
-                    You’ve just joined the millions of TechAdemia users who are learning awesome stuff and we are very pleased to have you on this platform. Techademia is about sharing, collaborating and learning. Get a chance to see cool tech videos from across the world in one place, get a chance to share your own tech videos. Did i mention that you can have your own library? Yes, you can manage your own videos, upload a video or even change the title of a video you uploaded if you don't like it anymore. Cool stuff huh?
+                    You’ve just joined the millions of TechAdemia users who are learning awesome new stuff everyday and we are very pleased to have you on our platform. Techademia is about sharing, collaborating and learning. Get a chance to see cool tech videos from across the world in one place, get a chance to share your own tech videos. Did i mention that you can have your own library? Yes, you can manage your own videos, upload a video or even change the title of a video you uploaded if you don't like it anymore. Cool stuff huh?
                 </h1>
                 <h1 style="font-size:15px;line-height:28px;">
                     GET STARTED IN 2 EASY STEPS!
@@ -26,7 +26,7 @@
                     </li>
                     <li>
                         Hurray! this is your personal space<br>
-                        <small>start uploading those youtube videos. make sure to use only the embed url</small><br>
+                        <small>Start uploading those youtube videos! Make sure to use only the embed url when uploading a new video</small><br>
                         <small><img src="http://goo.gl/2KVKfR" /></small>
                     </li>
                 </ul>

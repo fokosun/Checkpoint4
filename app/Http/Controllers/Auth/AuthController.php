@@ -142,7 +142,7 @@ class AuthController extends Controller
     public function sendNotification(Request $request)
     {
         Mail::send('emails.notifications', ['user' => $request->username], function($message) use ($request) {
-            $message->from('florence.okosun@andela.com', 'Techademia');
+            $message->from('robot@techademia.herokuapp.com', 'Techademia');
             $message->to($request->email, $request->username)->subject('How to get started on Techademia');
         });
     }
