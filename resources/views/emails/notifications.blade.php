@@ -1,22 +1,49 @@
-<table style="width:800px;font-family: Arial,Helvetica, Helvetica Neue,sans-serif; valign:center; width:100%; height:100px;padding: 5px 0px">
-    <tr style="background-color:#35586F; color:white;">
+<table style="width:800px;width:100%; height:100px;">
+    <tr>
         <td>
-            <h3 align="center" style="color:#999999;font-size:40pt; padding: 15px">TECHADEMIA</h3>
+            <h3 align="center" style="padding: 15px; color:#999;">
+                <img src="https://goo.gl/QX2yIf" /><br>
+                <small>Hi, {{ $user }}!</small>
+            </h3>
         </td>
     </tr>
     <tr>
         <td>
-        <br><br>
-        Welcome {{ $user }}!,<br><br>
-        <p>
-            You’ve just joined the millions of TechAdemia users who are learning awesome stuff and we are very pleased to have you on this platform. Techademia is about sharing, collaborating and learning. Get a chance to see cool tech videos from across the world in one place, get a chance to share your own tech videos. Did i mention that you can have your own library? Yes, you can manage your own videos, upload a video or even change the title of a video you uploaded if you don't like it anymore. Cool stuff huh?
-        </p>
-        <br><br>
-        <b><a href="#">Login</a> to your account and start learning like a boss!</b>
-        <br><br>
-        Signed,
-        <br><br>
-        TeamGeek
+            <div style="font-family:Helvetica,Arial,sans-serif;line-height:26px;color:#999;margin:0">
+                <h2 style="font-size:24px;font-weight:bold">
+                    Welcome,
+                </h2>
+                <h1 style="font-size:15px;line-height:28px;">
+                    You’ve just joined the millions of TechAdemia users who are learning awesome stuff and we are very pleased to have you on this platform. Techademia is about sharing, collaborating and learning. Get a chance to see cool tech videos from across the world in one place, get a chance to share your own tech videos. Did i mention that you can have your own library? Yes, you can manage your own videos, upload a video or even change the title of a video you uploaded if you don't like it anymore. Cool stuff huh?
+                </h1>
+                <h1 style="font-size:15px;line-height:28px;">
+                    GET STARTED IN 2 EASY STEPS!
+                </h1>
+                <ul style="font-size:15px;line-height:28px;">
+                    <li>
+                        Login to your account<br>
+                        <small>Hit the login link at the top right hand corner of the app</small>
+                    </li>
+                    <li>
+                        Hurray! this is your personal space<br>
+                        <small>start uploading those youtube videos. make sure to use only the embed url</small><br>
+                        <small><img src="http://goo.gl/2KVKfR" /></small>
+                    </li>
+                </ul>
+                <a href="http://techademia.herokuapp.com/auth/login" style="text-decoration: none !important;">
+                    <h2 align="center" style="background-color: #4294E3; padding:20px; color:#ffffff;">
+                        Login to your account and start learning like a boss!
+                    </h2>
+                </a>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div style="font-weight:bold;font-size:15px;line-height:24px;font-family:Arial,Helvetica,sans-serif;color:#666;margin:0">
+                Signed,<br><br>
+                Team Geek
+            </div>
         </td>
     </tr>
     <tr>
