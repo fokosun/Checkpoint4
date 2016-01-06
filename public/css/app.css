@@ -31,6 +31,10 @@ h1, h2, h3, h4, h5, h6 {
     padding:1.5%;
 }
 
+.spacersm {
+    padding:0.95%;
+}
+
 .label {
     padding:10px;
 }

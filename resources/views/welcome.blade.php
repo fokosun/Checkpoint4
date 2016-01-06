@@ -5,7 +5,7 @@
     <div class="col-md-12">
     <br><br>
         <div class="text-center spacer text-capitalize">
-            <h1>192.168.1.1</h1>
+            <h1>127.0.0.1</h1>
             <h1><blockquote>share, collaborate and learn</blockquote></h1>
         </div>
         <section class="content">
@@ -39,15 +39,18 @@
                                         <div class="box-comment col-sm-12">
                                             <img class="img-square img-sm" src="{{ $video->user->avatar}}" alt="User Image">
                                             <div class="comment-text">
-                                                <span class="username">
-                                                    <b>{{ $video->title }}</b> by {{ $video->user->username}}
-                                                    <span class="badge bg-aqua pull-right">
+                                                <span class="username text-capitalize">
+                                                    <b>{{ $video->title }}</b>
+                                                    <span class="badge bg-red pull-right spacersm">
                                                         <small>
                                                             {{ date('F d, Y', strtotime($video->created_at)) }}
                                                         </small>
                                                     </span>
                                                 </span>
-                                                {{ $video->description }}
+                                                {{ $video->description }}<br><br>
+                                                <small class="text-capitalize">
+                                                    <b>upload by: {{ $video->user->fullname}}</b>
+                                                </small>
                                             </div>
                                         </div>
                                     </div>
