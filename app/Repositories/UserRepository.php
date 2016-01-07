@@ -18,15 +18,14 @@ class UserRepository
                     'email' => $userData->email,
                     'avatar' => $userData->avatar,
                 ]);
-            } else {
-                $user = User::create([
-                    'provider_id' => $userData->id,
-                    'fullname' => $userData->name,
-                    'username' => $userData->nickname,
-                    'email' => $userData->name . '@' . 'twitter.com',
-                    'avatar' => $userData->avatar,
-                ]);
             }
+            $user = User::create([
+                'provider_id' => $userData->id,
+                'fullname' => $userData->name,
+                'username' => $userData->nickname,
+                'email' => $userData->name . '@' . 'twitter.com',
+                'avatar' => $userData->avatar,
+            ]);
         }
 
         $this->checkIfUserNeedsUpdating($userData, $user);

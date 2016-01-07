@@ -24,7 +24,6 @@ class AuthenticateUser
 
             return $this->getAuthorizationFirst($provider);
         }
-        // dd($this->getSocialUser($provider));
         $user = $this->users->findByUserNameOrCreate($this->getSocialUser($provider), $provider);
 
         $this->auth->login($user, true);
@@ -38,7 +37,6 @@ class AuthenticateUser
      */
     private function getAuthorizationFirst($provider)
     {
-        // dd($this->socialite->driver($provider));
         return $this->socialite->driver($provider)->redirect();
     }
 

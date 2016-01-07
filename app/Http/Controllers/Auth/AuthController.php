@@ -92,6 +92,7 @@ class AuthController extends Controller
      */
     public function getLogout()
     {
+        dd(Auth::user()->username);
         Auth::logout();
         return redirect('/');
     }
