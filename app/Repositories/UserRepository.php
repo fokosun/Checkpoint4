@@ -9,7 +9,7 @@ class UserRepository
     public function findByUserNameOrCreate($userData, $provider)
     {
         $twitter = $provider;
-        $user = $twitter?$this->createByTwitter($userData, $provider):$this->createByFaceBookOrGithub($userData, $provider);
+        $user = ( isset($twitter))?$this->createByTwitter($userData, $provider):$this->createByFaceBookOrGithub($userData, $provider);
         $this->checkIfUserNeedsUpdating($userData, $user);
 
         return $user;
