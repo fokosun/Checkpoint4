@@ -1,16 +1,13 @@
 <?php
 
 use Techademia\User;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class RoutesTest extends TestCase
 {
     public function testgetLandingPage()
     {
         $response = $this->call('GET', '/');
-        $this->assertEquals(200, $response->status());
+        $this->assertResponseOk();
     }
 
     public function testgetRegistrationPage()
@@ -18,6 +15,22 @@ class RoutesTest extends TestCase
         $response = $this->call('GET', '/auth/register');
         $this->assertEquals(200, $response->status());
     }
+
+    public function testRegistrationFunctionalityWorksCorrectly()
+    {
+        $this->visit('/auth/register')
+            ->type('john doe', 'fullname')
+            ->type('johndoe', 'username')
+            ->type('programmer', 'occupation')
+            ->type('john@doe.com', 'email')
+            ->type('password', 'password')
+            ->check('terms')
+            ->press('Register')
+            ->seePageIs('/auth/login')
+            ->seeInDatabase('users', ['username' => 'johndoe']);
+    }
+
+
 
     public function testgetLoginPage()
     {
