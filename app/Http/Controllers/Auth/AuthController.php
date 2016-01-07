@@ -132,13 +132,6 @@ class AuthController extends Controller
         return $authenticate->execute(($request->has('code') || $request->has('oauth_token')) , $this, $provider) ;
     }
 
-    public function userAuthenticated($user)
-    {
-        $authUser = $this->repository->findBySocialIdOrCreate($user);
-        Auth::login($authUser, true);
-        return redirect('/user/profile');
-    }
-
     public function sendNotification(Request $request)
     {
         Mail::send('emails.notifications', ['user' => $request->username], function($message) use ($request) {
