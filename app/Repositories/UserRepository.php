@@ -6,17 +6,27 @@ use Techademia\User;
 
 class UserRepository
 {
-    public function findByUserNameOrCreate($userData) {
+    public function findByUserNameOrCreate($userData, $provider)
+    {
         $user = User::where('username', '=', $userData->name)->first();
         if(!$user) {
-            $user = User::create([
-                'provider_id' => $userData->id,
-                'fullname' => $userData->name,
-                'username' => $userData->nickname,
-                'email' => $userData->email,
-                'avatar' => $userData->avatar,
-                'active' => 1,
-            ]);
+            if ($provider !== 'twitter') {
+                $user = User::create([
+                    'provider_id' => $userData->id,
+                    'fullname' => $userData->name,
+                    'username' => $userData->nickname,
+                    'email' => $userData->email,
+                    'avatar' => $userData->avatar,
+                ]);
+            } else {
+                $user = User::create([
+                    'provider_id' => $userData->id,
+                    'fullname' => $userData->name,
+                    'username' => $userData->nickname,
+                    'email' => $userData->name . '@' . 'twitter.com',
+                    'avatar' => $userData->avatar,
+                ]);
+            }
         }
 
         $this->checkIfUserNeedsUpdating($userData, $user);
