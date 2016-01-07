@@ -49,10 +49,8 @@
                                                         </small>
                                                     </span>
                                                 </span>
-                                                {{ $video->description }}<br><br>
-                                                <small class="text-capitalize">
-                                                    <b>upload by: {{ $video->user->fullname}}</b>
-                                                </small>
+                                                {{ $video->description }}<br>
+                                                <small>upload by: {{ $video->user->fullname}}</small>
                                             </div>
                                         </div>
                                     </div>
