@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', Auth::user()->username . ' | my profile' )
+@section('title', Auth::user()->fullname . ' | my profile' )
 @section('content')
 <div class="row">
     <div class="col-md-12">
