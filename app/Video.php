@@ -19,4 +19,5 @@ class Video extends Model
     {
         return $this->belongsTo('Techademia\User');
     }
+
 }

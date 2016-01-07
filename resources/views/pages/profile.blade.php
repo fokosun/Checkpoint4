@@ -10,14 +10,17 @@
             @foreach($categories as $category)
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-yellow">
-                    <div class="inner">
+                    <div class="inner text-lowercase">
                     @if( count($category->videos) == 1)
-                        <h3 style="font-size: 20px">{{count($category->videos)}} video</h3>
-                        <p>{{ $category->title }}</p>
+                        <small style="font-size: 20px">
+                            {{count($category->videos()->where('user_id',Auth::user()->id)->get())}} video
+                        </small>
                     @else
-                        <h3 style="font-size: 20px">{{count($category->videos)}} videos</h3>
-                        <p>{{ $category->title }}</p>
+                        <small style="font-size: 20px">
+                            {{count($category->videos()->where('user_id',Auth::user()->id)->get())}} videos
+                        </small>
                     @endif
+                        <p>{{ $category->title }}</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
