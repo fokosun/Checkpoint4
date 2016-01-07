@@ -1,14 +1,27 @@
 <?php
 
+use User;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class RoutesTest extends TestCase
 {
-    public function testLandingPage()
+    public function testgetLandingPage()
     {
         $response = $this->call('GET', '/');
+        $this->assertEquals(200, $response->status());
+    }
+
+    public function testgetRegistrationPage()
+    {
+        $response = $this->call('GET', '/auth/register');
+        $this->assertEquals(200, $response->status());
+    }
+
+    public function testgetLoginPage()
+    {
+        $response = $this->call('GET', '/auth/login');
         $this->assertEquals(200, $response->status());
     }
 
