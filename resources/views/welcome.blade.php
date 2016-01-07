@@ -26,7 +26,7 @@
                             <div class="row">
                             @if(count($videos) > 0)
                                 @foreach($videos as $video)
-                                <div class="col-sm-6">
+                                <div class="col-sm-4">
                                     <div class="box-header">
                                         <p class="spacer">
                                             <span class="label label-primary pull-right">
