@@ -11,8 +11,13 @@
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-yellow">
                     <div class="inner">
-                        <h3 style="font-size: 20px">0 videos</h3>
+                    @if( count($category->videos) == 1)
+                        <h3 style="font-size: 20px">{{count($category->videos)}} video</h3>
                         <p>{{ $category->title }}</p>
+                    @else
+                        <h3 style="font-size: 20px">{{count($category->videos)}} videos</h3>
+                        <p>{{ $category->title }}</p>
+                    @endif
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
