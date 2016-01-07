@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', Auth::user()->username . ' | edit profile' )
+@section('title', Auth::user()->fullname . ' | edit profile' )
 @section('content')
 <div class="container-fluid">
     <div class="login-box">

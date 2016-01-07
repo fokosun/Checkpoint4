@@ -78,12 +78,12 @@ Route::post('/user/profile/video', [
     'as'   => 'createVideo'
 ]);
 
-Route::get('/profile/{username}/edit', [
+Route::get('/profile/{fullname}/edit', [
     'middleware'    => 'auth',
     'uses'          => 'UserController@edit'
 ]);
 
-Route::post('/profile/{username}/edit', [
+Route::post('/profile/{fullname}/edit', [
     'uses' => 'UserController@postUpdateUserProfile',
     'as'   => 'postUpdateUserProfile'
 ]);
