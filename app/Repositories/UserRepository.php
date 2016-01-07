@@ -33,7 +33,6 @@ class UserRepository
 
     public function createByFacebookOrGithub($userData, $provider)
     {
-        dd($userData->email . ' ' . $userData->name);
         $user = User::where('provider_id', '=', $userData->id)->first();
         if(!$user) {
             $user = User::create([
