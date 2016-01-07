@@ -37,7 +37,7 @@ class UserRepository
             $user = User::create([
                 'provider_id' => $userData->id,
                 'fullname' => $userData->name,
-                'username' => $userData->nickname,
+                'username' => $userData->name,
                 'email' => $userData->email,
                 'avatar' => $userData->avatar,
             ]);
