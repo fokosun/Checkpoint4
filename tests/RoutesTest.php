@@ -1,6 +1,6 @@
 <?php
 
-use Suyabay\User;
+use Techademia\User;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
