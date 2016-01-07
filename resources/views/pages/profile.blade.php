@@ -11,7 +11,7 @@
             <div class="col-lg-3 col-xs-6">
                 <div class="small-box bg-yellow">
                     <div class="inner text-lowercase">
-                    @if( count($category->videos) == 1)
+                    @if( count($category->videos()->where('user_id',Auth::user()->id)->get()) == 1)
                         <small style="font-size: 20px">
                             {{count($category->videos()->where('user_id',Auth::user()->id)->get())}} video
                         </small>
