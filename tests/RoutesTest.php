@@ -4,61 +4,37 @@ use Techademia\User;
 
 class RoutesTest extends TestCase
 {
-    public function testgetLandingPage()
+    public function testGetLandingPage()
     {
         $response = $this->call('GET', '/');
         $this->assertResponseOk();
+        $this->assertEquals(200, $response->status());
     }
 
-    public function testgetRegistrationPage()
+    public function testSeeRegistrationLinkOnLandingPage()
+    {
+        $this->visit('/')->see('REGISTER');
+    }
+
+    public function testSeeLoginLinkOnLandingPage()
+    {
+        $this->visit('/')->see('LOG IN');
+    }
+
+    public function testSeeGettingStartedLinkOnLandingPage()
+    {
+        $this->visit('/')->see('Getting Started')->click('Getting Started')->seePageIs('/');
+    }
+
+    public function testGetRegistrationPage()
     {
         $response = $this->call('GET', '/auth/register');
         $this->assertEquals(200, $response->status());
     }
 
-    public function testRegistrationFunctionalityWorksCorrectly()
-    {
-        $this->visit('/auth/register')
-            ->type('john doe', 'fullname')
-            ->type('johndoe', 'username')
-            ->type('programmer', 'occupation')
-            ->type('john@doe.com', 'email')
-            ->type('password', 'password')
-            ->check('terms')
-            ->press('Register')
-            ->seePageIs('/auth/login')
-            ->seeInDatabase('users', ['username' => 'johndoe']);
-    }
-
-
-
-    public function testgetLoginPage()
+    public function testGetLoginPage()
     {
         $response = $this->call('GET', '/auth/login');
         $this->assertEquals(200, $response->status());
-    }
-
-    public function testUserLogin()
-    {
-        Session::start();
-        $params = [
-            '_token' => csrf_token(),
-            'email'     => 'florence.okosun@andela.com',
-            'password'  => 'pass'
-        ];
-
-        $response = $this->call('POST', '/auth/login', $params);
-        $this->assertEquals(302, $response->status());
-    }
-
-    public function testUserLogout()
-    {
-        Session::start();
-        $params = [
-            '_token' => csrf_token()
-        ];
-
-        $response = $this->call('GET', '/auth/logout', $params);
-        $this->assertEquals(302, $response->status());
     }
 }
