@@ -32,7 +32,7 @@ class UserRepository
 
     public function createByFacebookOrGithub()
     {
-        $user = User::where('username', '=', $userData->name)->first();
+        $user = User::where('provider_id', '=', $userData->id)->first();
         if(!$user) {
             $user = User::create([
                 'provider_id' => $userData->id,
