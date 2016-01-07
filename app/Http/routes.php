@@ -101,12 +101,12 @@ Route::put('/video/{id}/edit', [
 
 //super admin alone
 
-Route::get('/user/profile/category', [
+Route::get('/category', [
     'uses' => 'CategoryController@index',
     'as'   => 'viewCategoryForm'
 ]);
 
-Route::post('/user/profile/category', [
+Route::post('/category', [
     'uses' => 'CategoryController@store',
     'as'   => 'createCategory'
 ]);

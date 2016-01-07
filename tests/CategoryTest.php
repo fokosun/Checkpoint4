@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class CategoryTest extends TestCase
 {
-    public function testDatabase()
+    public function testSeeInDatabase()
     {
         Category::create(['title' => 'robotics']);
 
