@@ -5,7 +5,7 @@
     <div class="col-md-12">
     <br><br>
         <div class="text-center spacer text-capitalize">
-            <h1>127.0.0.1</h1>
+            <h1>192.168.1.1</h1>
             <h1><blockquote>share, collaborate and learn</blockquote></h1>
         </div>
         <section class="content">

@@ -14,4 +14,9 @@ class Category extends Model
      * @var array
      */
     protected $fillable = ['title'];
+
+    public function videos()
+    {
+        return $this->hasMany('Techademia\Video');
+    }
 }

@@ -20,10 +20,10 @@ class UserRepository
         $user = User::where('provider_id', '=', $userData->id)->first();
         if(!$user) {
             $user = User::create([
-                'provider_id' => $userData->id,
-                'provider' => $provider,
                 'fullname' => $userData->name,
                 'username' => $userData->nickname,
+                'provider' => $provider,
+                'provider_id' => $userData->id,
                 'avatar' => $userData->avatar,
             ]);
         }
@@ -36,11 +36,11 @@ class UserRepository
         $user = User::where('provider_id', '=', $userData->id)->first();
         if(!$user) {
             $user = User::create([
-                'provider_id' => $userData->id,
-                'provider' => $provider,
                 'fullname' => $userData->name,
                 'username' => $userData->nickname,
                 'email' => $userData->email,
+                'provider' => $provider,
+                'provider_id' => $userData->id,
                 'avatar' => $userData->avatar,
             ]);
         }
