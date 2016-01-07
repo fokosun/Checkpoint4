@@ -27,12 +27,14 @@
                             @if(count($videos) > 0)
                                 @foreach($videos as $video)
                                 <div class="col-sm-6">
-                                    <p class="spacer">
-                                        <span class="label label-primary pull-right">
-                                            {{ $video->category->title}}
-                                        </span>
-                                    </p>
-                                    <div class="embed-responsive embed-responsive-16by9" style="margin:5%;">
+                                    <div class="box-header">
+                                        <p class="spacer">
+                                            <span class="label label-primary pull-right">
+                                                {{ $video->category->title}}
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="embed-responsive embed-responsive-16by9">
                                         <iframe class="embed-responsive-item" src="{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
                                     </div>
                                     <div class="box-footer box-comments">
@@ -41,7 +43,7 @@
                                             <div class="comment-text">
                                                 <span class="username text-capitalize">
                                                     <b>{{ $video->title }}</b>
-                                                    <span class="badge bg-red pull-right spacersm">
+                                                    <span class="badge bg-aqua pull-right spacersm">
                                                         <small>
                                                             {{ date('F d, Y', strtotime($video->created_at)) }}
                                                         </small>
