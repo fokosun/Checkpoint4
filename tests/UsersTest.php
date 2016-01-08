@@ -11,7 +11,7 @@ class UsersTest extends TestCase
             ->type('johndoe', 'username')
             ->type('programmer', 'occupation')
             ->type('john@doe.com', 'email')
-            ->type('password', 'password')
+            ->type('passed', 'password')
             ->check('terms')
             ->press('Register')
             ->seePageIs('/auth/login')
@@ -27,15 +27,14 @@ class UsersTest extends TestCase
 
     public function testUserLogin()
     {
-        Session::start();
         $params = [
-            '_token' => csrf_token(),
-            'email'     => 'florence.okosun@andela.com',
-            'password'  => 'pass'
+            'email'     => 'john@doe.com',
+            'password'  => 'passed'
         ];
 
-        $response = $this->call('POST', '/auth/login', $params);
-        $this->assertEquals(302, $response->status());
+        $auth = Auth::shouldReceive('attempt')->once()->with($params, true);
+
+        dd($auth);
     }
 
     public function testLogout()

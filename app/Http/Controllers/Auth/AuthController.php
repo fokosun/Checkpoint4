@@ -59,8 +59,7 @@ class AuthController extends Controller
      */
     public function getLogin(Request $request)
     {
-        $user = Auth::user();
-        return view('pages.login', compact('user'));
+        return view('pages.login');
     }
 
     /**

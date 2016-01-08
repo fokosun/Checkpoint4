@@ -4,8 +4,8 @@
 <div class="row">
     <div class="col-md-12">
     <br><br>
-        <div class="text-center spacer text-capitalize">
-            <h1>192.168.1.1</h1>
+        <div class="text-center spacer">
+            <h1>GeeksH<i class="fa fa-github"></i>b</h1>
             <h1><blockquote>share, collaborate and learn</blockquote></h1>
         </div>
         <section class="content">
