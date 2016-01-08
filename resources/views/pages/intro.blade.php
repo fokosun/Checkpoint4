@@ -16,7 +16,8 @@
         <div class="row spacer">
             <div class="text-center">
                 <h2 class="blue">
-                    <b>Popular Videos</b>
+                    <b>see popular videos.</b>
+                    <p><i class="fa fa-chevron-down"></i></p>
                 </h2>
             </div>
         </div>
@@ -33,7 +34,7 @@
                                 Last activity: none
                             @endif
                         </span>
-                        <h3 class="timeline-header"><a href="#">popular videos</a> uploaded</h3>
+                        <h3 class="timeline-header"><a href="#">recent</a> videos</h3>
                         <div class="timeline-body">
                             <div class="row">
                             @if(count($videos) > 0)
