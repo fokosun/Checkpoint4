@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title', 'Page Not Found')
-@section('content')
+@section('intro')
 <div>
     <section class="content">
         <div class="error-page">

@@ -1,8 +1,6 @@
 {
   "private": true,
-  "devDependencies": {
-    "gulp": "^3.9.0"
-  },
+  "devDependencies": {},
   "dependencies": {
     "laravel-elixir": "^3.0.0",
     "bootstrap-sass": "^3.0.0"
