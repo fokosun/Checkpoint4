@@ -16,7 +16,7 @@
         <div class="row spacer">
             <div class="text-center">
                 <h2 class="blue">
-                    <b>see popular videos.</b>
+                    <b>see recent videos.</b>
                     <p><i class="fa fa-chevron-down"></i></p>
                 </h2>
             </div>
