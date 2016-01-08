@@ -15,7 +15,10 @@ body {
     background-size: cover;
     height: 450px;
     color:#fff;
-    border-bottom:5px #3C8DBC solid;
+}
+
+.blue {
+    color:#3C8DBC;
 }
 
 .hero-short {
@@ -41,7 +44,7 @@ body {
 }
 
 .content {
-    padding-top:10px;
+    padding-top:11px;
 }
 
 h1, h2, h3, h4, h5, h6 {

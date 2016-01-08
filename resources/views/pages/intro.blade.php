@@ -15,7 +15,9 @@
         </div>
         <div class="row spacer">
             <div class="text-center">
-                <h2>Popular videos</h2>
+                <h2 class="blue">
+                    <b>Popular Videos</b>
+                </h2>
             </div>
         </div>
         <section class="content">
