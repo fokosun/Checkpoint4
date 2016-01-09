@@ -12,7 +12,7 @@
                 upload your own youtube videos <br>and start learning awesome new stuff everyday!
             </h4>
             </div>
-            <div class="text-center">
+            <div class="text-center getting-started">
                 <div class="btn-group">
                   <button type="button" class="btn btn-default btn-flat text-capitalize">Get started already</button>
                   <button type="button" class="btn btn-info btn-flat dropdown-toggle" data-toggle="dropdown">
@@ -25,9 +25,9 @@
                     <li><a href="{{ url('/auth/login/facebook') }}"><i class="fa fa-facebook"></i>
                         Sign in with Facebook</a></li>
 
-                    <li><a href="{{ url('/auth/login/twitter"><i class="fa fa-twitter"></i>
+                    <li><a href="{{ url('/auth/login/twitter') }}"><i class="fa fa-twitter"></i>
                         Sign in with Twitter</a></li>
-                    <li><a href="{{ url('/auth/login/github"><i class="fa fa-github-alt"></i>
+                    <li><a href="{{ url('/auth/login/github') }}"><i class="fa fa-github-alt"></i>
                         Sign in with Github</a></li>
                   </ul>
                 </div>

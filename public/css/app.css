@@ -39,6 +39,10 @@ body {
     font-size: 25pt;
 }
 
+.getting-started {
+    margin-left:5%;
+}
+
 .content {
     padding-top:11px;
 }
