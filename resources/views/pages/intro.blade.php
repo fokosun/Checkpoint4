@@ -3,13 +3,13 @@
         <div class="hero">
         <div class="hero-text text-center">
             <h1 class="hero-text-large">
-                <p>Share.Collaborate.Learn</p>
+                <p>Upload.Collaborate.Learn</p>
             </h1>
             <h3 class="hero-text-small">
                 Join our growing community of <br>over 5 million users today
             </h3>
             <h4 class="text-center">
-                who are uploading youtube videos <br>and learning awesome new stuff everyday!
+                upload your own youtube videos <br>and start learning awesome new stuff everyday!
             </h4>
             </div>
             <div class="text-center">
