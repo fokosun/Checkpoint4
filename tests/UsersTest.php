@@ -25,17 +25,17 @@ class UsersTest extends TestCase
             ->seePageIs('/auth/register');
     }
 
-    public function testUserLogin()
-    {
-        $params = [
-            'email'     => 'john@doe.com',
-            'password'  => 'passed'
-        ];
+    // public function testUserLogin()
+    // {
+    //     $params = [
+    //         'email'     => 'john@doe.com',
+    //         'password'  => 'passed'
+    //     ];
 
-        $auth = Auth::shouldReceive('attempt')->once()->with($params, true);
+    //     $auth = Auth::shouldReceive('attempt')->once()->with($params, true);
 
-        dd($auth);
-    }
+    //     dd($auth);
+    // }
 
     public function testLogout()
     {

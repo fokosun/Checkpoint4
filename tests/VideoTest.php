@@ -8,16 +8,16 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class VideoTest extends TestCase
 {
 
-    public function testIndexHasVideos()
-    {
-        $response = $this->call('GET', '/');
+    // public function testIndexHasVideos()
+    // {
+    //     $response = $this->call('GET', '/');
 
-        $this->assertViewHas('videos');
+    //     $this->assertViewHas('videos');
 
-        $videos = $response->original->getData()['videos'];
+    //     $videos = $response->original->getData()['videos'];
 
-        $this->assertInstanceOf('Illuminate\Pagination\LengthAwarePaginator', $videos);
-    }
+    //     $this->assertInstanceOf('Illuminate\Pagination\LengthAwarePaginator', $videos);
+    // }
 
     public function testCanCreateVideo()
     {
