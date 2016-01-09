@@ -11,16 +11,20 @@
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="https://github.com/andela-fokosun/Checkpoint4">
+                        <a href="https://github.com/andela-fokosun/Checkpoint4" target="_blank">
                             <i class="fa fa-code"></i> &nbsp; Fork/Clone
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
+                    @if (Auth::guest())
                     <li>
                         <a href="#" data-toggle="modal" data-target="#gettingstarted">
                             <i class="fa fa-rocket"></i> &nbsp; Getting Started
                         </a>
                     </li>
+                    @else
+                    <li></li>
+                    @endif
                 </ul>
             </div>
 
