@@ -4,8 +4,6 @@
 <div class="row">
     <div class="col-md-12">
         <div class="text-center spacer text-capitalize">
-        <br><br>
-            <h1>my library</h1><br>
             @if(count($categories) > 0)
             @foreach($categories as $category)
             <div class="col-lg-3 col-xs-6">
