@@ -11,7 +11,7 @@
             <small>
                 <i class="fa fa-film"></i> &nbsp; No videos at this time. Check back later!<br>
                 <a href="{{ route('viewUploadVideoForm') }}" class="small-box-footer">
-                    Upload new video <i class="fa fa-arrow-circle-right"></i>
+                    Upload a new video <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </small>
         @endif
@@ -34,7 +34,7 @@
                             <div class="row">
                             @if(count($videos) > 0)
                                 @foreach($videos as $video)
-                                <div class="col-sm-4">
+                                <div class="col-sm-6">
                                     <div class="box-header">
                                         <p class="spacer">
                                             <span class="label label-primary pull-right">

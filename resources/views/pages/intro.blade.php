@@ -3,7 +3,7 @@
         <div class="hero">
         <div class="hero-text text-center">
             <h1 class="hero-text-large">
-                <p>Upload.Collaborate.Learn</p>
+                <p>Upload.Organize.Learn</p>
             </h1>
             <h3 class="hero-text-small">
                 Join our growing community of <br>over 5 million users today
