@@ -63,7 +63,7 @@ class VideoController extends Controller
 
         Video::create($data);
 
-        return redirect()->back()->with('status', 'Your video was successfully uploaded!');
+        return redirect()->back()->with('status', 'Check out your library now or upload new video.');
     }
 
 

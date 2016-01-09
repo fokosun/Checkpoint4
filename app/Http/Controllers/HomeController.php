@@ -20,6 +20,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(Auth::user()) {
+            Auth::logout();
+        }
        return view('welcome');
     }
 

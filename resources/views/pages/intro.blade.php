@@ -14,23 +14,22 @@
             </div>
             <div class="text-center getting-started">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-default btn-flat text-capitalize">Get started already</button>
-                  <button type="button" class="btn btn-info btn-flat dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="{{ url('/auth/register') }}">Register</a></li>
-                    <li><a href="{{ url('/auth/login') }}">Log In</a>
-                    </li><li class="divider"></li>
-                    <li><a href="{{ url('/auth/login/facebook') }}"><i class="fa fa-facebook"></i>
-                        Sign in with Facebook</a></li>
-
-                    <li><a href="{{ url('/auth/login/twitter') }}"><i class="fa fa-twitter"></i>
-                        Sign in with Twitter</a></li>
-                    <li><a href="{{ url('/auth/login/github') }}"><i class="fa fa-github-alt"></i>
-                        Sign in with Github</a></li>
-                  </ul>
+                    <button type="button" class="btn btn-default btn-flat text-capitalize">Get started already</button>
+                    <button type="button" class="btn btn-info btn-flat dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ url('/auth/register') }}">Register</a></li>
+                        <li><a href="{{ url('/auth/login') }}">Log In</a>
+                        </li><li class="divider"></li>
+                        <li><a href="{{ url('/auth/login/facebook') }}"><i class="fa fa-facebook"></i>
+                            Sign in with Facebook</a></li>
+                        <li><a href="{{ url('/auth/login/twitter') }}"><i class="fa fa-twitter"></i>
+                            Sign in with Twitter</a></li>
+                        <li><a href="{{ url('/auth/login/github') }}"><i class="fa fa-github-alt"></i>
+                            Sign in with Github</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
