@@ -14,10 +14,10 @@
       <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
       <!-- Theme style -->
       <link href="{!! load_asset('/components/admin/dist/css/admin.min.css') !!}" rel="stylesheet" type="text/css" />
-      <link href="{!! load_asset('/components/admin/dist/css/skins/_all_skins.min.css') !!}" rel="stylesheet" type="text/css" />
+      <link href="{!! load_asset('/components/admin/dist/css/skins/_all_skins.css') !!}" rel="stylesheet" type="text/css" />
       <link href="{!! load_asset('/css/app.css') !!}" rel="stylesheet" type="text/css" />
     </head>
-    <body class="hold-transition skin-blue layout-top-nav">
+    <body class="hold-transition skin-black layout-top-nav">
         <div class="row">
             @include('header')
             <div class="content-wrapper">
@@ -25,6 +25,7 @@
                     @yield('content')
                 </section>
             </div>
+
         </div>
         <script src="{{ load_asset ('/components/admin/plugins/jQuery/jquery.min.js') }}"></script>
         <!-- Bootstrap 3.3.5 -->
