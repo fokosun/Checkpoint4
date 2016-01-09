@@ -2,10 +2,10 @@
 @section('title', 'Feeds' )
 @section('content')
 <div class="row">
-    <div class="text-center text-capitalize">
+    <div class="text-center spacer">
     @if (count($videos) > 0)
             <a href="{{ route('viewUploadVideoForm') }}" class="small-box-footer">
-                Upload new video <i class="fa fa-arrow-circle-right"></i>
+                Upload a new video <i class="fa fa-arrow-circle-right"></i>
             </a>
         @else
             <small>

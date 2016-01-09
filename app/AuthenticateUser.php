@@ -28,7 +28,7 @@ class AuthenticateUser
 
         $this->auth->login($user, true);
 
-        return redirect('/user/profile');
+        return redirect('/feeds');
     }
 
     /**
