@@ -32,8 +32,8 @@
             <div class="navbar-custom-menu">
             @if (Auth::guest())
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ route('getRegister') }}">REGISTER</a></li>
-                    <li><a href="{{ route('getLogin') }}">LOG IN</a></li>
+                    <li><a href="{{ route('getRegister') }}">Register</a></li>
+                    <li><a href="{{ route('getLogin') }}">Sign In</a></li>
                 </ul>
             @else
                 <ul class="nav navbar-nav">
@@ -56,10 +56,10 @@
                             </li>
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="/profile/{{ Auth::user()->username }}/edit" title="edit my profile" class="btn btn-default btn-flat">
+                                    <a href="/profile/{{ Auth::user()->username }}/edit" title="Edit my profile" class="btn btn-default btn-flat">
                                         <i class="fa fa-pencil fa-fw"></i>
                                     </a>
-                                    <a href="{{ route('profile') }}" title="my dashboard" class="btn btn-default btn-flat">
+                                    <a href="{{ route('profile') }}" title="Here, all my stuff goes" class="btn btn-default btn-flat">
                                         <i class="fa fa-bars"></i>&nbsp;My Library</a>
                                 </div>
                                 <div class="pull-right">
