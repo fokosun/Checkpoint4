@@ -21,7 +21,8 @@
                   </button>
                   <ul class="dropdown-menu" role="menu">
                     <li><a href="{{ url('/auth/register') }}">Register</a></li>
-                    <li><a href="{{ url('/auth/login') }}">Log In</a></li>
+                    <li><a href="{{ url('/auth/login') }}">Log In</a>
+                    </li><li class="divider"></li>
                     <li><a href="{{ url('/auth/login/facebook') }}"><i class="fa fa-facebook"></i>
                         Sign in with Facebook</a></li>
 

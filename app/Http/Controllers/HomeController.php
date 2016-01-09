@@ -20,10 +20,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+       return view('welcome');
+    }
+
+    public function feeds()
+    {
         $videos = Video::paginate(6);
         $latest = Video::where('created_at', '>=', Carbon::now()->subMonth())->get()->last();
         $categories = Category::all();
 
-       return view('welcome', compact('videos', 'latest'))->with('categories', $categories);
+       return view('pages.feed', compact('videos', 'latest'))->with('categories', $categories);
     }
 }

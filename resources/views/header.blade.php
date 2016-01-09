@@ -2,7 +2,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="navbar-header">
-                <a href="/" class="navbar-brand"><b>TECH</b>ADEMIA</a>
+                <a href="/feeds" class="navbar-brand"><b>TECH</b>ADEMIA</a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                     <i class="fa fa-bars"></i>
                 </button>

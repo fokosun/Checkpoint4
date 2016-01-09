@@ -19,6 +19,12 @@ Route::get('/', [
     'as'   => 'home'
 ]);
 
+Route::get('/feeds', [
+    'uses' => 'HomeController@feeds',
+    'middleware' => 'auth',
+    'as'   => 'feeds'
+]);
+
 /*
 | -------------------------------------------------------------
 | * Authentication routes
