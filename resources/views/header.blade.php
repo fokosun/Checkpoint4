@@ -1,5 +1,5 @@
 <header class="main-header">
-    <nav class="navbar navbar-fixed-top">
+    <nav class="navbar">
         <div class="container">
             <div class="navbar-header">
                 <a href="/" class="navbar-brand"><b>TECH</b>ADEMIA</a>

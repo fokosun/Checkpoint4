@@ -1,6 +1,5 @@
 @extends('layout')
-@section('title', 'TECHADEMIA')
+@section('title', 'Techademia')
 @section('content')
     @include('pages.intro')
-    @include('pages.outro')
 @endsection
