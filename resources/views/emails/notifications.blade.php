@@ -2,7 +2,7 @@
     <tr>
         <td>
             <h3 align="center" style="padding: 15px; color:#999;">
-                <img src="https://goo.gl/QX2yIf" /><br>
+                <img src="http://goo.gl/J8bPlh" /><br>
                 <small>Hi, {{ $user }}!</small>
             </h3>
         </td>
