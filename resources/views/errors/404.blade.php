@@ -15,16 +15,7 @@
                     Sorry, the page you are looking for may have moved
                     or does not exist. Click <a href="{{ URL::to('/') }}">here</a> togo back home
                 </p>
-                <form class="search-form">
-                    <div class="input-group">
-                        <input type="text" name="search" class="form-control" placeholder="Search">
-                            <div class="input-group-btn">
-                                <button type="submit" name="submit" class="btn btn-warning btn-flat">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                    </div>
-                </form>
+
             </div>
         </div>
     </section>
