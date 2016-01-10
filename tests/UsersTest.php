@@ -4,19 +4,19 @@ use Techademia\User;
 
 class UsersTest extends TestCase
 {
-    public function testUserRegistrationWithCompleteFormParams()
-    {
-        $this->visit('/auth/register')
-            ->type('john doe', 'fullname')
-            ->type('johndoe', 'username')
-            ->type('programmer', 'occupation')
-            ->type('john@doe.com', 'email')
-            ->type('passed', 'password')
-            ->check('terms')
-            ->press('Register')
-            ->seePageIs('/auth/login')
-            ->seeInDatabase('users', ['username' => 'johndoe']);
-    }
+    // public function testUserRegistrationWithCompleteFormParams()
+    // {
+    //     $this->visit('/auth/register')
+    //         ->type('john doe', 'fullname')
+    //         ->type('johndoe', 'username')
+    //         ->type('programmer', 'occupation')
+    //         ->type('john@doe.com', 'email')
+    //         ->type('passed', 'password')
+    //         ->check('terms')
+    //         ->press('Register')
+    //         ->seePageIs('/auth/login')
+    //         ->seeInDatabase('users', ['username' => 'johndoe']);
+    // }
 
     public function testUserRegistrationWithInCompleteFormParams()
     {
