@@ -1,0 +1,15 @@
+TAP version 13
+ok 1 - CategoryTest::testSeeInDatabase
+ok 2 - RoutesTest::testInvalidRoutes
+ok 3 - RoutesTest::testGetLandingPage
+ok 4 - RoutesTest::testSeeRegistrationLinkOnLandingPage
+ok 5 - RoutesTest::testSeeLoginLinkOnLandingPage
+ok 6 - RoutesTest::testSeeGettingStartedLinkOnLandingPage
+ok 7 - RoutesTest::testGetRegistrationPage
+ok 8 - RoutesTest::testGetLoginPage
+ok 9 - UsersTest::testUserRegistrationWithCompleteFormParams
+ok 10 - UsersTest::testUserRegistrationWithInCompleteFormParams
+ok 11 - UsersTest::testLogout
+ok 12 - VideoTest::testCanCreateVideo
+ok 13 - VideoTest::testCanUpdateVideo
+1..13
