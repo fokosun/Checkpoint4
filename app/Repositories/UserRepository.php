@@ -21,12 +21,13 @@ class UserRepository
         $user = User::where('provider_id', '=', $userData->id)->first();
         if(!$user) {
 
-            // if ($userData->getNickName() === null) {
-            //     $social_username = str_replace(" ", "-", $userData->getName());
-            // } else {
-            //     $social_username = $userData->getNickName();
-            // }
+            if ($userData->getNickName() === null) {
+                $social_username = str_replace(" ", "-", $userData->getName());
+            } else {
+                $social_username = $userData->getNickName();
+            }
 
+            dd($userData);
             $user = User::create([
                 'fullname' => $userData->getName(),
                 'username' => $social_username,
