@@ -27,7 +27,6 @@ class UserRepository
                 $social_username = $userData->getNickName();
             }
 
-            dd($userData);
             $user = User::create([
                 'fullname' => $userData->getName(),
                 'username' => $social_username,
