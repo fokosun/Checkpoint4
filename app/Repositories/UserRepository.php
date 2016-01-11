@@ -62,7 +62,7 @@ class UserRepository
     {
         $user = User::where('provider_id', '=', $userData->id)->first();
 
-        if($user == null) {
+        if($user === null) {
             $user = User::create([
                 'fullname' => $userData->getName(),
                 'email' => $userData->getEmail(),
