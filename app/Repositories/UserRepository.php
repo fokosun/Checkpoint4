@@ -20,7 +20,7 @@ class UserRepository
             $user = $this->github($userData, $provider);
         }
 
-        // $this->checkIfUserNeedsUpdating($userData, $user);
+        $this->checkIfUserNeedsUpdating($userData, $user);
 
         return $user;
     }
@@ -63,7 +63,6 @@ class UserRepository
         if(!$user) {
             $user = User::create([
                 'fullname' => $userData->getName(),
-                'email' => $userData->getEmail(),
                 'username' => $userData->getName(),
                 'provider' => $provider,
                 'provider_id' => $userData->getId(),
@@ -78,19 +77,16 @@ class UserRepository
     {
         $socialData = [
             'avatar' => $userData->getAvatar(),
-            'email' => $userData->getEmail(),
             'fullname' => $userData->getName(),
             'username' => $userData->getNickName(),
         ];
         $dbData = [
             'avatar' => $user->avatar,
-            'email' => $user->email,
             'fullname' => $user->fullname,
             'username' => $user->username,
         ];
         if (!empty(array_diff($dbData, $socialData))) {
             $user->avatar = $userData['avatar'];
-            $user->email = $userData['email'];
             $user->fullname = $userData['fullname'];
             $user->username = $userData['username'];
             $user->save();
