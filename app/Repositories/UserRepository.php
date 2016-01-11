@@ -3,9 +3,16 @@
 namespace Techademia\Repositories;
 
 use Techademia\User;
+use Illuminate\Contracts\Auth\Guard;
 
 class UserRepository
 {
+
+    public function __construct(Guard $auth)
+    {
+        $this->auth = $auth;
+    }
+
     public function findByUserNameOrCreate($userData, $provider)
     {
         $data = [
@@ -28,7 +35,7 @@ class UserRepository
             ]);
         } else {
             if ($user->email == $userData->getEmail() || $user->username == $userData->getNickName()) {
-                Auth::login($user, true);
+                $this->auth->login($user, true);
             }
         }
 
