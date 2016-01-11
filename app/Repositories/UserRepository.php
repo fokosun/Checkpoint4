@@ -44,6 +44,7 @@ class UserRepository
     public function facebook($userData, $provider)
     {
         $user = User::where('username', '=', $userData->getName())->first();
+        dd($user);
         if(!$user) {
             $user = User::create([
                 'fullname' => $userData->getName(),
