@@ -6,30 +6,38 @@ use Techademia\User;
 
 class UserRepository
 {
-    public function findByUsernameOrCreate($userData, $provider)
+    public function findByUserNameOrCreate($userData, $provider)
     {
-        $user = $this->createBySocialAccount($userData, $provider);
-
+        $twitter = $provider;
+        $user = ( isset($twitter))?$this->createByTwitter($userData, $provider):$this->createByFaceBookOrGithub($userData, $provider);
         $this->checkIfUserNeedsUpdating($userData, $user);
 
         return $user;
     }
 
-    public function createBySocialAccount($userData, $provider)
+    public function createByTwitter($userData, $provider)
     {
-        $social_username = "";
         $user = User::where('provider_id', '=', $userData->id)->first();
         if(!$user) {
-
-            if ($userData->getNickName() === null) {
-                $social_username = str_replace(" ", "-", $userData->getName());
-            } else {
-                $social_username = $userData->getNickName();
-            }
-
             $user = User::create([
                 'fullname' => $userData->getName(),
-                'username' => $social_username,
+                'username' => $userData->getNickName(),
+                'provider' => $provider,
+                'provider_id' => $userData->getId(),
+                'avatar' => $userData->getAvatar(),
+            ]);
+        }
+
+        return $user;
+    }
+
+    public function createByFacebookOrGithub($userData, $provider)
+    {
+        $user = User::where('provider_id', '=', $userData->id)->first();
+        if(!$user) {
+            $user = User::create([
+                'fullname' => $userData->getName(),
+                'username' => $userData->getNickName(),
                 'email' => $userData->getEmail(),
                 'provider' => $provider,
                 'provider_id' => $userData->getId(),

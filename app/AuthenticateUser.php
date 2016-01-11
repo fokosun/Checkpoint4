@@ -21,10 +21,11 @@ class AuthenticateUser
     public function execute($request, $listener, $provider)
     {
         if (! $request) {
+
             return $this->getAuthorizationFirst($provider);
         }
         $user = $this->users->findByUserNameOrCreate($this->getSocialUser($provider), $provider);
-        dd($this->getSocialUser($provider));
+
         $this->auth->login($user, true);
 
         return redirect('/feeds');
