@@ -47,7 +47,6 @@ class UserRepository
         if(!$user) {
             $user = User::create([
                 'fullname' => $userData->getName(),
-                'email' => $userData->getEmail(),
                 'username' => str_replace(" ", "-", $userData->getName()),
                 'provider' => $provider,
                 'provider_id' => $userData->getId(),
