@@ -37,11 +37,11 @@ class UserRepository
         if(!$user) {
             $user = User::create([
                 'fullname' => $userData->getName(),
-                'username' => $userData->getNickName(),
                 'email' => $userData->getEmail(),
+                'username' => $userData->getNickName(),
                 'provider' => $provider,
-                'provider_id' => $userData->getId(),
                 'avatar' => $userData->getAvatar(),
+                'provider_id' => $userData->getId(),
             ]);
         }
 
