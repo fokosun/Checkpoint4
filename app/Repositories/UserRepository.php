@@ -12,7 +12,7 @@ class UserRepository
             $user = $this->facebook($userData, $provider);
         } elseif($provider == 'Twitter') {
             $user = $this->twitter($userData, $provider);
-        } else {
+        } elseif($provider == 'Github') {
             $user = $this->github($userData, $provider);
         }
 
