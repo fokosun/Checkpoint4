@@ -123,7 +123,7 @@ class AuthController extends Controller
 
         User::create($data);
 
-        return redirect('/auth/login');
+        return redirect('/auth/login')->with('status', 'Great job! Please Login to continue.');
     }
 
     public function doSocial(AuthenticateUser $authenticate, Request $request, $provider)

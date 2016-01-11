@@ -8,9 +8,9 @@
             <h3 class="hero-text-small">
                 Join our growing community of <br>over 5 million users today
             </h3>
-            <h4 class="text-center">
+            <h5 class="text-center h5">
                 upload your own youtube videos <br>and start learning awesome new stuff everyday!
-            </h4>
+            </h5>
             </div>
             <div class="text-center getting-started">
                 <div class="btn-group">

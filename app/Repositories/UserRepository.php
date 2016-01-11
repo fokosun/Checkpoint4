@@ -15,14 +15,6 @@ class UserRepository
 
     public function findByUserNameOrCreate($userData, $provider)
     {
-        // $data = [
-        //         'provider_id'   => $userData->getId(),
-        //         'fullname'      => $userData->getName(),
-        //         'avatar'        => $userData->getAvatar(),
-        //     ];
-
-        // $data['username'] = $userData->getId();
-
         $user = User::where('provider_id', '=', $userData->id)->first();
 
         if(!$user) {
@@ -35,8 +27,6 @@ class UserRepository
             ]);
         }
         $this->auth->loginUsingId($user->id);
-        // $this->auth->login($user, true);
-
         $this->checkIfUserNeedsUpdating($userData, $user);
 
         return $user;

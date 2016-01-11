@@ -49,7 +49,6 @@
                         Sign in with Github
                 </a>
             </div>
-            <br>
             <small>
                 <a href="{{ route('getRegister') }}" class="text-center">Register a new membership</a>
             </small>
