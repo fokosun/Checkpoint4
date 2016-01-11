@@ -64,7 +64,7 @@ class UserRepository
             $user = User::create([
                 'fullname' => $userData->getName(),
                 'email' => $userData->getEmail(),
-                'username' => str_replace(" ", "-", $userData->getName()),
+                'username' => $userData->getName(),
                 'provider' => $provider,
                 'provider_id' => $userData->getId(),
                 'avatar' => $userData->getAvatar(),
