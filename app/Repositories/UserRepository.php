@@ -35,6 +35,11 @@ class UserRepository
     {
         $user = User::where('provider_id', '=', $userData->id)->first();
         if(!$user) {
+
+            if ($provider == "facebook") {
+                $userData->getNickName() = str_replace(" ", "-", $userData->getName());
+            }
+
             $user = User::create([
                 'fullname' => $userData->getName(),
                 'username' => $userData->getNickName(),
