@@ -8,14 +8,20 @@ class UserRepository
 {
     public function findByUserNameOrCreate($userData, $provider)
     {
-        $twitter = $provider;
-        $user = ( isset($twitter))?$this->createByTwitter($userData, $provider):$this->createByFaceBookOrGithub($userData, $provider);
+        if($provider == 'Facebook') {
+            $user = $this->facebook($userData, $provider);
+        } elseif($provider == 'Twitter') {
+            $user = $this->twitter($userData, $provider);
+        } else {
+            $user = $this->github($userData, $provider);
+        }
+
         $this->checkIfUserNeedsUpdating($userData, $user);
 
         return $user;
     }
 
-    public function createByTwitter($userData, $provider)
+    public function twitter($userData, $provider)
     {
         $user = User::where('provider_id', '=', $userData->id)->first();
         if(!$user) {
@@ -31,7 +37,24 @@ class UserRepository
         return $user;
     }
 
-    public function createByFacebookOrGithub($userData, $provider)
+    public function facebook($userData, $provider)
+    {
+        $user = User::where('provider_id', '=', $userData->id)->first();
+        if(!$user) {
+            $user = User::create([
+                'fullname' => $userData->getName(),
+                'email' => $userData->getEmail(),
+                'username' => str_replace(" ", "-", $userData->getName()),
+                'provider' => $provider,
+                'provider_id' => $userData->getId(),
+                'avatar' => $userData->getAvatar(),
+            ]);
+        }
+
+        return $user;
+    }
+
+    public function github($userData, $provider)
     {
         $user = User::where('provider_id', '=', $userData->id)->first();
         if(!$user) {
