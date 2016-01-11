@@ -71,8 +71,6 @@
                         </ul>
                     </li>
                 </ul>
-
-                            {{ dd(Auth::user()->id) }}
                 @endif
             </div>
         </div>
