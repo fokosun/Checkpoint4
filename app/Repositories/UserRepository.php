@@ -54,10 +54,11 @@ class UserRepository
             'fullname' => $user->fullname,
             'username' => $user->username,
         ];
+
         if (!empty(array_diff($dbData, $socialData))) {
-            $user->avatar = $userData['avatar'];
-            $user->fullname = $userData['fullname'];
-            $user->username = $userData['username'];
+            $user->avatar = $userData->getAvatar();
+            $user->fullname = $userData->getName();
+            $user->username = $userData->getNickName();
             $user->save();
         }
     }
