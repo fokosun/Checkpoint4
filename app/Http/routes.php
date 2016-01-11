@@ -89,7 +89,7 @@ Route::get('/profile/{id}/edit', [
     'uses'          => 'UserController@edit'
 ]);
 
-Route::post('/profile/{username}/edit', [
+Route::post('/profile/{id}/edit', [
     'uses' => 'UserController@postUpdateUserProfile',
     'as'   => 'postUpdateUserProfile'
 ]);
