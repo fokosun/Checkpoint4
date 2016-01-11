@@ -33,16 +33,19 @@ class UserRepository
 
     public function createByFacebookOrGithub($userData, $provider)
     {
+        $social_username = "";
         $user = User::where('provider_id', '=', $userData->id)->first();
         if(!$user) {
 
-            if ($provider == "facebook") {
-                $userData->getNickName() = str_replace(" ", "-", $userData->getName());
+            if ($userData->getNickName() === null) {
+                $social_username = str_replace(" ", "-", $userData->getName());
+            } else {
+                $social_username = $userData->getNickName();
             }
 
             $user = User::create([
                 'fullname' => $userData->getName(),
-                'username' => $userData->getNickName(),
+                'username' => $social_username,
                 'email' => $userData->getEmail(),
                 'provider' => $provider,
                 'provider_id' => $userData->getId(),
