@@ -61,12 +61,12 @@ class UserRepository
     public function github($userData, $provider)
     {
         $user = User::where('provider_id', '=', $userData->id)->first();
-
+        dd($user);
         if(! isset($user)) {
             $user = User::create([
                 'fullname' => $userData->getName(),
                 'email' => $userData->getEmail(),
-                'username' => $userData->getNickName(),
+                'username' => $userData->getName(),
                 'provider' => $provider,
                 'avatar' => $userData->getAvatar(),
                 'provider_id' => $userData->getId(),
