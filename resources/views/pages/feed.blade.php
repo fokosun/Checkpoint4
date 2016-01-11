@@ -58,7 +58,11 @@
                                                     </span>
                                                 </span>
                                                 {{ $video->description }}<br>
+                                                @if(Auth::user())
+                                                <small>upload by: <b>You</b> </small>
+                                                @else
                                                 <small>upload by: {{ $video->user->fullname}}</small>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
