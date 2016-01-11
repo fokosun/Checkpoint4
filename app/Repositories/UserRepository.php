@@ -43,11 +43,12 @@ class UserRepository
 
     public function facebook($userData, $provider)
     {
-        $user = User::where('provider_id', '=', $userData->id)->first();
+        $fb_username = str_replace(" ", "-", $userData->getName());
+        $user = User::where('username', '=', $fb_username)->first();
         if(!$user) {
             $user = User::create([
-                'fullname' => 'fb' . str_replace(" ", "-", $userData->getName()),
-                'username' => str_replace(" ", "-", $userData->getName()),
+                'fullname' => $fb_username,
+                'username' => $fb_username,
                 'provider' => $provider,
                 'provider_id' => $userData->getId(),
                 'avatar' => $userData->getAvatar(),
