@@ -27,18 +27,19 @@ class UserRepository
 
     public function twitter($userData, $provider)
     {
-        $user = User::where('provider_id', '=', $userData->id)->first();
-        if(!$user) {
-            $user = User::create([
-                'fullname' => $userData->getName(),
-                'username' => $userData->getName(),
-                'provider' => $provider,
-                'provider_id' => $userData->getId(),
-                'avatar' => $userData->getAvatar(),
-            ]);
-        }
+        // $user = User::where('provider_id', '=', $userData->id)->first();
+        // if(!$user) {
+        //     $user = User::create([
+        //         'fullname' => $userData->getName(),
+        //         'username' => $userData->getName(),
+        //         'provider' => $provider,
+        //         'provider_id' => $userData->getId(),
+        //         'avatar' => $userData->getAvatar(),
+        //     ]);
+        // }
 
-        return $user;
+        // return $user;
+        dd($userData);
     }
 
     public function facebook($userData, $provider)
@@ -48,18 +49,19 @@ class UserRepository
 
     public function github($userData, $provider)
     {
-        $user = User::where('provider_id', '=', $userData->id)->first();
-        if(!$user) {
-            $user = User::create([
-                'fullname' => $userData->getName(),
-                'username' => $userData->getName(),
-                'provider' => $provider,
-                'provider_id' => $userData->getId(),
-                'avatar' => $userData->getAvatar(),
-            ]);
-        }
+        // $user = User::where('provider_id', '=', $userData->id)->first();
+        // if(!$user) {
+        //     $user = User::create([
+        //         'fullname' => $userData->getName(),
+        //         'username' => $userData->getName(),
+        //         'provider' => $provider,
+        //         'provider_id' => $userData->getId(),
+        //         'avatar' => $userData->getAvatar(),
+        //     ]);
+        // }
 
-        return $user;
+        // return $user;
+        dd($userData);
     }
 
     public function checkIfUserNeedsUpdating($userData, $user)
