@@ -34,31 +34,19 @@ class UserRepository
     public function createByFacebookOrGithub($userData, $provider)
     {
         $user = User::where('provider_id', '=', $userData->id)->first();
-        if($provider == 'Facebook') {
-            if(!$user) {
-                $user = User::create([
-                    'fullname' => $userData->getName(),
-                    'email' => $userData->getEmail(),
-                    'provider' => $provider,
-                    'provider_id' => $userData->getId(),
-                    'avatar' => $userData->getAvatar(),
-                    'username' => $userData->getNickName(),
-                ]);
-            }
-        } elseif($provider == 'Github') {
-            if(!$user) {
-                $user = User::create([
-                    'fullname' => $userData->getName(),
-                    'username' => $userData->getNickName(),
-                    'email' => $userData->getEmail(),
-                    'provider' => $provider,
-                    'provider_id' => $userData->getId(),
-                    'avatar' => $userData->getAvatar(),
-                ]);
-            }
+        if(!$user) {
+            $user = User::create([
+                'fullname' => $userData->getName(),
+                'username' => $userData->getNickName(),
+                'email' => $userData->getEmail(),
+                'provider' => $provider,
+                'provider_id' => $userData->getId(),
+                'avatar' => $userData->getAvatar(),
+            ]);
         }
-    return $user;
-}
+
+        return $user;
+    }
 
     public function checkIfUserNeedsUpdating($userData, $user)
     {

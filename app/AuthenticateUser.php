@@ -26,6 +26,8 @@ class AuthenticateUser
         }
         $user = $this->users->findByUserNameOrCreate($this->getSocialUser($provider), $provider);
 
+        dd($this->getSocialUser($provider));
+
         $this->auth->login($user, true);
 
         return redirect('/feeds');
