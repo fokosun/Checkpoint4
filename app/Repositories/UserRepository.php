@@ -15,28 +15,28 @@ class UserRepository
 
     public function findByUserNameOrCreate($userData, $provider)
     {
-        $data = [
-                'provider_id'   => $userData->getId(),
-                'fullname'      => $userData->getName(),
-                'avatar'        => $userData->getAvatar(),
-            ];
+        // $data = [
+        //         'provider_id'   => $userData->getId(),
+        //         'fullname'      => $userData->getName(),
+        //         'avatar'        => $userData->getAvatar(),
+        //     ];
 
-        $data['username'] = $userData->getId();
+        // $data['username'] = $userData->getId();
 
         $user = User::where('provider_id', '=', $userData->id)->first();
 
         if(!$user) {
             $user = User::create([
-                'fullname' => $data['fullname'],
-                'username' => $data['username'],
+                'fullname' => $userData->getName(),
+                'username' => $userData->getId(),
+                'provider_id' => $userData->getId(),
+                'avatar' => $userData->getAvatar(),
                 'provider' => $provider,
-                'provider_id' => $data['provider_id'],
-                'avatar' => $data['avatar'],
             ]);
-        // } else {
-        //     if ($user->email == $userData->getEmail() || $user->username == $userData->getNickName()) {
-        //         $this->auth->login($user, true);
-        //     }
+        } else {
+            if ($user->email == $userData->getEmail() || $user->username == $userData->getNickName()) {
+                $this->auth->login($user, true);
+            }
         }
 
         $this->checkIfUserNeedsUpdating($userData, $user);
