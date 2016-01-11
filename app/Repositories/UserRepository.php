@@ -20,11 +20,11 @@ class UserRepository
         $user = User::where('provider_id', '=', $userData->id)->first();
         if(!$user) {
             $user = User::create([
-                'fullname' => $userData->name,
-                'username' => $userData->nickname,
+                'fullname' => $userData->getName(),
+                'username' => $userData->getNickName(),
                 'provider' => $provider,
-                'provider_id' => $userData->id,
-                'avatar' => $userData->avatar,
+                'provider_id' => $userData->getId(),
+                'avatar' => $userData->getAvatar(),
             ]);
         }
 
@@ -36,12 +36,12 @@ class UserRepository
         $user = User::where('provider_id', '=', $userData->id)->first();
         if(!$user) {
             $user = User::create([
-                'fullname' => $userData->name,
-                'username' => $userData->nickname,
-                'email' => $userData->email,
+                'fullname' => $userData->getName(),
+                'username' => $userData->getNickName(),
+                'email' => $userData->getEmail(),
                 'provider' => $provider,
-                'provider_id' => $userData->id,
-                'avatar' => $userData->avatar,
+                'provider_id' => $userData->getId(),
+                'avatar' => $userData->getAvatar(),
             ]);
         }
 
@@ -51,10 +51,10 @@ class UserRepository
     public function checkIfUserNeedsUpdating($userData, $user)
     {
         $socialData = [
-            'avatar' => $userData->avatar,
-            'email' => $userData->email,
-            'fullname' => $userData->name,
-            'username' => $userData->nickname,
+            'avatar' => $userData->getAvatar(),
+            'email' => $userData->getEmail(),
+            'fullname' => $userData->getName(),
+            'username' => $userData->getNickName(),
         ];
         $dbData = [
             'avatar' => $user->avatar,
@@ -63,10 +63,10 @@ class UserRepository
             'username' => $user->username,
         ];
         if (!empty(array_diff($dbData, $socialData))) {
-            $user->avatar = $userData->avatar;
-            $user->email = $userData->email;
-            $user->fullname = $userData->name;
-            $user->username = $userData->nickname;
+            $user->avatar = $userData['avatar'];
+            $user->email = $userData['email'];
+            $user->fullname = $userData['fullname'];
+            $user->username = $userData['username'];
             $user->save();
         }
     }
