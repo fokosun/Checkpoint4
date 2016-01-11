@@ -8,50 +8,33 @@ class UserRepository
 {
     public function findByUserNameOrCreate($userData, $provider)
     {
-        dd($userData);
+        $data = [
+                'provider_id'   => $userData->getId(),
+                'fullname'      => $userData->getName(),
+                'avatar'        => $userData->getAvatar(),
+            ];
+
+        $data['username'] = $userData->getId();
+
+        $user = User::where('provider_id', '=', $userData->id)->first();
+
+        if(!$user) {
+            $user = User::create([
+                'fullname' => $data['fullname'],
+                'username' => $data['username'],
+                'provider' => $provider,
+                'provider_id' => $data['provider_id'],
+                'avatar' => $data['avatar'],
+            ]);
+        } else {
+            if ($user->email == $userData->getEmail() || $user->username == $userData->getNickName()) {
+                Auth::login($user, true);
+            }
+        }
 
         $this->checkIfUserNeedsUpdating($userData, $user);
 
         return $user;
-    }
-
-    public function twitter($userData, $provider)
-    {
-        // $user = User::where('provider_id', '=', $userData->id)->first();
-        // if(!$user) {
-        //     $user = User::create([
-        //         'fullname' => $userData->getName(),
-        //         'username' => $userData->getName(),
-        //         'provider' => $provider,
-        //         'provider_id' => $userData->getId(),
-        //         'avatar' => $userData->getAvatar(),
-        //     ]);
-        // }
-
-        // return $user;
-        dd($userData);
-    }
-
-    public function facebook($userData, $provider)
-    {
-        dd($userData);
-    }
-
-    public function github($userData, $provider)
-    {
-        // $user = User::where('provider_id', '=', $userData->id)->first();
-        // if(!$user) {
-        //     $user = User::create([
-        //         'fullname' => $userData->getName(),
-        //         'username' => $userData->getName(),
-        //         'provider' => $provider,
-        //         'provider_id' => $userData->getId(),
-        //         'avatar' => $userData->getAvatar(),
-        //     ]);
-        // }
-
-        // return $user;
-        dd($userData);
     }
 
     public function checkIfUserNeedsUpdating($userData, $user)
