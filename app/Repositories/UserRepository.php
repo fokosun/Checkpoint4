@@ -48,7 +48,7 @@ class UserRepository
         if(!$user) {
             $user = User::create([
                 'fullname' => $userData->getName(),
-                'username' => str_replace(" ", "-", $userData->getName()),
+                'username' => str_replace(" ", "-", $userData->getName()) . 'fb',
                 'provider' => $provider,
                 'provider_id' => $userData->getId(),
                 'avatar' => $userData->getAvatar(),
