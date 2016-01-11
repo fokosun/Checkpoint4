@@ -24,7 +24,6 @@
                         <div class="col-xs-8">
                             <div class="checkbox icheck">
                                 <label>
-                                  <input type="checkbox"> Remember Me
                                 </label>
                             </div>
                         </div>
@@ -50,9 +49,6 @@
                         Sign in with Github
                 </a>
             </div>
-            <small>
-                <a href="">I forgot my password</a>
-            </small>
             <br>
             <small>
                 <a href="{{ route('getRegister') }}" class="text-center">Register a new membership</a>
