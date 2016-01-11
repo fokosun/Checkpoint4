@@ -61,6 +61,8 @@ class UserRepository
     public function github($userData, $provider)
     {
         $user = User::where('provider_id', '=', $userData->id)->first();
+        dd($user);
+        die();
         if(!$user) {
             $user = User::create([
                 'fullname' => $userData->getName(),
