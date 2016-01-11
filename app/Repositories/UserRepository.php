@@ -33,10 +33,10 @@ class UserRepository
                 'provider_id' => $data['provider_id'],
                 'avatar' => $data['avatar'],
             ]);
-        } else {
-            if ($user->email == $userData->getEmail() || $user->username == $userData->getNickName()) {
-                $this->auth->login($user, true);
-            }
+        // } else {
+        //     if ($user->email == $userData->getEmail() || $user->username == $userData->getNickName()) {
+        //         $this->auth->login($user, true);
+        //     }
         }
 
         $this->checkIfUserNeedsUpdating($userData, $user);
