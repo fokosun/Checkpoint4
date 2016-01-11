@@ -8,17 +8,7 @@ class UserRepository
 {
     public function findByUserNameOrCreate($userData, $provider)
     {
-        if ($provider == 'facebook') {
-            $user = $this->facebook($userData, $provider);
-        }
-
-        if ($provider == 'twitter') {
-            $user = $this->twitter($userData, $provider);
-        }
-
-        if ($provider == 'github') {
-            $user = $this->github($userData, $provider);
-        }
+        dd($userData);
 
         $this->checkIfUserNeedsUpdating($userData, $user);
 
