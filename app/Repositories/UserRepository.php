@@ -61,7 +61,8 @@ class UserRepository
     public function github($userData, $provider)
     {
         $user = User::where('provider_id', '=', $userData->id)->first();
-        if($user !== null) {
+
+        if(! isset($user)) {
             $user = User::create([
                 'fullname' => $userData->getName(),
                 'email' => $userData->getEmail(),
@@ -72,7 +73,7 @@ class UserRepository
             ]);
         }
 
-        return $user;
+        dd($user);
     }
 
     public function checkIfUserNeedsUpdating($userData, $user)
