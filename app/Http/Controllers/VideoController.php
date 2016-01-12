@@ -8,13 +8,15 @@ use Techademia\Video;
 use Techademia\Category;
 use Techademia\Http\Requests;
 use Illuminate\Http\Request;
+use Techademia\Repositories\VideoRepository;
 use Techademia\Http\Controllers\Controller;
 
 class VideoController extends Controller
 {
-    public function __construct()
+    public function __construct(VideoRepository $videos)
     {
         $this->middleware('auth');
+        $this->videos = $videos;
     }
 
     /**
@@ -29,16 +31,6 @@ class VideoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -50,7 +42,7 @@ class VideoController extends Controller
             'title'         => 'required',
             'description'   => 'required|max:255',
             'category'      => 'required',
-            'url'           => 'required|video_url'
+            'url'           => 'required'
         ]);
 
         if ($v->fails()) {
@@ -60,13 +52,12 @@ class VideoController extends Controller
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         $data['category_id'] = $request->category;
+        $data['url'] = $this->getYoutubeEmbedUrl($request);
 
         Video::create($data);
 
         return redirect()->back()->with('status', 'Check out your library now or upload new video.');
     }
-
-
 
     /**
      * Show the form for editing the specified resource.
@@ -89,30 +80,59 @@ class VideoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($requestData, $id)
     {
-        try {
-            $video = Video::find($id);
-            $video->title = $request->title;
-            $video->description = $request->description;
-            $video->url = $request->url;
-            $video->category_id = $request->category;
-            $video->save();
-            //redirect
-            return back()->with('status', 'Like a real boss, you did it!');
-        } catch (QueryException $e) {
-            return back()->with('status', $e->getMessage());
+        $video = Video::find($id);
+        $video->title = $requestData['title'];
+        $video->description = $requestData['description'];
+        $video->url = $requestData['url'];
+        $video->category_id = $requestData['category'];
+        $video->save();
+        return redirect()->back()->with('status', 'Like a real boss, you did it!');
+
+    }
+
+    public function checkDiff(Request $request, $id)
+    {
+        $requestData = [
+            'title'         => $request->title,
+            'description'   => $request->description,
+            'category'      => $request->category,
+            'url'           => $request->url,
+        ];
+
+        $data = [
+            'title'         => $this->videos->find($id)->title,
+            'description'   => $this->videos->find($id)->description,
+            'category'      => $this->videos->find($id)->category,
+            'url'           => $this->videos->find($id)->url,
+        ];
+
+        if(! is_null(array_diff($requestData, $data))) {
+            return $this->update($requestData, $id);
         }
     }
 
     /**
-     * Remove the specified resource from storage.
+     * get youtube mebed url
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  $request
+     * @return
      */
-    public function destroy($id)
+    public function getYoutubeEmbedUrl(Request $request)
     {
-        //
+        $id = NULL;
+        $videoIdRegex = NULL;
+        if (strpos($request->url, 'youtu') !== FALSE) {
+            if (strpos($request->url, 'youtube.com') !== FALSE) {
+                preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $request->url, $matches);
+                $id = $matches[1];
+            } else if (strpos($request->url, 'youtu.be') !== FALSE) {
+                $videoIdRegex = '/youtu.be\/([a-zA-Z0-9_]+)\??/i';
+                preg_match($videoIdRegex, $request->url, $matches);
+                $id = $matches[1];
+            }
+        }
+        return $src = 'http://www.youtube.com/embed/' . $id . '?autoplay=0';
     }
 }

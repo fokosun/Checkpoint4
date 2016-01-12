@@ -10,7 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+Route::get('/shit', [
+    'uses' => 'ShitCtrl@shit',
+    'as' => 'shit'
+]);
+Route::post('/shit', [
+    'uses' => 'ShitCtrl@shits',
+    'as' => 'shits'
+]);
 /**
  * Landing page
  */
@@ -101,7 +108,7 @@ Route::post('/profile/{id}/edit', [
 */
 Route::get('/video/{id}/edit', 'VideoController@edit');
 Route::put('/video/{id}/edit', [
-    'uses' => 'VideoController@update',
+    'uses' => 'VideoController@checkDiff',
     'as' => 'video.update'
 ]);
 
