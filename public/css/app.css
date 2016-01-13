@@ -9,8 +9,7 @@ body {
 
 .hero {
     background: url('/images/hero.jpg') no-repeat center center;
-    min-height: 100%;
-    min-width: 1024px;
+    background-size: cover;
 
     /* Set up proportionate scaling */
     width: 100%;
@@ -28,7 +27,13 @@ body {
 
 .hero-text {
     float: none;
-    margin: 12% auto 3%;
+    margin: auto;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    vertical-align:middle;
 }
 
 .hero-text-large {
@@ -39,8 +44,23 @@ body {
     font-size: 25pt;
 }
 
-.getting-started {
-    margin-left:3%;
+.call-to-action {
+    margin-top: 50px;
+    display:block;
+    font-weight:300;
+}
+
+.fb{
+    border-color: rgba(238, 238, 238, 0.5);
+    background-color: rgba(0, 88, 121, 0.5);
+    overflow: hidden;
+    transition: all 0.3s;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 15px;
+}
+.fb:hover {
+    background-color:#005879;
 }
 
 .content {
@@ -70,7 +90,9 @@ h1, h2, h3, h4, h5, h6 {
 .spacer {
     padding:1.5%;
 }
-
+.spacerfb {
+    padding:10%;
+}
 .spacersm {
     padding:1%;
 }

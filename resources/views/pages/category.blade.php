@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title', Auth::user()->username . ' | upload video' )
-@section('intro')
+@section('content')
 <div class="container-fluid">
     <div class="login-box">
     @include('pages.alert')

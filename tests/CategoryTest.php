@@ -11,8 +11,9 @@ class CategoryTest extends TestCase
 
     public function testSeeCategoryView()
     {
-        $this->call('POST', '/category');
-        $this->assertResponseStatus('302');
+        $response = $this->call('POST', '/category');
+        // $this->assertResponseStatus('200');
+        dd($response);
     }
 
     public function testSeeInDatabase()

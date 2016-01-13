@@ -13,7 +13,7 @@
       <!-- Ionicons -->
       <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
       <!-- Theme style -->
-      <link href="{!! load_asset('/components/admin/dist/css/admin.min.css') !!}" rel="stylesheet" type="text/css" />
+      <link href="{!! load_asset('/components/admin/dist/css/admin.css') !!}" rel="stylesheet" type="text/css" />
       <link href="{!! load_asset('/components/admin/dist/css/skins/_all_skins.min.css') !!}" rel="stylesheet" type="text/css" />
       <link href="{!! load_asset('/css/app.css') !!}" rel="stylesheet" type="text/css" />
     </head>
