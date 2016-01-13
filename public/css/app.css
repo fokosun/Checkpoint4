@@ -37,15 +37,15 @@ body {
 }
 
 .hero-text-large {
-    font-size: 60pt;
+    font-size: 50pt;
 }
 
 .hero-text-small {
-    font-size: 25pt;
+    font-size: 15pt;
 }
 
 .call-to-action {
-    margin-top: 50px;
+    margin-top: 40px;
     display:block;
     font-weight:300;
 }
