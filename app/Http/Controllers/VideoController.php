@@ -38,22 +38,25 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
+        $youtube_id =  getYoutubeEmbedUrl($request->url);
+        if ($youtube_id == 'error') {
+            $error = ['warning'=> 'Dude, this will not make a sound! Please get a valid youtube video link'];
+            return redirect()->back()->withErrors($error);
+        }
+        $url = 'http://www.youtube.com/embed/' . getYoutubeEmbedUrl($request->url) . '?autoplay=0';
         $v = Validator::make($request->all(), [
             'title'         => 'required',
             'description'   => 'required|max:255',
             'category'      => 'required',
             'url'           => 'required'
         ]);
-
         if ($v->fails()) {
             return redirect()->back()->withErrors($v->errors());
         }
-
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         $data['category_id'] = $request->category;
-        $data['url'] = $this->getYoutubeEmbedUrl($request);
-
+        $data['url'] = $url;
         Video::create($data);
 
         return redirect()->back()->with('status', 'Check out your library now or upload new video.');
@@ -88,10 +91,17 @@ class VideoController extends Controller
         $video->url = $requestData['url'];
         $video->category_id = $requestData['category'];
         $video->save();
-        return redirect()->back()->with('status', 'Like a real boss, you did it!');
 
+        return redirect()->back()->with('status', 'Like a real boss, you did it!');
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return
+     */
     public function checkDiff(Request $request, $id)
     {
         $requestData = [
@@ -111,28 +121,5 @@ class VideoController extends Controller
         if(! is_null(array_diff($requestData, $data))) {
             return $this->update($requestData, $id);
         }
-    }
-
-    /**
-     * get youtube mebed url
-     *
-     * @param  $request
-     * @return
-     */
-    public function getYoutubeEmbedUrl(Request $request)
-    {
-        $id = NULL;
-        $videoIdRegex = NULL;
-        if (strpos($request->url, 'youtu') !== FALSE) {
-            if (strpos($request->url, 'youtube.com') !== FALSE) {
-                preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $request->url, $matches);
-                $id = $matches[1];
-            } else if (strpos($request->url, 'youtu.be') !== FALSE) {
-                $videoIdRegex = '/youtu.be\/([a-zA-Z0-9_]+)\??/i';
-                preg_match($videoIdRegex, $request->url, $matches);
-                $id = $matches[1];
-            }
-        }
-        return $src = 'http://www.youtube.com/embed/' . $id . '?autoplay=0';
     }
 }
