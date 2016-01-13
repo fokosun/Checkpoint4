@@ -10,14 +10,7 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/shit', [
-    'uses' => 'ShitCtrl@shit',
-    'as' => 'shit'
-]);
-Route::post('/shit', [
-    'uses' => 'ShitCtrl@shits',
-    'as' => 'shits'
-]);
+
 /**
  * Landing page
  */

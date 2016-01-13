@@ -30,8 +30,7 @@ class HomeController extends Controller
     {
         $videos = Video::paginate(6);
         $latest = Video::where('created_at', '>=', Carbon::now()->subMonth())->get()->last();
-        $categories = Category::all();
 
-       return view('pages.feed', compact('videos', 'latest'))->with('categories', $categories);
+       return view('pages.feed', compact('videos', 'latest'));
     }
 }

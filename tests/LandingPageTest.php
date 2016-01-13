@@ -1,9 +1,11 @@
 <?php
 
 use Techademia\User;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class LandingPageTest extends TestCase
 {
+    use WithoutMiddleware;
     public function testIndex()
     {
         $response = $this->call('GET', '/');

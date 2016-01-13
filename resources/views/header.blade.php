@@ -10,7 +10,6 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                 <ul class="nav navbar-nav">
-                 <li><a href="{{route('shit')}}"></a></li>
                     <li class="active">
                         <a href="https://github.com/andela-fokosun/Checkpoint4" target="_blank">
                             <i class="fa fa-code"></i> &nbsp; Fork/Clone
