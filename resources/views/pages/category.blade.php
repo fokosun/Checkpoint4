@@ -1,10 +1,9 @@
 @extends('layout')
-@section('title', Auth::user()->username . ' | upload video' )
+@section('title', 'category')
 @section('content')
-<div class="container-fluid">
-    <div class="login-box">
-    @include('pages.alert')
-        <div class="login-box-body">
+    <div class="container-fluid">
+        <div class="login-box">
+            <div class="login-box-body">
             <div class="text-center spacer text-capitalize">
                 <h1>create category</h1>
                 <br>
@@ -24,6 +23,6 @@
                 </div>
             </form>
         </div>
+        </div>
     </div>
-</div>
 @endsection

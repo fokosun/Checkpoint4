@@ -14,7 +14,7 @@ class VideoTest extends TestCase
         $this->seeInDatabase('videos', ['title' => 'cs50', 'description' => 'Sample description', 'url' => 'https://www.youtube.com/embed/NqVC_4NiAjI', 'user_id' => 1, 'category_id' => 1]);
     }
 
-    public function testCanSeeUploadView()
+    public function testCanUpdateVideo()
     {
 
     }

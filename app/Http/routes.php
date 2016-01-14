@@ -20,9 +20,9 @@ Route::get('/', [
 ]);
 
 Route::get('/feeds', [
-    'uses' => 'HomeController@feeds',
-    'middleware' => 'auth',
-    'as'   => 'feeds'
+    'uses'          => 'HomeController@feeds',
+    'middleware'    => 'auth',
+    'as'            => 'feeds'
 ]);
 
 /*
@@ -100,19 +100,22 @@ Route::post('/profile/{id}/edit', [
 |-------------------------------------------------------
 */
 Route::get('/video/{id}/edit', 'VideoController@edit');
+
 Route::put('/video/{id}/edit', [
-    'uses' => 'VideoController@checkDiff',
-    'as' => 'video.update'
+    'uses'  => 'VideoController@checkDiff',
+    'as'    => 'video.update'
 ]);
 
 //super admin alone
 
 Route::get('/category', [
-    'uses' => 'CategoryController@index',
-    'as'   => 'viewCategoryForm'
+    'uses'          => 'CategoryController@index',
+    'as'            => 'viewCategoryForm',
+    'middleware'    => 'auth'
 ]);
 
 Route::post('/category', [
-    'uses' => 'CategoryController@store',
-    'as'   => 'createCategory'
+    'uses'          => 'CategoryController@store',
+    'as'            => 'createCategory',
+    'middleware'    => 'auth'
 ]);
