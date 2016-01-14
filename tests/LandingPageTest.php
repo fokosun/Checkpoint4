@@ -5,11 +5,20 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class LandingPageTest extends TestCase
 {
-    use WithoutMiddleware;
-    public function testIndex()
+    public function testIndexWithoutMIddleware()
     {
-        $response = $this->call('GET', '/');
+        $this->call('GET', '/');
+        $this->assertResponseOk();
         $this->assertResponseStatus('200');
+    }
+
+    public function testUserIsRedirectedToFeedsIfSessionIsOn()
+    {
+        $user = factory(\Techademia\User::class)->create();
+        $this->actingAs($user)
+            ->withSession(['username' => 'jeffrey', 'password' => 'passed']);
+        $this->call('GET', '/');
+        $this->assertRedirectedTo('/feeds');
     }
 
     public function testSeeRegistrationLinkOnLandingPage()

@@ -16,6 +16,6 @@ class VideoTest extends TestCase
 
     public function testCanUpdateVideo()
     {
-
+        //assertSessionHasErrors
     }
 }

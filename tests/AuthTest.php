@@ -5,17 +5,34 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class AuthTests extends TestCase
 {
-    use WithoutMiddleware;
+
+    public function testGetRegistrationPage()
+    {
+        $response = $this->call('GET', '/auth/register');
+        $this->assertResponseStatus('200');
+    }
+
+    public function testGetLoginPage()
+    {
+        $response = $this->call('GET', '/auth/login');
+        $this->assertResponseStatus('200');
+    }
 
     public function testPostLogin()
     {
-        $this->call('POST', '/auth/login');
-        $this->assertResponseStatus('302');
+        $user = factory(\Techademia\User::class)->create();
+
+        $this->visit('/auth/login')
+            ->type('user@gmail.com', 'email')
+            ->type('secret', 'password')
+            ->press('Sign In')
+            ->assertResponseStatus('200');
     }
 
     public function testGetLogout()
     {
-        $this->call('POST', '/auth/logout');
+        $this->call('GET', '/auth/logout');
+        $this->assertRedirectedTo('/');
         $this->assertResponseStatus('302');
     }
 
@@ -29,11 +46,7 @@ class AuthTests extends TestCase
          ->type('passed', 'password')
          ->check('terms')
          ->press('Register')
-         ->seePageIs('/feeds')
          ->seeInDatabase('users', ['username' => 'taylor']);
-
-        $this->call('GET', '/auth/register');
-        $this->assertResponseStatus('302');
     }
 
     public function testFacebookSocialAuthRedirect()

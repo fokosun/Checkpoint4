@@ -10,12 +10,12 @@ function getYoutubeEmbedUrl($url)
     $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))(\w+)/i';
 
     if (preg_match($longUrlRegex, $url, $matches)) {
-        $id = $matches[count($matches) - 1];
+        return end($matches);
     }
 
     if (preg_match($shortUrlRegex, $url, $matches)) {
-        $id = $matches[count($matches) - 1];
+        return end($matches);
     }
 
-    return isset($id) ? $id : 'error';
+    return 'error';
 }

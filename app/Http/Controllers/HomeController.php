@@ -20,7 +20,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()) {
+        if(Auth::check()) {
             return redirect('/feeds');
         }
        return view('welcome');

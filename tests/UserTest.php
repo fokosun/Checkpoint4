@@ -3,7 +3,7 @@
 use Techademia\User;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 
-class UsersTest extends TestCase
+class UserTest extends TestCase
 {
     public function testUsersLibraryViewHasVideos()
     {
