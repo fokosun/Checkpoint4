@@ -6,7 +6,7 @@
                     <p>upload.organize.learn</p>
                 </h1>
                 <h3 class="hero-text-small h3">
-                    upload your own youtube videos <br>and start learning awesome new stuff everyday!
+                    Upload your own youtube videos <br>and start learning awesome new stuff everyday!
                 </h3>
                 <div class="call-to-action">
                     <a href="{{ url('/auth/login/facebook') }}" class="btn btn-facebook fb">
