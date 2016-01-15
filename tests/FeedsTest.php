@@ -4,8 +4,6 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class FeedsTest extends TestCase
 {
-    use WithoutMiddleware;
-
     public function testFeedsViewHasVideos()
     {
         $user = factory(\Techademia\User::class)->create();

@@ -24,4 +24,6 @@
             {{ session()->get('warning')}}
         </div>
     </div>
+@else
+<div class="row"></div>
 @endif

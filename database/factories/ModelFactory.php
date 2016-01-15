@@ -21,3 +21,21 @@ $factory->define(Techademia\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(Techademia\Video::class, function (Faker\Generator $faker) {
+    return [
+        'id' => 1,
+        'title' => $faker->name,
+        'description' => $faker->word,
+        'url' => $faker->url,
+        'user_id' => 1,
+        'category_id' => 1,
+    ];
+});
+
+$factory->define(Techademia\Category::class, function (Faker\Generator $faker) {
+    return [
+        'id' => 1,
+        'title' => $faker->word
+    ];
+});
