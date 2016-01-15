@@ -5,6 +5,23 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class AuthTests extends TestCase
 {
+    private $socialiteMock;
+
+    public function setUp()
+    {
+        parent::setUp();
+        $this->socialiteMock = Mockery::mock('Laravel\Socialite\Contracts\Factory');
+    }
+
+    public function testFb()
+    {
+        $this->socialiteMock
+            ->shouldReceive('driver')
+            ->once()
+            ->with('github')
+            ->andReturn('code');
+            $this->visit('/auth/login/github');
+    }
 
     public function testGetRegistrationPage()
     {

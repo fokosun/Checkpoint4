@@ -79,4 +79,19 @@ class VideoTest extends TestCase
         $video = Video::where('title', 'cs50')->delete();
         $this->assertEquals(0, $video);
     }
+
+    public function testYoutubeVideoUrl()
+    {
+        $url = 'https://www.youtube.com/watch?v=K8qlfoxpt3Y';
+
+        // $mock = Mockery::mock('Techademia\Repositories\VideoRepository');
+
+        $mock = $this->getMockBuilder('Techademia\Repositories\VideoRepository')->getMock();
+
+        $mock->shouldReceive('getYoutubeEmbedUrl')
+        ->with('https://www.youtube.com/watch?v=K8qlfoxpt3Y')
+        ->andReturn('K8qlfoxpt3Y');
+
+        $this->assertContains('K8qlfoxpt3Y', $mock->getYoutubeEmbedUrl());
+    }
 }
