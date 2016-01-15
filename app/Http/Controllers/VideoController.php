@@ -38,12 +38,12 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        $youtube_id =  getYoutubeEmbedUrl($request->url);
+        $youtube_id =  $this->videos->getYoutubeEmbedUrl($request->url);
         if ($youtube_id == 'error') {
-            $error = ['warning'=> 'Dude, this will not make a sound! Please get a valid youtube video link'];
+            $error = ['warning'=> 'That url is so wrong! It has to be a valid youtube video link'];
             return redirect()->back()->withErrors($error);
         }
-        $url = 'http://www.youtube.com/embed/' . getYoutubeEmbedUrl($request->url) . '?autoplay=0';
+        $url = 'http://www.youtube.com/embed/' . $youtube_id . '?autoplay=0';
         $v = Validator::make($request->all(), [
             'title'         => 'required',
             'description'   => 'required|max:255',

@@ -55,12 +55,6 @@ class AuthTests extends TestCase
         $this->assertResponseStatus('302');
     }
 
-    // public function testTwitterSocialAuthRedirect()
-    // {
-    //     $this->call('GET', '/auth/login/twitter');
-    //     $this->assertResponseStatus('302');
-    // }
-
     public function testGithubSocialAuthRedirect()
     {
         $this->call('GET', '/auth/login/github');

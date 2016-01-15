@@ -33,10 +33,11 @@ class AuthController extends Controller
     /**
      * @param UserRepository $repository
      */
-    public function __construct(UserRepository $repository)
+    public function __construct(AuthenticateUser $authenticate, UserRepository $repository)
     {
         $this->middleware('guest', ['except' => 'getLogout']);
         $this->repository = $repository;
+        $this->authenticate = $authenticate;
     }
 
     /**
@@ -126,9 +127,9 @@ class AuthController extends Controller
         return redirect('/auth/login')->with('status', 'Great job! Please Login to continue.');
     }
 
-    public function doSocial(AuthenticateUser $authenticate, Request $request, $provider)
+    public function doSocial(Request $request, $provider)
     {
-        return $authenticate->execute(($request->has('code') || $request->has('oauth_token')) , $this, $provider) ;
+        return $this->authenticate->execute(($request->has('code') || $request->has('oauth_token')) , $this, $provider) ;
     }
 
     public function sendNotification(Request $request)
