@@ -14,10 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Validator::extend('video_url', function ($attribute, $value, $parameters, $validator) {
-
-            if(strpos($value, 'embed') !== false) return $value;
-        });
+        //
     }
 
     /**
