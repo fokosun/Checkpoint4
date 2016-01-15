@@ -9,9 +9,19 @@ Techademia is an open-source project. Feel free to fork or clone it and make it 
 
 ##Installation
 
+    git clone git@github.com:andela-fokosun/Checkpoint4.git
+
 ##Usage
+Run
+
+    composer install
+
+To pull all the dependencies
 
 ##Testing
+Run
+
+    phpunit
 
 see [live demo](http://techademia.herokuapp.com/)
 
