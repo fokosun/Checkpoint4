@@ -25,10 +25,22 @@ Run
 
     phpunit
 
+##Classes
+
+    - AuthenticateUser
+    - User
+    - Video
+    - UserRepository
+    - Videorepository
+    - HomeController
+    - UserController
+    - VideoController
+
+
 ##Final notes
 
 PHP/Laravel + bootstrap is all you need!
 
 see [live demo](http://techademia.herokuapp.com/)
 
-***Happy coding!***
+**Happy coding!**
