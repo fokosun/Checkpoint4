@@ -7,11 +7,8 @@ use Illuminate\Contracts\Auth\Guard;
 
 class VideoRepository
 {
-
-    public function __construct(Guard $auth)
-    {
-        $this->auth = $auth;
-    }
+    const SHORT_URL_REGEX  = '/youtu.be\/([a-zA-Z0-9_]+)\??/i';
+    const LONG_URL_REGEX  = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))(\w+)/i';
 
     public function find($id)
     {
@@ -21,14 +18,11 @@ class VideoRepository
 
     public function getYoutubeEmbedUrl($url)
     {
-        $shortUrlRegex = '/youtu.be\/([a-zA-Z0-9_]+)\??/i';
-        $longUrlRegex = '/youtube.com\/((?:embed)|(?:watch))((?:\?v\=)|(?:\/))(\w+)/i';
-
-        if (preg_match($longUrlRegex, $url, $matches)) {
+        if (preg_match(self::LONG_URL_REGEX, $url, $matches)) {
             return end($matches);
         }
 
-        if (preg_match($shortUrlRegex, $url, $matches)) {
+        if (preg_match(self::SHORT_URL_REGEX, $url, $matches)) {
             return end($matches);
         }
 

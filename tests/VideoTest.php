@@ -7,31 +7,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class VideoTest extends TestCase
 {
-    public function createUser()
-    {
-        return User::create([
-            'id'            => 1,
-            'fullname'      => 'jeffrey wey',
-            'username'      => 'jeffrey',
-            'password'      => md5('password'),
-            'occupation'    => 'Software Engineer',
-            'email'         => 'jeffrey.wey@laravel.com',
-
-        ]);
-    }
-
-    public function createVideo()
-    {
-        return Video::create([
-            'id'            => 1,
-            'title'         => 'test',
-            'description'   => 'some pretty lengthy description',
-            'url'           => 'Dji9ALCgfpM',
-            'user_id'       => 1,
-            'category_id'   => 1,
-        ]);
-    }
-
     public function testUserCanCreateVideo()
     {
         $user   = factory(\Techademia\User::class)->create();
@@ -51,7 +26,7 @@ class VideoTest extends TestCase
              ->seeInDatabase('videos', ['title' => 'my video title']);
     }
 
-    public function testUserCanUpdateVideo()
+    public function testUserCanAccessEditVideoView()
     {
         $user   = factory(\Techademia\User::class)->create();
         $this->actingAs($user)
@@ -80,18 +55,45 @@ class VideoTest extends TestCase
         $this->assertEquals(0, $video);
     }
 
-    public function testYoutubeVideoUrl()
+    public function testValidYoutubeVideoUrl()
     {
-        $url = 'https://www.youtube.com/watch?v=K8qlfoxpt3Y';
-
-        // $mock = Mockery::mock('Techademia\Repositories\VideoRepository');
-
-        $mock = $this->getMockBuilder('Techademia\Repositories\VideoRepository')->getMock();
+        $url = 'https://www.youtube.com/watch?v=ySFod5EaTHs';
+        $mock = Mockery::mock('Techademia\Repositories\VideoRepository');
 
         $mock->shouldReceive('getYoutubeEmbedUrl')
-        ->with('https://www.youtube.com/watch?v=K8qlfoxpt3Y')
-        ->andReturn('K8qlfoxpt3Y');
+            ->with('https://www.youtube.com/watch?v=ySFod5EaTHs')
+            ->andReturn('ySFod5EaTHs');
+        $this->visit('/user/profile/video');
 
-        $this->assertContains('K8qlfoxpt3Y', $mock->getYoutubeEmbedUrl());
+        $this->assertSame('ySFod5EaTHs', $mock->getYoutubeEmbedUrl($url));
+    }
+
+    public function testInvalidYoutubeVideoUrl()
+    {
+        $url = 'https://www.youtube.com';
+        $mock = Mockery::mock('Techademia\Repositories\VideoRepository');
+
+        $mock->shouldReceive('getYoutubeEmbedUrl')
+            ->with('https://www.youtube.com')
+            ->andReturn('error');
+        $this->visit('/user/profile/video');
+
+        $this->assertSame('error', $mock->getYoutubeEmbedUrl($url));
+    }
+
+    public function testUserCanUpdateVideo()
+    {
+        $user   = factory(\Techademia\User::class)->create();
+        $this->actingAs($user)
+            ->withSession(['username' => 'jeffrey']);
+
+        $video  = factory(\Techademia\Category::class)->create();
+        $video  = factory(\Techademia\Video::class)->create();
+
+        Video::where('id', 1)->update(['title' => 'new title']);
+        $this->seeInDatabase('videos', ['title' => 'new title']);
+
+        $this->visit('/video/1/edit')
+            ->seePageIs('/video/1/edit');
     }
 }
