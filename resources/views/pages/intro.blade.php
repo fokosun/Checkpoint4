@@ -19,6 +19,11 @@
                         <i class="fa fa-github-alt"></i>&nbsp;&nbsp;Sign in with Github
                     </a>
                 </div>
+                <div class="spacer">
+                    <a href="{{ url('/feeds') }}" class="guest" style="color:#FFFFE9">
+                        <br><small>Continue as guest <i class="fa fa-arrow-circle-right"></i></small>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

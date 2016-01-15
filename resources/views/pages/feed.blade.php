@@ -59,7 +59,7 @@
                                                 </span>
                                                 {{ $video->description }}<br>
                                                 <hr>
-                                                @if($video->user_id == Auth::user()->id)
+                                                @if(! Auth::guest())
                                                 <small>upload by: <b>You</b> </small>
                                                 @else
                                                 <small>upload by: <b>{{ $video->user->fullname}}</b></small>

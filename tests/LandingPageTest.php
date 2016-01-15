@@ -12,15 +12,6 @@ class LandingPageTest extends TestCase
         $this->assertResponseStatus('200');
     }
 
-    public function testUserIsRedirectedToFeedsIfSessionIsOn()
-    {
-        $user = factory(\Techademia\User::class)->create();
-        $this->actingAs($user)
-            ->withSession(['username' => 'jeffrey', 'password' => 'passed']);
-        $this->call('GET', '/');
-        $this->assertRedirectedTo('/feeds');
-    }
-
     public function testSeeRegistrationLinkOnLandingPage()
     {
         $this->visit('/')->see('Register')->assertResponseStatus('200');

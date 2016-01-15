@@ -13,7 +13,7 @@ Techademia is an open-source project. Feel free to fork or clone it and make it 
 
 ##Testing
 
-[live demo](http://techademia.herokuapp.com/)
+see [live demo](http://techademia.herokuapp.com/)
 
 ***Happy coding!***
 

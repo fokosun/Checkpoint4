@@ -23,6 +23,10 @@ body {
     color:#999;
 }
 
+.guest a:hover{
+    color:#FFFFE9;
+}
+
 .hero-text {
     float: none;
     margin: auto;

@@ -21,7 +21,6 @@ Route::get('/', [
 
 Route::get('/feeds', [
     'uses'          => 'HomeController@feeds',
-    'middleware'    => 'auth',
     'as'            => 'feeds'
 ]);
 
