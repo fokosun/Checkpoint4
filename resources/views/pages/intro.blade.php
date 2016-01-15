@@ -9,13 +9,13 @@
                     Upload your own youtube videos <br>and start learning awesome new stuff everyday!
                 </h3>
                 <div class="call-to-action">
-                    <a href="{{ url('/auth/login/facebook') }}" class="btn btn-facebook fb">
+                    <a href="{{ url('/auth/login/facebook') }}" class="btn btn-facebook fb" name="facebook">
                         <i class="fa fa-facebook-official"></i>&nbsp;&nbsp;Sign in with Facebook
                     </a><br><br>
-                    <a href="{{ url('/auth/login/twitter') }}" class="btn btn-twitter fb">
+                    <a href="{{ url('/auth/login/twitter') }}" class="btn btn-twitter fb" name="twitter">
                         <i class="fa fa-twitter"></i>&nbsp;&nbsp;Sign in with Twitter
                     </a><br><br>
-                    <a href="{{ url('/auth/login/github') }}" class="btn btn-github fb">
+                    <a href="{{ url('/auth/login/github') }}" class="btn btn-github fb" name="github">
                         <i class="fa fa-github-alt"></i>&nbsp;&nbsp;Sign in with Github
                     </a>
                 </div>

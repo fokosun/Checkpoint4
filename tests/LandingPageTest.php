@@ -30,4 +30,22 @@ class LandingPageTest extends TestCase
             ->seePageIs('/')
             ->assertResponseStatus('200');
     }
+
+    public function testSeeFacebookLinkOnLandingPage()
+    {
+        $this->visit('/')
+            ->see('Sign in with Facebook');
+    }
+
+    public function testSeeTwitterLinkOnLandingPage()
+    {
+        $this->visit('/')
+            ->see('Sign in with Twitter');
+    }
+
+    public function testSeeGithubLinkOnLandingPage()
+    {
+        $this->visit('/')
+            ->see('Sign in with Github');
+    }
 }

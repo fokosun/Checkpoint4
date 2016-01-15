@@ -6,11 +6,6 @@ class FeedsTest extends TestCase
 {
     public function testFeedsViewHasVideos()
     {
-        $user = factory(\Techademia\User::class)->create();
-        $this->actingAs($user)
-            ->withSession(['username' => 'jeffrey'])
-            ->visit('/feeds');
-
         $response = $this->call('GET', '/feeds');
         $this->assertResponseStatus('200');
         $this->assertViewHas('videos');
@@ -29,11 +24,6 @@ class FeedsTest extends TestCase
 
     public function testFeedsViewHasLatestUploadDate()
     {
-        $user = factory(\Techademia\User::class)->create();
-        $this->actingAs($user)
-            ->withSession(['username' => 'jeffrey'])
-            ->visit('/feeds');
-
         $response = $this->call('GET', '/feeds');
         $this->assertResponseStatus('200');
         $this->assertViewHas('latest');

@@ -32,8 +32,8 @@ class VideoTest extends TestCase
         $this->actingAs($user)
             ->withSession(['username' => 'jeffrey']);
 
-        $video  = factory(\Techademia\Category::class)->create();
-        $video  = factory(\Techademia\Video::class)->create();
+        factory(\Techademia\Category::class)->create();
+        factory(\Techademia\Video::class)->create();
 
         $this->visit('/video/1/edit')
              ->seePageIs('/video/1/edit')
@@ -89,14 +89,28 @@ class VideoTest extends TestCase
         $this->actingAs($user)
             ->withSession(['username' => 'jeffrey']);
 
-        $video  = factory(\Techademia\Category::class)->create();
-        $video  = factory(\Techademia\Video::class)->create();
+        factory(\Techademia\Category::class)->create();
+        factory(\Techademia\Video::class)->create();
 
         Video::where('id', 1)->update(['title' => 'new title']);
         $this->seeInDatabase('videos', ['title' => 'new title']);
 
         $this->visit('/video/1/edit')
             ->seePageIs('/video/1/edit');
+    }
+
+    public function testVideoFind()
+    {
+        $user   = factory(\Techademia\User::class)->create();
+        $this->actingAs($user)
+            ->withSession(['username' => 'jeffrey']);
+
+        factory(\Techademia\Category::class)->create();
+        factory(\Techademia\Video::class)->create();
+
+        $see_video = Video::find(1);
+
+        $this->visit('/video/1/edit')->assertViewHas('video');
     }
 
     // public function testValidationFacade()
