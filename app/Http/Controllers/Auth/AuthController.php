@@ -117,8 +117,8 @@ class AuthController extends Controller
         $data = $request->all();
         $data['avatar'] = 'http://goo.gl/1j6BFk';
         $data['password'] = bcrypt($request->input('password'));
-
-        User::create($data);
+        
+        $this->repository->create($data);
 
         return redirect('/auth/login')->with('status', 'Great job! Please Login to continue.');
     }

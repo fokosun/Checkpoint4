@@ -10,10 +10,17 @@ use Techademia\Category;
 use Techademia\Video;
 use Illuminate\Http\Request;
 use Techademia\Http\Requests;
+use Techademia\Repositories\VideoRepository;
 use Techademia\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
+
+    public function __construct(VideoRepository $video)
+    {
+        $this->video = $video;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,9 +28,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $videos = Video::where('user_id', Auth::user()->id)->get();
-        $latest = Video::where('created_at', '>=', Carbon::now()->subMonth())->get()->last();
+        $format = Carbon::now()->subMonth();
+        $videos = $this->video->where('user_id', Auth::user()->id);
         $categories = Category::all();
+        $latest = $this->video->whereDateFormat('created_at', '>=', $format);
 
         return view('pages.profile', compact('videos', 'latest'))->with('categories', $categories);
     }
@@ -53,9 +61,15 @@ class UserController extends Controller
         return $url;
     }
 
+    /**
+     * 
+     * @param  Request $request [description]
+     * @param  $id
+     */
     public function postUpdateUserProfile(Request $request, $id)
     {
         $id = Auth::user()->id;
+
         try {
             $user = User::find($id);
 
@@ -68,9 +82,10 @@ class UserController extends Controller
                 $user->occupation   = $request->occupation;
             }
             $user->save();
-            //redirect
+            
             return back()->with('status', 'Yay! Status updated successfully');
         } catch (QueryException $e) {
+            
             return back()->with('status', $e->getMessage());
         }
     }

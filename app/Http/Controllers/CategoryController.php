@@ -35,13 +35,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $v = Validator::make($request->all(), [
-            'title'         => 'required',
+        $this->validate($request, [
+            'title'     => 'required',
         ]);
-
-        if ($v->fails()) {
-            return redirect()->back()->withErrors($v->errors());
-        }
 
         $data = $request->all();
         Category::create($data);

@@ -106,7 +106,7 @@ Route::post('/profile/{id}/edit', [
 Route::get('/video/{id}/edit', 'VideoController@edit');
 
 Route::put('/video/{id}/edit', [
-    'uses'  => 'VideoController@checkDiff',
+    'uses'  => 'VideoController@update',
     'as'    => 'video.update'
 ]);
 

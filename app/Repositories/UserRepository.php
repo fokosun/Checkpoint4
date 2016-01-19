@@ -13,7 +13,13 @@ class UserRepository
         $this->auth = $auth;
     }
 
-    public function findByUserNameOrCreate($userData, $provider)
+    /**
+     * find user by username or create a new user
+     * @param
+     * @return
+     */
+
+    public function findByProviderIdOrCreate($userData, $provider)
     {
         $user = User::where('provider_id', '=', $userData->id)->first();
 
@@ -31,6 +37,13 @@ class UserRepository
 
         return $user;
     }
+
+
+    /**
+     * check if the user's info needs updating
+     * @param
+     * @return
+     */
 
     public function checkIfUserNeedsUpdating($userData, $user)
     {
@@ -51,5 +64,15 @@ class UserRepository
             $user->username = $userData->getNickName();
             $user->save();
         }
+    }
+
+    /**
+     * create a new instance of a user
+     * @param $data
+     */
+
+    public function create($data)
+    {
+        User::create($data);
     }
 }
