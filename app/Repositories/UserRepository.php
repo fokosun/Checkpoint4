@@ -26,12 +26,13 @@ class UserRepository
         if(!$user) {
             $user = User::create([
                 'fullname' => $userData->getName(),
-                'username' => $provider . $userData->getId(),
+                'username' => $userData->getId(),
                 'provider_id' => $userData->getId(),
                 'avatar' => $userData->getAvatar(),
                 'provider' => $provider,
             ]);
         }
+        
         $this->auth->loginUsingId($user->id);
         $this->checkIfUserNeedsUpdating($userData, $user);
 
@@ -50,8 +51,9 @@ class UserRepository
         $socialData = [
             'avatar' => $userData->getAvatar(),
             'fullname' => $userData->getName(),
-            'username' => $userData->getNickName(),
+            'username' => $userData->getId(),
         ];
+
         $dbData = [
             'avatar' => $user->avatar,
             'fullname' => $user->fullname,
@@ -61,7 +63,7 @@ class UserRepository
         if (!empty(array_diff($dbData, $socialData))) {
             $user->avatar = $userData->getAvatar();
             $user->fullname = $userData->getName();
-            $user->username = $userData->getNickName();
+            $user->username = $userData->getId();
             $user->save();
         }
     }
