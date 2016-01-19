@@ -19,6 +19,22 @@ body {
     padding:20px;
 }
 
+.child-hero {
+    position: fixed;
+    height: 50px;
+    bottom: 0;
+    width: 100%;
+}
+
+.category a{
+    color:#fff;
+}
+
+.category a:hover {
+    color:#3c8dbc;
+}
+
+
 .blue {
     color:#999;
 }

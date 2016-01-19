@@ -76,6 +76,8 @@ class VideoController extends Controller
         return view('pages.editvideo')->with('video', $video)->with('categories', $categories);
     }
 
+    
+
     /**
      * Update the specified resource in storage.
      *
@@ -121,5 +123,20 @@ class VideoController extends Controller
         if(! is_null(array_diff($requestData, $data))) {
             return $this->update($requestData, $id);
         }
+    }
+
+    public function deleteView($id)
+    {
+        $video = Video::find($id);
+
+        return view('pages.deletevideo')->with('video', $video);
+    }
+
+    public function deleteVideo($id)
+    {
+        $video = Video::find($id);
+
+        $video->delete();
+        return redirect('/user/profile');
     }
 }

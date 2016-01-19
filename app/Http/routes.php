@@ -24,6 +24,11 @@ Route::get('/feeds', [
     'as'            => 'feeds'
 ]);
 
+Route::get('/feeds/{id}/category/{category}', [
+    'uses'          => 'HomeController@feedsByCategory',
+    'as'            => 'feeds.category'
+]);
+
 /*
 | -------------------------------------------------------------
 | * Authentication routes
@@ -103,6 +108,13 @@ Route::get('/video/{id}/edit', 'VideoController@edit');
 Route::put('/video/{id}/edit', [
     'uses'  => 'VideoController@checkDiff',
     'as'    => 'video.update'
+]);
+
+Route::get('/video/{id}/delete', 'VideoController@deleteView');
+
+Route::delete('/video/{id}/delete', [
+    'uses'  => 'VideoController@deleteVideo',
+    'as'    => 'video.delete'
 ]);
 
 //super admin alone

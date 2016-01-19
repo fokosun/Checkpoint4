@@ -18,7 +18,11 @@
                             {{count($category->videos()->where('user_id',Auth::user()->id)->get())}} videos
                         </small>
                     @endif
-                        <p>{{ $category->title }}</p>
+                        <p class="category">
+                            <a href="/feeds/{{ $category->id }}/category/{{ $category->title }}">
+                                {{ $category->title }}
+                            </a>
+                        </p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
@@ -59,39 +63,41 @@
                                 Last activity: none
                             @endif
                         </span>
-                        <h3 class="timeline-header"><a href="#">Recent</a> videos</h3>
+                        <h3 class="timeline-header"><a href="#">recent</a> videos</h3>
                         <div class="timeline-body">
                             <div class="row">
-                                @forelse($videos as $video)
+                            @if(count($videos) > 0)
+                                @foreach($videos as $video)
                                 <div class="col-sm-6">
-                                    <p class="spacer">
-                                        <span class="label label-primary pull-right">
-                                            {{ $video->category->title}}
-                                        </span>
-                                    </p>
-                                    <div class="embed-responsive embed-responsive-16by9" style="margin:5%;">
+                                <div class="box-header">
+                                    </div>
+                                    <div class="embed-responsive embed-responsive-16by9">
                                         <iframe class="embed-responsive-item" src="{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
                                     </div>
                                     <div class="box-footer box-comments">
                                         <div class="box-comment col-sm-12">
-                                            <img class="img-square img-sm" src="{{ Auth::user()->avatar }}" alt="User Image">
+                                            <img class="img-square img-sm" src="{{ $video->user->avatar}}" alt="User Image">
                                             <div class="comment-text">
                                                 <span class="username text-capitalize">
-                                                    {{ $video->title }}
-                                                    <a href="/video/{{ $video->id }}/edit" title="edit video"><i class="fa fa-pencil fa-fw"></i></a>
-                                                    <span class="badge bg-aqua pull-right">
-                                                        <small>
-                                                            {{ date('F d, Y', strtotime($video->created_at)) }}
-                                                        </small>
-                                                    </span>
+                                                    <b>{{ $video->title }}</b>
+                                                    <a href="/video/{{ $video->id }}/edit" title="edit video">
+                                                        <i class="fa fa-pencil fa-fw"></i>
+                                                    </a>
+                                                    <a href="/video/{{ $video->id }}/delete" title="edit video">
+                                                        <i class="fa fa-trash-o"></i>
+                                                    </a>
                                                 </span>
-                                                {{ $video->description }}
+                                                {{ $video->description }}<br>
+                                                <hr>
+                                                <small>you uploaded this video : 
+                                                    <b>{{ date('F d, Y', strtotime($video->created_at)) }}</b>
+                                                </small>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                @empty
-                                @endforelse
+                                @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>

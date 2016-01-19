@@ -34,4 +34,12 @@ class HomeController extends Controller
 
        return view('pages.feed', compact('videos', 'latest'));
     }
+
+    public function feedsByCategory($id)
+    {
+        $videos = Video::where('category_id', '=', $id)->get();
+        $latest = Video::where('created_at', '>=', Carbon::now()->subMonth())->get()->last();
+
+       return view('pages.categoryfeeds', compact('videos', 'latest'));
+    }
 }

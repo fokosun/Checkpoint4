@@ -22,7 +22,7 @@
                     <span class="fa fa-pencil form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input value="{{ Auth::user()->occupation }}" type="text" class="form-control" name="occupation">
+                    <input value="{{ Auth::user()->occupation }}" type="text" class="form-control" name="occupation" placeholder="e.g. I'm a Developer">
                     <span class="fa fa-pencil form-control-feedback"></span>
                 </div>
                 <div class="row">

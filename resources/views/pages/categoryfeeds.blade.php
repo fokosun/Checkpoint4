@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Feeds' )
+@section('title', '' )
 @section('content')
 <div class="row">
     <div class="text-center spacer">
@@ -29,20 +29,13 @@
                                 Last activity: none
                             @endif
                         </span>
-                        <h3 class="timeline-header"><a href="#">recent</a> videos</h3>
+                        <h3 class="timeline-header"><b>{{ count($videos) }}</b> video(s)</h3>
                         <div class="timeline-body">
                             <div class="row">
                             @if(count($videos) > 0)
                                 @foreach($videos as $video)
                                 <div class="col-sm-6">
                                     <div class="box-header">
-                                        <p class="spacer">
-                                            <span class="label label-warning pull-right category">
-                                                <a href="/feeds/{{ $video->category->id }}/category/{{ $video->category->title }}">
-                                                    {{ $video->category->title }}
-                                                </a>
-                                            </span>
-                                        </p>
                                     </div>
                                     <div class="embed-responsive embed-responsive-16by9">
                                         <iframe class="embed-responsive-item" src="{{ $video->url }}" frameborder="0" allowfullscreen></iframe>
@@ -70,11 +63,6 @@
                                 @endif
                             </div>
                         </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="timeline-item text-center">
-                        {!! $videos->render() !!}
                     </div>
                 </li>
                 <li>
