@@ -19,19 +19,19 @@ body {
     padding:20px;
 }
 
-.footer-hero {
-    position: fixed;
-    height: 50px;
-    bottom: 0;
-    width: 100%;
+.goodbye {
+    position: fixed!important;
+    height: 50px!important;
+    bottom: 0!important;
+    width: 100%!important;
 }
 
-.category a{
-    color:#fff;
+.category a {
+    color:#ffffff!important;
 }
 
 .category a:hover {
-    color:#3c8dbc;
+    color:#3c8dbc!important;
 }
 
 
