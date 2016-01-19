@@ -17,7 +17,7 @@
                         <input type="submit" value ="Delete" class="btn btn-primary btn-block btn-flat" />
                     </div>
                     <div class="col-xs-6">
-                        <a href="/user/profile" class="btn btn-primary btn-block btn-flat"><i class="fa fa-arrow-left"></i> go back</a>
+                        <a href="/user/profile" class="btn btn-primary btn-block btn-flat"><i class="fa fa-close"></i> cancel</a>
                     </div>
                 </div>
             </form>

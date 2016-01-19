@@ -2,7 +2,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="navbar-header">
-                <a href="/feeds" class="navbar-brand"><b>TECH</b>ADEMIA</a>
+                <a href="/" class="navbar-brand"><b>TECH</b>ADEMIA</a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
@@ -12,7 +12,7 @@
                 <ul class="nav navbar-nav">
                     <li class="active">
                         <a href="https://github.com/andela-fokosun/Checkpoint4" target="_blank">
-                            <i class="fa fa-code"></i> &nbsp; Fork/Clone
+                            <i class="fa fa-code"></i> &nbsp; <strong>Fork/Clone</strong>
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -20,7 +20,7 @@
                     @if (Auth::guest())
                     <li>
                         <a href="#" data-toggle="modal" data-target="#gettingstarted">
-                            <i class="fa fa-rocket"></i> &nbsp; Getting Started
+                            <i class="fa fa-rocket"></i> &nbsp; <strong>Getting Started</strong>
                         </a>
                     </li>
                     @else
@@ -33,8 +33,8 @@
             <div class="navbar-custom-menu">
             @if (Auth::guest())
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ route('getRegister') }}">Register</a></li>
-                    <li><a href="{{ route('getLogin') }}">Log In</a></li>
+                    <li><a href="{{ route('getRegister') }}"><strong>Register</strong></a></li>
+                    <li><a href="{{ route('getLogin') }}"><strong>Log In</strong></a></li>
                 </ul>
             @else
                 <ul class="nav navbar-nav">
@@ -42,7 +42,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{ Auth::user()->avatar }}" class="user-image" alt="">
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs text-capitalize">{{ Auth::user()->fullname }}&nbsp;
+                            <span class="hidden-xs text-capitalize"><strong>{{ Auth::user()->fullname }}</strong>&nbsp;
                             <i class="fa fa-chevron-down"></i>
                             </span>
                         </a>
