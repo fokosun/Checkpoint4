@@ -30,7 +30,7 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <div class="child-hero">
+        <div class="footer-hero">
             @include('footer')
         </div>
     </div>
