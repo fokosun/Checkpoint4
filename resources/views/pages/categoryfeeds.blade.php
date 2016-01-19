@@ -29,7 +29,7 @@
                                 Last activity: none
                             @endif
                         </span>
-                        <h3 class="timeline-header"><b>{{ count($videos) }}</b> video(s)</h3>
+                        <h3 class="timeline-header">Total number of videos here is <b>{{ count($videos) }}</b></h3>
                         <div class="timeline-body">
                             <div class="row">
                             @if(count($videos) > 0)
