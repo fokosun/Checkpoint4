@@ -21,13 +21,12 @@ class UserRepository
 
     public function findByUserNameOrCreate($userData, $provider)
     {
-        dd($userData);
-        // $user = User::where('username', '=', $userData->id)->first();
+        $user = User::where('provider_id', '=', $userData->id)->first();
 
         if(!$user) {
             $user = User::create([
                 'fullname' => $userData->getName(),
-                'username' => $userData->getId(),
+                'username' => $provider . $userData->getId(),
                 'provider_id' => $userData->getId(),
                 'avatar' => $userData->getAvatar(),
                 'provider' => $provider,
