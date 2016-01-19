@@ -21,7 +21,8 @@ class UserRepository
 
     public function findByUserNameOrCreate($userData, $provider)
     {
-        $user = User::where('provider_id', '=', $userData->id)->first();
+        dd($userData);
+        // $user = User::where('username', '=', $userData->id)->first();
 
         if(!$user) {
             $user = User::create([
