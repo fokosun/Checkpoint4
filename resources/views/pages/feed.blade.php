@@ -37,7 +37,7 @@
                                 <div class="col-sm-6">
                                     <div class="box-header">
                                         <p class="spacer">
-                                            <span class="label label-warning pull-right category" style="color:white;">
+                                            <span class="label label-warning pull-right category">
                                                 <a href="/feeds/{{ $video->category->id }}/category/{{ $video->category->title }}">
                                                     {{ $video->category->title }}
                                                 </a>
