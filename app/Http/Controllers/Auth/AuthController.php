@@ -64,7 +64,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Handles login
+     * Handles normal login
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -105,18 +105,14 @@ class AuthController extends Controller
      */
     public function postRegister(Request $request)
     {
-        $v = Validator::make($request->all(), [
+        $this->validate($request, [
             'fullname'      => 'required',
             'username'      => 'required|max:255',
             'occupation'    => 'required',
             'email'         => 'required|email|unique:users',
             'password'      => 'required',
-            'terms'         => 'accepted',
+            'terms'         => 'accepted'
         ]);
-
-        if ($v->fails()) {
-            return redirect()->back()->withErrors($v->errors());
-        }
 
         $data = $request->all();
         $data['avatar'] = 'http://goo.gl/1j6BFk';
@@ -127,6 +123,12 @@ class AuthController extends Controller
         return redirect('/auth/login')->with('status', 'Great job! Please Login to continue.');
     }
 
+
+    /**
+     * Handles social authentication
+     * @param \Illuminate\Http\Request $request
+     * @return
+     */
     public function doSocial(Request $request, $provider)
     {
         return $this->authenticate->execute(($request->has('code') || $request->has('oauth_token')) , $this, $provider) ;
