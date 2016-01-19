@@ -19,7 +19,7 @@ class UserRepository
      * @return
      */
 
-    public function findByProviderIdOrCreate($userData, $provider)
+    public function findByUserNameOrCreate($userData, $provider)
     {
         $user = User::where('provider_id', '=', $userData->id)->first();
 
