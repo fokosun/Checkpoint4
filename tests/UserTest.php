@@ -29,14 +29,4 @@ class UserTest extends TestCase
             ->assertResponseStatus('200');
 
     }
-
-    // public function testUserCanSeeProfilePage()
-    // {
-    //     $user   = factory(\Techademia\User::class)->create();
-    //     $this->actingAs($user)
-    //         ->withSession(['username' => 'jeffrey']);
-
-    //     $this->call('GET', '/profile/1/edit');
-
-    // }
 }

@@ -35,11 +35,11 @@
     </div>
 </div>
 <div class="row">
-    <div class="text-center text-capitalize">
+    <div class="text-center">
     @if (count($videos) > 0)
             <small>my videos</small><br>
             <a href="{{ route('viewUploadVideoForm') }}" class="small-box-footer">
-                Upload new video <i class="fa fa-arrow-circle-right"></i>
+                Upload new video <i class="fa fa-arrow-circle-up"></i>
             </a>
         @else
             <small>
