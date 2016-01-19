@@ -79,8 +79,6 @@ class VideoTest extends TestCase
         $this->visit('/user/profile/video');
 
         $this->assertSame('error', $mock->getYoutubeEmbedUrl($url));
-        // $this->call('POST', '/user/profile/video');
-        // $this->assertRedirectedTo('/user/profile/video');
     }
 
     public function testUserCanUpdateVideo()
@@ -112,15 +110,4 @@ class VideoTest extends TestCase
 
         $this->visit('/video/1/edit')->assertViewHas('video');
     }
-
-    // public function testValidationFacade()
-    // {
-    //     $empty_request = [];
-    //     Validator::shouldReceive('fails')->once()->with($empty_request);
-    //     // $this->visit('/user/profile/video');
-
-    //     // $this->assertEmpty($v);
-    //     $this->visit('/user/profile/video');
-    //     // $this->assertRedirectedTo('/user/profile/video');
-    // }
 }
