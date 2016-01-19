@@ -36,8 +36,8 @@
                                 @foreach($videos as $video)
                                 <div class="col-sm-6">
                                     <div class="box-header">
-                                        <p class="spacer">
-                                            <span class="label label-warning pull-right category">
+                                        <p class="spacer category">
+                                            <span class="label label-warning pull-right">
                                                 <a href="/feeds/{{ $video->category->id }}/category/{{ $video->category->title }}">
                                                     {{ $video->category->title }}
                                                 </a>
