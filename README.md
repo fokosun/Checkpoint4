@@ -23,8 +23,8 @@ A user can access the app either as a guest or as a registered user. Alternative
 
 Techademia is an open-source project. Feel free to fork or clone it and make it better! If you intend to be a contributor, the following guide lines will be useful to you:
 
-- Install (Composer)[https://getcomposer.org/doc/00-intro.md]
-- Download and install (Laravel homestead)[https://laravel.com/docs/5.1/homestead]
+- Install [Composer](https://getcomposer.org/doc/00-intro.md)
+- Download and install [Laravel homestead](https://laravel.com/docs/5.1/homestead)
 
 
 ##Installation
@@ -33,6 +33,34 @@ Techademia is an open-source project. Feel free to fork or clone it and make it 
 
 ##Usage
 Make sure your .env file looks like this:
+
+```
+    APP_ENV=
+    APP_DEBUG=
+    APP_KEY=
+
+    DB_HOST=
+    DB_DATABASE=
+    DB_USERNAME=
+    DB_PASSWORD=
+
+    CACHE_DRIVER=
+    SESSION_DRIVER=
+    QUEUE_DRIVER=
+
+    FACEBOOK_ID=
+    FACEBOOK_SECRET=
+    FACEBOOK_REDIRECT=
+
+    TWITTER_API_KEY=
+    TWITTER_APP_SECRET=
+    TWITTER_CALLBACK_URL=
+
+    GITHUB_CLIENT_ID=
+    GITHUB_CLIENT_SECRET=
+    GUTHUB_CALLBACK_URL=
+
+```
 
 Run:
 
