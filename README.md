@@ -23,12 +23,26 @@ A user can access the app either as a guest or as a registered user. Alternative
 
 Techademia is an open-source project. Feel free to fork or clone it and make it better! If you intend to be a contributor, the following guide lines will be useful to you:
 
+- Install (Composer)[https://getcomposer.org/doc/00-intro.md]
+- Download and install (Laravel homestead)[https://laravel.com/docs/5.1/homestead]
+
+
 ##Installation
 
     git clone git@github.com:andela-fokosun/Checkpoint4.git
 
 ##Usage
-Run
+Make sure your .env file looks like this:
+
+Run:
+
+    php artisan migrate
+
+In this app, by design we have only four categories. You can run the seeder to populate the categories. You can use any approach that suits you. To run the seeder, run:
+
+    php artisan db:seed
+
+After that run:
 
     composer install
 
