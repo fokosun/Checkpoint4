@@ -19,7 +19,7 @@
                         </small>
                     @endif
                         <p class="category">
-                            <a href="/feeds/{{ $category->id }}/category/{{ $category->title }}" style="color:white" title="view all {{ $category->title }} videos">
+                            <a href="/feeds/{{ $category->id }}/category/{{ $category->slug }}" style="color:white" title="view all {{ $category->title }} videos">
                                 {{ $category->title }}
                             </a>
                         </p>

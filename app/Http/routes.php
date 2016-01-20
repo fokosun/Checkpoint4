@@ -24,7 +24,7 @@ Route::get('/feeds', [
     'as'            => 'feeds'
 ]);
 
-Route::get('/feeds/{id}/category/{category}', [
+Route::get('/feeds/{id}/category/{slug}', [
     'uses'          => 'HomeController@feedsByCategory',
     'as'            => 'feeds.category'
 ]);

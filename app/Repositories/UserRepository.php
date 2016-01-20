@@ -19,20 +19,20 @@ class UserRepository
      * @return
      */
 
-    public function findByUserNameOrCreate($userData, $provider)
+    public function findByProviderIdOrCreate($userData, $provider)
     {
         $user = User::where('provider_id', '=', $userData->id)->first();
 
         if(!$user) {
             $user = User::create([
-                'fullname' => $userData->getName(),
-                'username' => $userData->getId(),
-                'provider_id' => $userData->getId(),
-                'avatar' => $userData->getAvatar(),
-                'provider' => $provider,
+                'fullname'      => $userData->getName(),
+                'username'      => $userData->getId(),
+                'provider_id'   => $userData->getId(),
+                'avatar'        => $userData->getAvatar(),
+                'provider'      => $provider,
             ]);
         }
-        
+
         $this->auth->loginUsingId($user->id);
         $this->checkIfUserNeedsUpdating($userData, $user);
 

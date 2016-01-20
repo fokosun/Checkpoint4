@@ -38,7 +38,7 @@
                                     <div class="box-header">
                                         <p class="spacer">
                                             <span class="label label-warning pull-right">
-                                                <a href="/feeds/{{ $video->category->id }}/category/{{ $video->category->title }}" style="color:white;" title="view all {{ $video->category->title }} videos">
+                                                <a href="/feeds/{{ $video->category->id }}/category/{{ $video->category->slug }}" style="color:white;" title="view all {{ $video->category->title }} videos">
                                                     {{ $video->category->title }}
                                                 </a>
                                             </span>

@@ -25,7 +25,7 @@ class AuthenticateUser
             return $this->getAuthorizationFirst($provider);
         }
 
-        $user = $this->users->findByUserNameOrCreate($this->getSocialUser($provider), $provider);
+        $user = $this->users->findByProviderIdOrCreate($this->getSocialUser($provider), $provider);
         
         return redirect('/feeds');
     }
