@@ -8,39 +8,29 @@ class AuthTests extends TestCase
 {
     private $socialiteMock;
 
-    // public function setUp()
-    // {
-    //     parent::setUp();
-    //     $this->socialiteMock = Mockery::mock('Laravel\Socialite\Contracts\Factory');
-    // }
-
-    // public function tearDown() { Mockery::close(); }
-
-    // public function testFb()
-    // {
-    //     try {
-    //         $this->socialiteMock
-    //         ->shouldReceive('driver')
-    //         ->with('github')
-    //         ->andReturn('code');
-    //         $this->visit('/auth/login/github');
-    //     } catch (Exception $e) {
-    //         dd($e->getMessage());
-    //     }
-
-    // }
-
+    /**
+     * Test Registration view
+     * @return [type] [description]
+     */
     public function testGetRegistrationPage()
     {
         $response = $this->call('GET', '/auth/register');
         $this->assertResponseStatus('200');
     }
 
+    /**
+     * Test Login view
+     * @return [type] [description]
+     */
     public function testGetLoginPage()
     {
         $response = $this->call('GET', '/auth/login');
         $this->assertResponseStatus('200');
     }
+
+    /**
+     * Test Login
+     */
 
     public function testPostLogin()
     {
@@ -53,6 +43,10 @@ class AuthTests extends TestCase
             ->assertResponseStatus('200');
     }
 
+    /**
+     * Test logout
+     * @return [type] [description]
+     */
     public function testGetLogout()
     {
         $this->call('GET', '/auth/logout');
@@ -60,6 +54,10 @@ class AuthTests extends TestCase
         $this->assertResponseStatus('302');
     }
 
+    /**
+     * Test Registration
+     * @return [type] [description]
+     */
     public function testPostRegister()
     {
         $this->visit('/auth/register')
@@ -73,18 +71,30 @@ class AuthTests extends TestCase
          ->seeInDatabase('users', ['username' => 'taylor']);
     }
 
+    /**
+     * Test Social redirect for facebook
+     * @return [type] [description]
+     */
     public function testFacebookSocialAuthRedirect()
     {
         $this->call('GET', '/auth/login/facebook');
         $this->assertResponseStatus('302');
     }
 
+    /**
+     * Test social redirect for github
+     * @return [type] [description]
+     */
     public function testGithubSocialAuthRedirect()
     {
         $this->call('GET', '/auth/login/github');
         $this->assertResponseStatus('302');
     }
 
+    /**
+     * Test Social Auth
+     * @return [type] [description]
+     */
     public function testSocialOAuth()
     {
         User::create(['id' => 1, 'fullname' => 'andela-fokosun', 'username' => 'andela-fokosun', 'provider_id' => 7254731, 'avatar' => 'https://avatars.githubusercontent.com/u/7254731?v=3']);
