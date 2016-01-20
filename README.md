@@ -73,13 +73,22 @@ In this app, by design we have only four categories. You can run the seeder to p
 or
 
     php artisan db:seed --class=CategoriesTableSeeder
-    
+
 
 After that run:
 
     composer install
 
 To pull all the dependencies
+
+
+Feel free to change the namespace to your desired namespace. Just run:
+
+     php artisan app:name "Your namespace"
+
+
+Ensure to run `composer dumpautoload` after running this command.
+
 
 ##Testing
 Run
