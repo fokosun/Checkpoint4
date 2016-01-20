@@ -101,7 +101,6 @@ class AuthTests extends TestCase
         $user = User::where('provider_id', '=', 7254731)->first();
 
         $userData = [
-            'token' => '60a16af08cc20ae8a87af355bb48bdf6d5e4a088',
             'id' => 7254731,
             'nickname' => 'andela-fokosun',
             'name' => 'andela-fokosun',
