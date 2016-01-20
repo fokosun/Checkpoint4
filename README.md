@@ -70,6 +70,11 @@ In this app, by design we have only four categories. You can run the seeder to p
 
     php artisan db:seed
 
+or
+
+    php artisan db:seed --class=CategoriesTableSeeder
+    
+
 After that run:
 
     composer install
