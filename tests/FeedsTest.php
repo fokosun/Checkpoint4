@@ -7,9 +7,12 @@ class FeedsTest extends TestCase
     public function testFeedsViewHasVideos()
     {
         $response = $this->call('GET', '/feeds');
+
         $this->assertResponseStatus('200');
         $this->assertViewHas('videos');
+
         $videos = $response->original->getData()['videos'];
+        
         $this->assertInstanceOf('Illuminate\Pagination\LengthAwarePaginator', $videos);
     }
 

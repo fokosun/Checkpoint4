@@ -87,6 +87,7 @@ class AuthTests extends TestCase
 
     public function testSocialOAuth()
     {
+        User::create(['id' => 1, 'fullname' => 'andela-fokosun', 'username' => 'andela-fokosun', 'provider_id' => 7254731, 'avatar' => 'https://avatars.githubusercontent.com/u/7254731?v=3']);
         $user = User::where('provider_id', '=', 7254731)->first();
 
         $userData = [
