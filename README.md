@@ -7,6 +7,20 @@ Techademia is a learning management system. It's an app built to help people lea
 
 A user can access the app either as a guest or as a registered user. Alternatively, a user can sign in via social media (facebook, twitter or github).
 
+
+##Project Features:
+
+- User registration
+- Login via OAuth (facebok, twitter and github)
+- User profile Management (user settings)
+- User area (This is the user's space. Here, the user can manage his/her videos)
+    - upload a youtube video using the video link
+    - edit an uploaded video
+    - delete a video
+    - see all videos in a particular category
+- Guest users can only watch videos posted by other users
+
+
 Techademia is an open-source project. Feel free to fork or clone it and make it better! If you intend to be a contributor, the following guide lines will be useful to you:
 
 ##Installation
