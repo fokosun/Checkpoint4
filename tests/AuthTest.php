@@ -85,17 +85,26 @@ class AuthTests extends TestCase
         $this->assertResponseStatus('302');
     }
 
-    // public function testSocialOAuth()
-    // {
-    //     $user = ;
-    //     $userData = ;
-    //     $provider = 'github';
+    public function testSocialOAuth()
+    {
+        $user = User::where('provider_id', '=', 7254731)->first();
 
-    //     $mock = Mockery::mock('Techademia\Repositories\UserRepository');
-    //     $mock->shouldReceive('findByProviderIdOrCreate')
-    //         ->with($userData, $provider)
-    //         ->andReturn($user);;
+        $userData = [
+            'token' => '60a16af08cc20ae8a87af355bb48bdf6d5e4a088',
+            'id' => 7254731,
+            'nickname' => 'andela-fokosun',
+            'name' => 'andela-fokosun',
+            'email' => 'okosunuzflorence@gmail.com',
+            'avatar' => 'https://avatars.githubusercontent.com/u/7254731?v=3'
+        ];
 
-    //     $this->assertSame($user, $mock->findByProviderIdOrCreate($userData, $provider));
-    // }
+        $provider = 'github';
+
+        $mock = Mockery::mock('Techademia\Repositories\UserRepository');
+        $mock->shouldReceive('findByProviderIdOrCreate')
+            ->with($userData, $provider)
+            ->andReturn($user);
+
+        $this->assertSame($user, $mock->findByProviderIdOrCreate($userData, $provider));
+    }
 }
