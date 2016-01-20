@@ -29,4 +29,5 @@ class UserTest extends TestCase
             ->assertResponseStatus('200');
 
     }
+
 }

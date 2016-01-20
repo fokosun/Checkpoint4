@@ -6,6 +6,10 @@ class FeedsTest extends TestCase
 {
     public function testFeedsViewHasVideos()
     {
+        $this->videos()->shouldDefineRelationship(
+            'hasMany', 'Techademia\Category'
+        );
+
         $response = $this->call('GET', '/feeds');
         $this->assertResponseStatus('200');
         $this->assertViewHas('videos');

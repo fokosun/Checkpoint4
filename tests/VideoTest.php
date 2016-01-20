@@ -61,7 +61,7 @@ class VideoTest extends TestCase
         $mock = Mockery::mock('Techademia\Repositories\VideoRepository');
 
         $mock->shouldReceive('getYoutubeEmbedUrl')
-            ->with('https://www.youtube.com/watch?v=ySFod5EaTHs')
+            ->with($url)
             ->andReturn('ySFod5EaTHs');
         $this->visit('/user/profile/video');
 

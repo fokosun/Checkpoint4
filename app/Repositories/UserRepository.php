@@ -33,7 +33,6 @@ class UserRepository
             ]);
         }
 
-        $this->auth->loginUsingId($user->id);
         $this->checkIfUserNeedsUpdating($userData, $user);
 
         return $user;
