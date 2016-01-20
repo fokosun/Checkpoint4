@@ -21,6 +21,7 @@ class UserRepository
 
     public function findByProviderIdOrCreate($userData, $provider)
     {
+        dd($userData);
         $user = User::where('provider_id', '=', $userData->id)->first();
 
         if(!$user) {

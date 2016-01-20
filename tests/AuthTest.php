@@ -87,12 +87,15 @@ class AuthTests extends TestCase
 
     // public function testSocialOAuth()
     // {
+    //     $user = ;
+    //     $userData = ;
+    //     $provider = 'github';
+
     //     $mock = Mockery::mock('Techademia\Repositories\UserRepository');
     //     $mock->shouldReceive('findByProviderIdOrCreate')
     //         ->with($userData, $provider)
-    //         ->andReturn('ySFod5EaTHs');
-    //     $this->visit('/user/profile/video');
+    //         ->andReturn($user);;
 
-    //     $this->assertSame('ySFod5EaTHs', $mock->getYoutubeEmbedUrl($url));
+    //     $this->assertSame($user, $mock->findByProviderIdOrCreate($userData, $provider));
     // }
 }
