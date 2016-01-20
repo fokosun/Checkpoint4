@@ -95,7 +95,7 @@ class AuthTests extends TestCase
      * Test Social Auth
      * @return [type] [description]
      */
-    public function testSocialOAuth()
+    public function testGithubSocialOAuth()
     {
         User::create(['id' => 1, 'fullname' => 'andela-fokosun', 'username' => 'andela-fokosun', 'provider_id' => 7254731, 'avatar' => 'https://avatars.githubusercontent.com/u/7254731?v=3']);
         $user = User::where('provider_id', '=', 7254731)->first();
@@ -106,6 +106,29 @@ class AuthTests extends TestCase
             'name' => 'andela-fokosun',
             'email' => 'okosunuzflorence@gmail.com',
             'avatar' => 'https://avatars.githubusercontent.com/u/7254731?v=3'
+        ];
+
+        $provider = 'github';
+
+        $mock = Mockery::mock('Techademia\Repositories\UserRepository');
+        $mock->shouldReceive('findByProviderIdOrCreate')
+            ->with($userData, $provider)
+            ->andReturn($user);
+
+        $this->assertSame($user, $mock->findByProviderIdOrCreate($userData, $provider));
+    }
+
+    public function testFacebookSocialOAuth()
+    {
+        User::create(['id' => 1, 'fullname' => 'florence', 'username' => 'florence', 'provider_id' => 1146673212009898, 'avatar' => 'https://graph.facebook.com/v2.5/1146673212009898/picture?type=normal']);
+        $user = User::where('provider_id', '=', 1146673212009898)->first();
+
+        $userData = [
+            'id' => 1146673212009898,
+            'nickname' => 'florence',
+            'name' => 'florence',
+            'email' => 'okosunuzflorence@gmail.com',
+            'avatar' => 'https://graph.facebook.com/v2.5/1146673212009898/picture?type=normal'
         ];
 
         $provider = 'github';

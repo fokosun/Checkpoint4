@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', Auth::user()->username . ' | delete video' )
+@section('title', Auth::user()->fullname . ' | delete video' )
 @section('content')
 <div class="container-fluid">
     <div class="login-box">
