@@ -110,4 +110,18 @@ class VideoTest extends TestCase
 
         $this->visit('/video/1/edit')->assertViewHas('video');
     }
+
+    public function testUserCanDeleteVideo()
+    {
+        $user   = factory(\Techademia\User::class)->create();
+        $this->actingAs($user)
+            ->withSession(['username' => 'jeffrey']);
+
+        factory(\Techademia\Category::class)->create();
+        factory(\Techademia\Video::class)->create();
+
+        $response = $this->call('DELETE', '/video/1/delete', ['_token' => csrf_token()]);
+        $this->assertEquals(302, $response->getStatusCode());
+        $this->notSeeInDatabase('videos', ['deleted_at' => null, 'id' => 20]);
+    }
 }
