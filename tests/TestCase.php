@@ -35,7 +35,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
         Artisan::call('migrate:refresh');
     }
 
-    public function testCase()
+    public function testTestCase()
     {
         $this->assertTrue(true);
     }
