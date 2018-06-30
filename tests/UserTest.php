@@ -1,8 +1,8 @@
 <?php
 
-use Techademia\User;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-
+/**
+ * Class UserTest
+ */
 class UserTest extends TestCase
 {
     public function testUsersLibraryViewHasVideos()
@@ -11,7 +11,7 @@ class UserTest extends TestCase
         $this->actingAs($user)
             ->withSession(['username' => 'jeffrey']);
 
-        $response = $this->call('GET', '/user/profile');
+        $this->call('GET', '/user/profile');
         $this->assertResponseStatus('200');
         $this->assertViewHas('videos');
         $this->assertViewHas('categories');;
