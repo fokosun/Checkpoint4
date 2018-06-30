@@ -5,8 +5,8 @@ namespace Techademia\Http\Controllers;
 use Carbon\Carbon;
 use Techademia\Video;
 use Techademia\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Techademia\Repositories\VideoRepository;
-
 
 /**
  * Class HomeController
@@ -14,7 +14,9 @@ use Techademia\Repositories\VideoRepository;
  */
 class HomeController extends Controller
 {
-
+    /**
+     * @param VideoRepository $video
+     */
     public function __construct(VideoRepository $video)
     {
         $this->video = $video;
@@ -27,11 +29,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::check() !== false) {
+        if(Auth::user()) {
             return redirect('/feeds');
         }
 
-       return view('welcome');
+        return view('welcome');
     }
 
     /**
