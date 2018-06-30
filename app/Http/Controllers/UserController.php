@@ -2,20 +2,26 @@
 
 namespace Techademia\Http\Controllers;
 
-use Auth;
-use Cloudder;
 use Carbon\Carbon;
 use Techademia\User;
 use Techademia\Category;
-use Techademia\Video;
 use Illuminate\Http\Request;
 use Techademia\Http\Requests;
+use JD\Cloudder\Facades\Cloudder;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\QueryException;
 use Techademia\Repositories\VideoRepository;
-use Techademia\Http\Controllers\Controller;
 
+/**
+ * Class UserController
+ * @package Techademia\Http\Controllers
+ */
 class UserController extends Controller
 {
 
+    /**
+     * @param VideoRepository $video
+     */
     public function __construct(VideoRepository $video)
     {
         $this->video = $video;
@@ -33,13 +39,13 @@ class UserController extends Controller
         $categories = Category::all();
         $latest = $this->video->whereDateFormat('created_at', '>=', $format);
 
+
         return view('pages.profile', compact('videos', 'latest'))->with('categories', $categories);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit()
@@ -48,11 +54,12 @@ class UserController extends Controller
     }
 
     /**
-    * Upload avatar to cloudinary
-    *
-    * @param  \Illuminate\Http\Request  $request
-    * @return
-    */
+     * Upload avatar to cloudinary
+     *
+     * @param $avatar
+     *
+     * @return string
+     */
     protected function uploadAvatarCloudinary($avatar)
     {
         Cloudder::upload($avatar, null, ["width" => 175, "height" => 155, "crop" => "scale"]);
@@ -62,11 +69,13 @@ class UserController extends Controller
     }
 
     /**
-     * 
+     * Update User profile
+     *
      * @param  Request $request [description]
-     * @param  $id
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function postUpdateUserProfile(Request $request, $id)
+    public function postUpdateUserProfile(Request $request)
     {
         $id = Auth::user()->id;
 
