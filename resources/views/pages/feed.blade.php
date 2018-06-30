@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="text-center spacer">
-    @if (count($videos) > 0)
+    @if ($videos->total() > 0)
             <a href="{{ route('viewUploadVideoForm') }}" class="small-box-footer">
                 Upload a new video <i class="fa fa-arrow-circle-right"></i>
             </a>
@@ -23,7 +23,7 @@
                     <div class="timeline-item">
                         <span class="time">
                             <i class="fa fa-clock-o"></i>
-                            @if( count($latest) > 0 )
+                            @if( !is_null($latest) )
                                 Last activity:{{ date('F d, Y', strtotime($latest->created_at)) }}
                             @else
                                 Last activity: none
@@ -32,7 +32,7 @@
                         <h3 class="timeline-header"><a href="#">recent</a> videos</h3>
                         <div class="timeline-body">
                             <div class="row">
-                            @if(count($videos) > 0)
+                            @if($videos->total() > 0)
                                 @foreach($videos as $video)
                                 <div class="col-sm-6">
                                     <div class="box-header">
