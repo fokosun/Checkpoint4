@@ -5,14 +5,15 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.5.9",
+        "php": "~7.1.0",
         "laravel/framework": "5.1.*",
         "laravel/socialite": "~2.0",
-        "satooshi/php-coveralls": "^1.0",
         "doctrine/dbal": "^2.5",
         "jrm2k6/cloudder": "0.2.*",
         "nesbot/carbon": "^1.21",
-        "embed/embed": "^2.6"
+        "embed/embed": "^2.6",
+        "php-coveralls/php-coveralls": "^2.1",
+        "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
