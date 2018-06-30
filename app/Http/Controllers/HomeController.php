@@ -2,16 +2,16 @@
 
 namespace Techademia\Http\Controllers;
 
-use Auth;
 use Carbon\Carbon;
 use Techademia\Video;
-use Techademia\Category;
-use Illuminate\Http\Request;
 use Techademia\Http\Requests;
 use Techademia\Repositories\VideoRepository;
-use Techademia\Http\Controllers\Controller;
 
 
+/**
+ * Class HomeController
+ * @package Techademia\Http\Controllers
+ */
 class HomeController extends Controller
 {
 
@@ -37,7 +37,8 @@ class HomeController extends Controller
     /**
      * Displays videos all users have uploaded.
      * accessible by both guests and registered users
-     * @return [type] [description]
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View [type] [description]
      */
     public function feeds()
     {
