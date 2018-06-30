@@ -1,8 +1,8 @@
 <?php
 
-use Techademia\User;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-
+/**
+ * Class LandingPageTest
+ */
 class LandingPageTest extends TestCase
 {
     public function testIndexWithoutMIddleware()
