@@ -36,11 +36,11 @@ class UserController extends Controller
     {
         $format = Carbon::now()->subMonth();
         $videos = $this->video->where('user_id', Auth::user()->id);
+        $username = Auth::user()->username;
         $categories = Category::all();
         $latest = $this->video->whereDateFormat('created_at', '>=', $format);
 
-
-        return view('pages.profile', compact('videos', 'latest'))->with('categories', $categories);
+        return view('pages.library', compact('videos', 'latest', 'username'))->with('categories', $categories);
     }
 
     /**
