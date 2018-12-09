@@ -72,10 +72,10 @@ Route::get('/auth/login/{provider}', 'Auth\AuthController@doSocial');
 | user routes
 |-------------------------------------------------------
 */
-Route::get('/user/profile', [
+Route::get('/{username}/library', [
     'middleware'    => 'auth',
     'uses'          => 'UserController@index',
-    'as'            => 'profile'
+    'as'            => 'library'
 ]);
 
 Route::get('/{username}/videos', [

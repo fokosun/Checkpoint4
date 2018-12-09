@@ -61,7 +61,7 @@
                                     <a href="/profile/{{ Auth::user()->id }}/edit" title="Edit my profile" class="btn btn-default btn-flat">
                                         <i class="fa fa-pencil fa-fw"></i>
                                     </a>
-                                    <a href="{{ route('profile') }}" title="Here, all my stuff goes" class="btn btn-default btn-flat">
+                                    <a href="{{ url() . "/" . Auth::user()->username . "/library" }}" title="Here, all my stuff goes" class="btn btn-default btn-flat">
                                         <i class="fa fa-bars"></i>&nbsp;My Library</a>
                                 </div>
                                 <div class="pull-right">
