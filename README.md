@@ -114,3 +114,17 @@ PHP/Laravel + bootstrap is all you need!
 see [live demo](http://techademia.herokuapp.com/)
 
 **Happy coding!**
+
+
+TODOs:
+- library Organizer
+-- user should be able to create new categories
+-- user should be able to move videos into categories
+-- user is able to male a copy of a video link shared by another user into their own library (content sharing)
+
+- Remove youtube title links from videos.
+
+- views counter
+
+- likes and comments
+
