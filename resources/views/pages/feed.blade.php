@@ -4,7 +4,7 @@
 <div class="row">
     <div class="text-center spacer">
     @if ($videos->total() > 0)
-            <a href="{{ route('viewUploadVideoForm') }}" class="small-box-footer">
+            <a href={{ $profile }} class="small-box-footer">
                 Upload a new video <i class="fa fa-arrow-circle-right"></i>
             </a>
         @else
@@ -52,7 +52,9 @@
                                             <img class="img-square img-sm" src="{{ $video->user->avatar}}" alt="User Image">
                                             <div class="comment-text">
                                                 <span class="username text-capitalize">
-                                                    <b>{{ $video->title }}</b>
+                                                    <b>
+                                                        <a href="{{ url() . "/" . $profile . "/" . str_replace(" ", "-", $video->title)}}">{{ $video->title }}</a>
+                                                    </b>
                                                     <span class="badge bg-aqua pull-right spacersm">
                                                         <small>
                                                             {{ date('F d, Y', strtotime($video->created_at)) }}

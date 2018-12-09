@@ -78,12 +78,19 @@ Route::get('/user/profile', [
     'as'            => 'profile'
 ]);
 
-Route::get('/user/profile/video', [
-    'uses' => 'VideoController@index',
-    'as'   => 'viewUploadVideoForm'
+Route::get('/{username}/videos', [
+    'middleware'    => 'auth',
+    'uses'          => 'VideoController@index',
 ]);
 
-Route::post('/user/profile/video', [
+Route::get('/{username}/videos/{title}', [
+    'middleware'    => 'auth',
+    'uses'          => 'VideoController@view',
+]);
+
+
+
+Route::post('/{username}/videos', [
     'uses' => 'VideoController@store',
     'as'   => 'createVideo'
 ]);
