@@ -2,20 +2,21 @@
 
 namespace Techademia\Http\Controllers;
 
-use Auth;
-use Validator;
 use Techademia\Category;
 use Illuminate\Http\Request;
 use Techademia\Http\Requests;
-use Techademia\Http\Controllers\Controller;
 
+/**
+ * Class CategoryController
+ * @package Techademia\Http\Controllers
+ */
 class CategoryController extends Controller
 {
 
-    public function __construct()
-    {
-
-    }
+    /**
+     * Constructor
+     */
+    public function __construct() {}
 
     /**
      * Display a listing of the resource.
