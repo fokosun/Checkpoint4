@@ -53,7 +53,7 @@
                                             <div class="comment-text">
                                                 <span class="username text-capitalize">
                                                     <b>
-                                                        <a href="{{ url() . "/" . $profile . "/" . str_replace(" ", "-", $video->title)}}">{{ $video->title }}</a>
+                                                        <a href="{{ url() .  "/videos/" . str_replace(" ", "-", $video->title)}}">{{ $video->title }}</a>
                                                     </b>
                                                     <span class="badge bg-aqua pull-right spacersm">
                                                         <small>
