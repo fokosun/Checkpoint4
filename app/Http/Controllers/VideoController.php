@@ -60,21 +60,20 @@ class VideoController extends Controller
         $data['url'] = $url;
 
         $this->video->create($data);
-        $videoUrl = url() . "/" . Auth::user()->username . "/videos/" . str_replace(" ", "-", $request->title);
+        $videoUrl = url() . "/videos/" . str_replace(" ", "-", $request->title);
 
         return redirect()->back()->with('status', $videoUrl);
     }
 
 
     /**
-     * @param $username
      * @param $title
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function view($username, $title)
+    public function view($title)
     {
         $video = $this->video->where("title", str_replace("-", " ", $title));
-        return view('pages.video', compact('username','video'));
+        return view('pages.video', compact('video'));
     }
 
     /**
