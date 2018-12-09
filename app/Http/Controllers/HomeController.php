@@ -29,7 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()) {
+        if (Auth::user()) {
             return redirect('/feeds');
         }
 
@@ -44,11 +44,13 @@ class HomeController extends Controller
      */
     public function feeds()
     {
+        $user = Auth::user();
+        $profile = "/" . $user["username"] . "/videos";
         $videos = $this->video->paginate(6);
         $format = Carbon::now()->subMonth();
         $latest = $this->video->whereDateFormat('created_at', '>=', $format);
 
-        return view('pages.feed', compact('videos', 'latest'));
+        return view('pages.feed', compact('videos', 'latest', 'profile'));
     }
 
     /**
