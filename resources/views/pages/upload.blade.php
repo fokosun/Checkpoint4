@@ -12,11 +12,11 @@
             <form action="#" method="post">
                 <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="video title" name="title">
+                    <input type="text" class="form-control" placeholder="video title" name="title" value="{{ old('title') }}">
                     <span class="fa fa-film form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="url" class="form-control" placeholder="youtube embed url" name="url">
+                    <input type="url" class="form-control" placeholder="youtube embed url" name="url" value="{{ old('url') }}">
                     <span class="fa fa-link form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -28,7 +28,14 @@
                     </select>
                 </div>
                 <div class="form-group has-feedback">
-                    <textarea class="form-control" rows="3" placeholder="describe your video here" name="description"></textarea>
+                    <textarea
+                            class="form-control"
+                            rows="3"
+                            placeholder="describe your video here"
+                            name="description"
+                    >
+                        {{ old('description') }}
+                    </textarea>
                     <span class="fa fa-info form-control-feedback"></span>
                 </div>
                 <div class="row">

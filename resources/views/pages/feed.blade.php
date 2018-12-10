@@ -4,7 +4,7 @@
 <div class="row">
     <div class="text-center spacer">
     @if ($videos->total() > 0)
-            <a href={{ $profile }} class="small-box-footer">
+            <a href={{ url() . "/". Auth::user()->username . "/videos" }} class="small-box-footer">
                 Upload a new video <i class="fa fa-arrow-circle-right"></i>
             </a>
         @else

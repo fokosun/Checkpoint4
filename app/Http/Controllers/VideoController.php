@@ -38,6 +38,13 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title'         => 'required',
+            'description'   => 'required|max:237|min:230',
+            'category'      => 'required',
+            'url'           => 'required'
+        ]);
+
         $youtube_id =  $this->video->getYoutubeEmbedUrl($request->url);
 
         if ($youtube_id == 'error') {
@@ -46,13 +53,7 @@ class VideoController extends Controller
         }
 
         $url = 'http://www.youtube.com/embed/' . $youtube_id . '?autoplay=0';
-        
-        $this->validate($request, [
-            'title'         => 'required',
-            'description'   => 'required|max:255',
-            'category'      => 'required',
-            'url'           => 'required'
-        ]);
+
 
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
