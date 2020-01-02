@@ -4,17 +4,19 @@
 <div class="row">
     <div class="text-center spacer">
     @if ($videos->total() > 0)
+        @if (!Auth::guest())
             <a href={{ url() . "/". Auth::user()->username . "/videos" }} class="small-box-footer">
                 Upload a new video <i class="fa fa-arrow-circle-right"></i>
             </a>
-        @else
-            <small>
-                <i class="fa fa-film"></i> &nbsp; No videos at this time. Check back later!<br>
-                <a href="{{ route('viewUploadVideoForm') }}" class="small-box-footer">
-                    Upload a new video <i class="fa fa-arrow-circle-right"></i>
-                </a>
-            </small>
         @endif
+    @else
+        <small>
+            <i class="fa fa-film"></i> &nbsp; No videos at this time. Check back later!<br>
+            <a href="{{ route('viewUploadVideoForm') }}" class="small-box-footer">
+                Upload a new video <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </small>
+    @endif
     </div>
         <section class="content">
             <ul class="timeline">

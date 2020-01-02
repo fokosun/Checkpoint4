@@ -4,7 +4,6 @@ namespace Techademia\Http\Controllers;
 
 use Carbon\Carbon;
 use Techademia\Video;
-use Techademia\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Techademia\Repositories\VideoRepository;
 
