@@ -29,15 +29,17 @@ class VideoRepository
 
     public function getYoutubeEmbedUrl($url)
     {
+        $res = [];
+
         if (preg_match(self::LONG_URL_REGEX, $url, $matches)) {
-            return end($matches);
+            $res[] = end($matches);
         }
 
         if (preg_match(self::SHORT_URL_REGEX, $url, $matches)) {
-            return end($matches);
+            $res[] = end($matches);
         }
 
-        return 'error';
+        return 'http://www.youtube.com/embed/' . $res[0] . '?autoplay=0';
     }
 
     /**

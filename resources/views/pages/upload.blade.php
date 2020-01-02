@@ -16,7 +16,7 @@
                     <span class="fa fa-film form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="url" class="form-control" placeholder="youtube embed url" name="url" value="{{ old('url') }}">
+                    <input class="form-control" placeholder="youtube embed url" name="url" value="{{ old('url') }}">
                     <span class="fa fa-link form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -27,15 +27,18 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group has-feedback">
+                <div class="form-group">
                     <textarea
+                            id="description"
                             class="form-control"
-                            rows="3"
                             placeholder="describe your video here"
                             name="description"
+                            onkeyup="countChar(this)"
                     >
                         {{ old('description') }}
                     </textarea>
+                    <span>remaining </span>
+                    <span id="charNum"></span>
                     <span class="fa fa-info form-control-feedback"></span>
                 </div>
                 <div class="row">

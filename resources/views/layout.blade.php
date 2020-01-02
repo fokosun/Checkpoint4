@@ -34,22 +34,18 @@
         <script src="{{ load_asset ('/components/admin/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
         <!-- AdminLTE App -->
         <script src="{{ load_asset ('/components/admin/dist/js/app.min.js') }}"></script>
-        <!-- Sparkline -->
-        <script src="{{ load_asset ('/components/admin/plugins/sparkline/jquery.sparkline.min.js') }}">
-        </script>
+
         <!-- jvectormap -->
         <script src="{{ load_asset ('/components/admin/plugins/jvectormap/jvectormap.min.js') }}">
         </script>
         <script src="{{ load_asset ('/components/admin/plugins/jvectormap/jvectormap_world_mill_en.js') }}">
         </script>
-        <!-- SlimScroll 1.3.0 -->
-        <script src="{{ load_asset ('/components/admin/plugins/slimScroll/slimscroll.min.js') }}">
-        </script>
         <!-- ChartJS 1.0.1 -->
         <script src="{{ load_asset ('/components/admin/plugins/chartjs/Chart.min.js') }}">
-        </script>
-        <script src="{{ load_asset ('/components/admin/dist/js/pages/dashboard2.js') }}"></script>
+        {{--</script>--}}
+        {{--<script src="{{ load_asset ('/components/admin/dist/js/pages/dashboard2.js') }}"></script>--}}
         <!-- AdminLTE for demo purposes -->
         <script src="{{ load_asset ('/components/admin/dist/js/demo.js') }}"></script>
+        <script src="{{ load_asset ('/js/app.js') }}"></script>
     </body>
 </html>

@@ -1,3 +1,9 @@
-/**
- * Created by florenceokosun on 10/12/2018.
- */
+var remaining = 237;
+$('#charNum').text(remaining);
+
+function countChar(val) {
+    var len = val.value.length;
+    let left = remaining - len;
+    $('#charNum').text(left);
+
+};

@@ -42,30 +42,19 @@ class VideoController extends Controller
             'title'         => 'required',
             'description'   => 'required|max:237|min:230',
             'category'      => 'required',
-            'url'           => 'required'
+            'url'           => 'required|youtube'
         ]);
-
-        $youtube_id =  $this->video->getYoutubeEmbedUrl($request->url);
-
-        if ($youtube_id == 'error') {
-            $error = ['warning'=> 'That url is so wrong! It has to be a valid youtube video link'];
-            return redirect()->back()->withErrors($error);
-        }
-
-        $url = 'http://www.youtube.com/embed/' . $youtube_id . '?autoplay=0';
-
 
         $data = $request->all();
         $data['user_id'] = Auth::user()->id;
         $data['category_id'] = $request->category;
-        $data['url'] = $url;
+        $data['url'] = $this->video->getYoutubeEmbedUrl($request->url);;
 
         $this->video->create($data);
         $videoUrl = url() . "/videos/" . str_replace(" ", "-", $request->title);
 
         return redirect()->back()->with('status', $videoUrl);
     }
-
 
     /**
      * @param $title
