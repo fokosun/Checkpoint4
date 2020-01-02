@@ -38,17 +38,12 @@
         <div class="text-center">
             @if ($videos->count() > 0)
                 <small>my videos</small><br>
-                <a href={{ url() . "/" . Auth::user()->username . "/videos" }} class="small-box-footer">
-                    Upload new video <i class="fa fa-arrow-circle-up"></i>
-                </a>
             @else
-                <small>
-                    <i class="fa fa-film"></i> &nbsp; You have no videos in your library!<br>
-                    <a href={{ Auth::user()->username . "/videos" }}class="small-box-footer">
-                        Upload new video <i class="fa fa-arrow-circle-right"></i>
-                    </a>
-                </small>
+                <i class="fa fa-film"></i> &nbsp; You have no videos in your library!<br>
             @endif
+            <a href={{ url() . "/" . Auth::user()->username . "/videos" }} class="small-box-footer">
+                Upload new video <i class="fa fa-arrow-circle-up"></i>
+            </a>
         </div>
         <section class="content">
             <ul class="timeline">
