@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "~7.1.0",
+        "php": "~7.2.5",
         "laravel/framework": "5.1.*",
         "laravel/socialite": "~2.0",
         "doctrine/dbal": "^2.5",
